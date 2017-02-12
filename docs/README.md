@@ -23,8 +23,8 @@ __MVP Statement:__
     - [ ] Projects are grouped by category and can be sorted according by date added, number of backers, etc.
 
   Bonus Features:
-  -[ ] Community Tab
-  -[ ] Recommended For You
+  - [ ] Community Tab
+  - [ ] Recommended For You
 
 
   __WireFrames__
