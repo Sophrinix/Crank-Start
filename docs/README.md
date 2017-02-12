@@ -1,4 +1,4 @@
-#Punch Starter
+#Crank Starter
 
 
 __Heroku Link:__
@@ -27,45 +27,12 @@ __MVP Statement:__
   - [ ] Recommended For You
 
 
-  __WireFrames__
-
-  Follow [this](Wireframes) link to see the wireframes
-
-  __React Components__
-
-  * App
-    * NavBar
-      * Search
-    * FeaturedProjects
-    * CampaignsIndex
-    * CategoriesIndex
-    * CampaignDetail
-      * Campaign Status
-      * CampaignCommentIndex
-        * CampaignComment
-    * CampaignForm
-
-  Routes:
-    PATH  COMPONENT
-    /sign-up AuthFormContainer
-    /sign-in AuthFormContainer
-    / App
-    /projects/projectId ProjectContainer
-    Projects/category CategoryContainer
-    /search "SearchCampaign"
-    Home/search-results SearchResultsContainer
-    /new-project NewProjectContainer
+__Design Documents:__
+  * [WireFrames](https://github.com/jamesevers/punch_starter/tree/master/docs/wireframes)
+  * [React Components](https://github.com/jamesevers/punch_starter/tree/master/docs/component-hierarchy.md)
+  * [Sample State](https://github.com/jamesevers/punch_starter/tree/master/docs/sample-state.md)
+  * [Database Schema](https://github.com/jamesevers/punch_starter/tree/master/docs/schema.md)
+  * [API Endpoints](https://github.com/jamesevers/punch_starter/tree/master/docs/api-endpoints.md)
 
 
-
-  __Sample State__
-
-  ```javascript
-  
-  ```
-
-  __DB Schema__
-
-  __API Endpoints__
-
-  Implementation Timeline
+  __Implementation Timeline__
