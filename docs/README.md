@@ -36,3 +36,43 @@ __Design Documents:__
 
 
   __Implementation Timeline__
+
+  ### Phase 1: Back-end configuration and front-end user authentication (2 days)
+**Objective:** Create a functioning rails application that serves and stores data
+* The header will have the website's name and icon, sign up, and sign in
+buttons.
+* Website name and icon should link back to the root view.
+* Clicking sign up or sign in buttons will display sign in form or redirect to root once signed in.
+
+### Phase 2: Home Page and Project Index (2 days)
+
+**Objective:** Set up styled project index on home page
+* Root view should feature a carousel of featured projects
+* Each project should display the project's name, tagline, and image
+* Clicking on a city will show the available list of restaurants.
+* Project index has functioning search feature.
+
+### Phase 3: Create Project (2 days)
+
+**Objective:** Once logged in, users have the ability to create a project
+* Project form will include title, project description, funding duration, and funding goal
+* Once created, a project will be visible in the project index and have its own display page
+
+### Phase 4: Project Details Page (2 days)
+
+**Objective:** Display view of individual projects
+* Details will include all information about the project
+* Details will render a project component
+* Details page will have Reservation form.
+* Details page has option to favorite.
+
+
+### Phase 5: Contributions (2 day)
+
+**Objective:** Users can add a monetary or skills-based contribution to projects
+* If monetary, the contribution will be added to the project's funding status bar
+* If skills-based, the contribution will be added to a list below the funding status bar
+
+### Phase 6: - Payment and Commenting (1.5 day)
+
+**Objective:** Users are able to securely add their credit card information to the app and comment on projects
