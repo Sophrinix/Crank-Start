@@ -35,4 +35,3 @@ __Design Documents:__
   * [API Endpoints](https://github.com/jamesevers/punch_starter/tree/master/docs/api-endpoints.md)
 
 
-  __Implementation Timeline__
