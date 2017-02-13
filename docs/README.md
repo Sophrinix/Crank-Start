@@ -49,7 +49,6 @@ buttons.
 **Objective:** Set up styled project index on home page
 * Root view should feature a carousel of featured projects
 * Each project should display the project's name, tagline, and image
-* Clicking on a city will show the available list of restaurants.
 * Project index has functioning search feature.
 
 ### Phase 3: Create Project (2 days)
