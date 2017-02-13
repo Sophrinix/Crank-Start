@@ -63,8 +63,6 @@ buttons.
 **Objective:** Display view of individual projects
 * Details will include all information about the project
 * Details will render a project component
-* Details page will have Reservation form.
-* Details page has option to favorite.
 
 
 ### Phase 5: Contributions (2 day)
