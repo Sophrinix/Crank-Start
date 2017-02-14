@@ -23,10 +23,13 @@ export default class NavBar extends React.Component{
     hashHistory.push('/')
   };
 
+  userLoggedIn(){
+    return true;
+  };
+
   render(){
-    return (
-      <div>
-        <div>
+    const navLinks = this.userLoggedIn() ?
+    (
         <div className="nav-right">
           <div className="nav-filler-a"></div>
           <span onClick={this._handleHeaderClick}>
@@ -46,7 +49,17 @@ export default class NavBar extends React.Component{
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="nav-right">
+            <div className="nav-filler-b"></div>
+            <span id="mag" onClick={this._toggleSearch}><i className="material-icons">search</i></span>
+            <span><Link to={'/login'} className="nav-link">Log In</Link></span>
+            <span><Link to={'/signup'} className="nav-link">Sign Up</Link></span>
+          </div>
+        );
+
+        return (
+
         <div>
           <div className="site-links">
             <div className="nav-left">
@@ -82,8 +95,7 @@ export default class NavBar extends React.Component{
             </div>
           </div>
         </div>
-      </div>
 
-    )
+      )
+    }
   }
-}
