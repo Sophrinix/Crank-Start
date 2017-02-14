@@ -1,37 +1,24 @@
-#Crank Starter
+# README
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-__Heroku Link:__
+Things you may want to cover:
 
-__MVP Statement:__
-  CrankStarter is a crowd funding application inspired by KickStarter with a specific focus on community center and non-profit organization projects. By February 25th, the project will feature the following functioning components:
+* Ruby version
 
-  - [ ] Account login, creation, and guest registration
-  - [ ] Hosting on Heroku
-  - [ ] Projects & Campaigns:
-    - [ ] Palatable styling
-    - [ ] Status of viewed project is displayed
-    - [ ] Seamless functionality
-  - [ ] Campaign-Backing
-    - [ ] Users can contribute to or withdraw funds from a campaign
-    - [ ] Funds indicator is updated in real time
-    - [ ] User can navigate between About, FAQ, and News tabs
-  - [ ] Search Bar Navigation
-    - [ ] Projects are populated in real-time
-    - [ ] Include database seeded projects for demo purposes
-  - Categories/Explore Feature
-    - [ ] Projects are grouped by category and can be sorted according by date added, number of backers, etc.
+* System dependencies
 
-  Bonus Features:
-  - [ ] Community Tab
-  - [ ] Recommended For You
+* Configuration
 
+* Database creation
 
-__Design Documents:__
-  * [WireFrames](https://github.com/jamesevers/punch_starter/tree/master/docs/wireframes)
-  * [React Components](https://github.com/jamesevers/punch_starter/tree/master/docs/component-hierarchy.md)
-  * [Sample State](https://github.com/jamesevers/punch_starter/tree/master/docs/sample-state.md)
-  * [Database Schema](https://github.com/jamesevers/punch_starter/tree/master/docs/schema.md)
-  * [API Endpoints](https://github.com/jamesevers/punch_starter/tree/master/docs/api-endpoints.md)
+* Database initialization
 
+* How to run the test suite
 
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

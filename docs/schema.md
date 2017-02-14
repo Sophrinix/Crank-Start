@@ -25,12 +25,12 @@ funding_goal| integer   | not null
 org_link    | string    | not null
 creator_id  | integer   | not null, foreign key (references users), indexed
 
-## updates
+## rewards
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-project_id  | integer   | not null, foreign key (references projects), indexed
+project_id   | integer   | not null, foreign key (references users), indexed
+receiver_id  | integer   | not null, foreign key (references projects), indexed
 title       | string    | not null
 body        | string    | not null
 

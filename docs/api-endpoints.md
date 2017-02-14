@@ -9,9 +9,9 @@
 
 ### Session
 
-- `POST /api/session`
-- `DELETE /api/session`
-- `GET /api/session`
+- `POST /session`
+- `DELETE /session`
+- `GET /session/new`
 
 
 ### Users
@@ -35,3 +35,7 @@
 - `GET /api/projects/:id/backing/:id`
 - `DELETE /api/projects/:id/backing`
 - `GET /api/projects/:id/backing`
+
+### Rewards
+- `GET /api/projects/:id/rewards`
+- `POST api/projects/:id/rewards`

@@ -16,6 +16,9 @@ __MVP Statement:__
     - [ ] Users can contribute to or withdraw funds from a campaign
     - [ ] Funds indicator is updated in real time
     - [ ] User can navigate between About, FAQ, and News tabs
+  - [ ] Contribution Rewards
+    - [ ] Each project features a sidebar with rewards
+    - [ ] Users can click each of the different tiers of contribution and receive a notification that they will receive a the commensurate reward
   - [ ] Search Bar Navigation
     - [ ] Projects are populated in real-time
     - [ ] Include database seeded projects for demo purposes
@@ -39,8 +42,7 @@ __Design Documents:__
 
   ### Phase 1: Back-end configuration and front-end user authentication (2 days)
 **Objective:** Create a functioning rails application that serves and stores data
-* The header will have the website's name and icon, sign up, and sign in
-buttons.
+* The header will have the website's name and icon, sign up, and sign in buttons.
 * Website name and icon should link back to the root view.
 * Clicking sign up or sign in buttons will display sign in form or redirect to root once signed in.
 
@@ -57,11 +59,18 @@ buttons.
 * Project form will include title, project description, funding duration, and funding goal
 * Once created, a project will be visible in the project index and have its own display page
 
-### Phase 4: Project Details Page (2 days)
+### Phase 4: Project Details Page (1 day)
 
 **Objective:** Display view of individual projects
 * Details will include all information about the project
 * Details will render a project component
+
+### Phase 5: Search Feature (1 / 1.5 days)
+
+**Objective:** Dynamically populating search bar
+* Search results include projects and users
+* Search results have their own route and display page
+* Search bar is styled and easy to use
 
 
 ### Phase 5: Contributions (2 day)
@@ -72,4 +81,4 @@ buttons.
 
 ### Phase 6: - Payment and Commenting (1.5 day)
 
-**Objective:** Users are able to securely add their credit card information to the app and comment on projects
+**Objective:** Users are able to securely add credit card information to the app and comment on projects
