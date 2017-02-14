@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in
-    render json: {base: ['Your credentials are no good!']}, status: 401 if !current_user
+    render json: {base: ['Your credentials are no good here!']}, status: 401 if !current_user
   end
 
 end
