@@ -12,10 +12,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
-    return user && user.valid_password?(password) ? user : nil
-  end
+	def self.find_by_credentials username, password
+		user = User.find_by(username: username)
+		return nil unless user
+		user.valid_password?(password) ? user : nil
+	end
 
   def password=(password)
     @password = password
@@ -28,11 +29,14 @@ class User < ApplicationRecord
 
   def reset_token!
     self.session_token = SecureRandom.urlsafe_base64(16)
+    self.save!
+    return self.session_token
   end
 
   private
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+    self.save!
   end
 end

@@ -23,5 +23,4 @@ class Api::SessionsController < ApplicationController
       render json: ["No one is signed in!"], status: 404
     end
   end
-  
 end
