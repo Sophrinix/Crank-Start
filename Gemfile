@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -37,7 +38,6 @@ gem 'jbuilder', '~> 2.5'
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor' # error feedback
-  gem 'pg'
 end
 
 group :development, :test do
