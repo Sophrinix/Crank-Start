@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, hashHistory} from 'react-router';
-import { logout } from '../../actions/session_actions';
 
 
 //NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
@@ -83,11 +82,12 @@ export default class NavBar extends React.Component{
   }
 
   _userLoggedIn(){
-    return !(this.props.currentUser === null);
+    return this.props.currentUser !== null;
   }
 
-  _logoutUser(){
-    logout();
+  _logoutUser(e){
+    e.preventDefault();
+    this.props.logout();
   }
 
 
