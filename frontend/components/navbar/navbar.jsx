@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, hashHistory} from 'react-router';
+import { logout } from '../../actions/session_actions';
+
 
 //NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
 
@@ -18,6 +20,8 @@ export default class NavBar extends React.Component{
                   rightArrow: 'button-off'};
 
     this._handleDrop = this._handleDrop.bind(this);
+    this._userLoggedIn = this._userLoggedIn.bind(this);
+    this._logoutUser = this._logoutUser.bind(this);
   }
 
 
@@ -78,12 +82,18 @@ export default class NavBar extends React.Component{
 
   }
 
-  userLoggedIn(){
-    return this.currentUser;
+  _userLoggedIn(){
+    return !(this.props.currentUser === null);
   }
 
+  _logoutUser(){
+    logout();
+  }
+
+
+
   render(){
-    const navLinks = this.userLoggedIn() ?
+    const navLinks = this._userLoggedIn() ?
     (
         <div className="nav-right">
           <div className="nav-filler-a"></div>
@@ -99,7 +109,9 @@ export default class NavBar extends React.Component{
                 </div>
                 <div className="user-options">
                   <h3>Settings</h3>
-                  <ul>More settings!</ul>
+                  <ul>
+                    <li className="logout drop-li" onClick={this._logoutUser}>Logout</li>
+                  </ul>
                 </div>
               </div>
             </div>

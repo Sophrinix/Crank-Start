@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "" };
+		this.state = { name: "", username: "", email: "", password: "" };
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -52,38 +52,55 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-      <div className="login-link">
-        <h2> Have an account? Log in instead</h2>
-  			<div className="login-form-container">
+      <div className="content-frame-header">
+        Have an account? <Link id="login-link" to="/login">Log in</Link>
+  			<div className="signup-container">
   				<form onSubmit={this.handleSubmit} className="login-form-box">
-  					Sign Up
+  					<h2 className="signup-title">Sign Up</h2>
   					<br/>
-  					Please {this.props.formType} or {this.navLink()}
   					{this.renderErrors()}
-  					<div className="login-form">
+  					<div className="signup-form">
   						<br/>
-  						<label> Username:
-  							<input type="text"
+              <label>
+  							<input className="input" type="text"
+                  autofocus="autofocus"
+                   placeholder="Name"
+  								value={this.state.name}
+  								onChange={this.update("name")}
+  								className="login-input" />
+  						</label>
+  						<label>
+  							<input className="input" type="text"
+                  autofocus="autofocus"
+                   placeholder="Username"
   								value={this.state.username}
   								onChange={this.update("username")}
+  								 />
+  						</label>
+              <label>
+  							<input className="input" type="text" autofocus="autofocus"
+                   placeholder="Email"
+  								value={this.state.email}
+  								onChange={this.update("email")}
   								className="login-input" />
   						</label>
   						<br/>
-  						<label> Password:
-  							<input type="password"
+  						<label>
+  							<input className="input" type="password"
+                  autofocus="autofocus"
+                   placeholder="Password"
   								value={this.state.password}
   								onChange={this.update("password")}
   								className="login-input" />
   						</label>
   						<br/>
-  						<input type="submit" value="Submit" />
+  						<input className="signup-button" type="submit" value="Sign me up!" />
   					</div>
   				</form>
   			</div>
       </div>
 		);
 	}
-
 }
 
 export default withRouter(SessionForm);
