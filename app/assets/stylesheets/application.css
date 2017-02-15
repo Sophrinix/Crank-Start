@@ -13,3 +13,309 @@
  *= require_tree .
  *= require_self
  */
+
+ @-webkit-keyframes fade {
+   0%   { opacity: 0; }
+   100% { opacity: 1; }
+ }
+ @-moz-keyframes fade {
+   0%   { opacity: 0; }
+   100% { opacity: 1; }
+ }
+ @-o-keyframes fade {
+   0%   { opacity: 0; }
+   100% { opacity: 1; }
+ }
+ @keyframes fade {
+   0%   { opacity: 0; }
+   100% { opacity: 1; }
+ }
+
+
+ .total-background {
+   height: 100%;
+   width: 100%;
+ }
+
+ .overflow {
+   position:relative;
+   top: -55px;
+   margin-top: -10px;
+   margin-left: -10px;
+   margin-right: -10px;
+   width:101.5%;
+   height:120px;
+   background-color: white;
+   box-shadow: 1px 1px 3px #ccc;
+ }
+
+ .no-overflow {
+   position:relative;
+   overflow: hidden;
+   top: -55px;
+   margin-top: -10px;
+   margin-left: -10px;
+   margin-right: -10px;
+   width:101.5%;
+   height:120px;
+   background-color: white;
+   box-shadow: 1px 1px 3px #ccc;
+ }
+
+ #fred {
+   padding-top: 19px;
+ }
+
+ .search-form {
+   display: flex;
+ }
+
+ .way-left {
+   position: absolute;
+   left: -5000px;
+   transition: left .3s;
+   transition-delay: .5s;
+ }
+
+ .just-right {
+   position: absolute;
+   left: 80px;
+   transition: left .4s;
+ }
+
+ .top {
+   bottom: 100px;
+   transition: bottom 0.5s;
+ }
+
+ .bottom {
+   bottom:0px;
+   transition: bottom 0.4s;
+ }
+
+ .off {
+   bottom: -100px;
+   transition: bottom 0.5s;
+ }
+
+ .search-nav, .nav-links {
+   position:absolute;
+ }
+
+ .search-field {
+   border: none;
+   font-size: 20px;
+   padding-top: 13px;
+ }
+
+ .search-field:focus {
+   outline: none;
+ }
+
+ .search-container {
+   position: relative;
+ }
+
+i.material-icons {
+    vertical-align: middle;
+}
+
+i.fa.fa-times {
+    padding-top: 28px;
+    margin-right: 106px;
+}
+
+ .nav-links {
+   height: 60px;
+   width: 100%;
+ }
+
+ .search-nav {
+   height: 60px;
+   position: absolute;
+   width: 100%;
+ }
+
+ .nav-filler-a {
+   width: 148px;
+ }
+
+ .nav-filler-b {
+   width: 34px;
+ }
+
+.search-nav, .nav-links, .nav-left, .nav-right {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.nav-left, .nav-right {
+  font-size:13px;
+}
+
+h1, .footer-logo {
+  vertical-align: middle;
+  font-family: "Baruta";
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.footer-logo {
+  color: white;
+}
+
+.header-span, .footer-span {
+  color: #2bde73;
+}
+
+h1:hover {
+  cursor: pointer;
+}
+
+.drop-li {
+  text-align: left;
+  line-height: 185%;
+
+
+}
+.drop-li a {
+  text-decoration: none;
+}
+
+.nav-link, i {
+  text-decoration: none;
+  color: black;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+i {
+  vertical-align: baseline;
+}
+
+.logout:hover, i:hover {
+  cursor: pointer;
+}
+.logout {
+  color: #337ab7
+}
+
+span {
+  margin-top: 20px;
+}
+
+.nav-left span {
+  margin-top: 23px;
+}
+
+.user-links {
+  position:relative;
+}
+
+.hide {
+  position: absolute;
+  display: none;
+}
+
+.my-projects {
+  float:left;
+  padding-left: 10px;
+}
+
+.my-projects li {
+  padding-left: 3px;
+  text-align: left;
+  line-height: 185%;
+}
+
+.my-projects a:hover {
+  text-decoration: none;
+}
+
+.drop-down-button h3 {
+  font-weight: 300;
+  font-size: large;
+}
+
+.user-options {
+  float: right;
+  padding-right: 45px;
+}
+
+#dd {
+  margin-top: 20px;
+  margin-right: 25px;
+}
+
+.button-off {
+  display: none;
+}
+
+#right-arrow {
+  position: absolute;
+  top: 50%;
+  right: -6%;
+}
+
+#left-arrow {
+  position: absolute;
+  top: 50%;
+  left: -6%;
+  z-index: 2;
+}
+
+.button-on {
+  display: block;
+}
+
+.show {
+  position: absolute;
+  z-index: 100;
+  width: 340px;
+  left: -54px;
+  top: 63px;
+  background: white;
+  box-shadow: -1px 1px 3px #ccc;
+
+  opacity:0;
+  -webkit-animation:fade ease-in 1;
+  -moz-animation:fade ease-in 1;
+  animation:fade ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:.1s;
+  -moz-animation-duration:.1s;
+  animation-duration:.1s;
+}
+
+
+.reward-hover:hover {
+  z-index: 1;
+  background-color: #2bde73;
+  transform: scale(0.6);
+  opacity: 0.9;
+
+}
+
+.reward-hover {
+  z-index: 1;
+  background-color: #16ca5e;
+  width: 175%;
+  height: 175%;
+  position: absolute;
+  top: -37%;
+  left: -38%;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.3s, transform .3s;
+  opacity: 0;
+
+}
