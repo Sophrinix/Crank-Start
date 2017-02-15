@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import { login } from '../../actions/session_actions';
 
 class LoginForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { username: "", password: "" };
 		this.handleSubmit = this.handleSubmit.bind(this);
+    this._launchDemo = this._launchDemo.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -31,6 +33,32 @@ class LoginForm extends React.Component {
 		this.props.processForm({user});
 	}
 
+  // _launchDemo(){
+  //   const guestUser = "hello! nice of you to visit!";
+  //   guestUser.split("").forEach((letter) => {
+  //     this.setState({username: letter});
+  //   });
+  //   debugger
+  // }
+
+  _launchDemo() {
+    let i = 1;
+    let that = this;
+    const demoUser = "Thanks for stopping by!";
+    const intervalID = setInterval(function () {
+      if (i < demoUser.length) {
+        that.setState({ username: demoUser.slice(0, i) });
+      } else if (i === demoUser.length) {
+        that.setState({ username: demoUser.slice(0, i + 1)});
+        that.setState({ password: "super_groovy" });
+      } else {
+        window.clearInterval(intervalID);
+        login({ user: that.state });
+      }
+      i++;
+    }, 75);
+  }
+
 	renderErrors() {
 		return(
 			<ul>
@@ -45,29 +73,39 @@ class LoginForm extends React.Component {
 
 	render() {
 		return (
+      <div>
       <div className="login-link">
   			<div className="login-container">
   				<form onSubmit={this.handleSubmit} className="login-form-box">
-  					<h2>Log In</h2>
-  					<br/>
+  					<h2 className="login-title">Log In</h2>
   					{this.renderErrors()}
   					<div className="login-form">
   						<br/>
               <label>
-  							<input className="input" type="text" placeholder="username"
-  								value={this.state.name}
+  							<input className="login-input" type="text" placeholder="username"
+  								value={this.state.username}
   								onChange={this.update("username")} />
-  						</label>
+              </label>
   						<label>
-  							<input className="input" type="password" placeholder="password"
+  							<input className="login-input" type="password" placeholder="password"
   								value={this.state.password}
   								onChange={this.update("password")}/>
-  						</label>
+              </label>
   						<br/>
   						<input className="signup-button" type="submit" value="Log Me In!" />
   					</div>
+             <li id="demo-or">Or</li>
+            <label>
+              <input type="button" value="View the Demo"
+                onClick={this._launchDemo} onChange={this._updateInputText} className="demo"/>
+
+            </label>
   				</form>
+          <div className="content-frame-header">
+            New to CrankStart? <Link id="signup-link" to="/signup">Sign up</Link>
+          </div>
   			</div>
+      </div>
       </div>
 		);
 	}

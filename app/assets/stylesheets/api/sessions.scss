@@ -47,6 +47,7 @@ ul {
 
 input {
   font-size: 14px;
+  font-weight: 300;
   height: 35px;
   padding-left: 10px;
   border-radius: 6px;
@@ -72,7 +73,7 @@ input::selection {
   width: 355px;
   border-radius: 5px;
   font-size: 14px;
-  background-color: #2bde73;
+  background-color: #25CB68;
   text-align: center;
   color: white;
 
@@ -86,10 +87,22 @@ input::selection {
   background-color: #3b5998;
 }
 
+#demo-or {
+  font-size:12px;
+  text-align: center;
+  color: black;
+  list-style: none;
+}
+
 .form-text {
   font-size:12px;
   text-align: center;
   color:#aaa;
+  list-style: none;
+}
+
+.input-label {
+  padding: 5px;
 }
 
 .sign-in-field, .signup-field {

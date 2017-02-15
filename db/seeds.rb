@@ -13,3 +13,9 @@ User.create!(
   password: 'boogeyboard'
 
 )
+
+
+User.create!(
+username: "Thanks for stopping by!",
+password: "super_groovy"
+)
