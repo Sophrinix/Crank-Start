@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory} from 'react-router';
-import GreetingContainer from './greeting/greeting_container';
+import GreetingContainer from '../greeting/greeting_container';
 
 //NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
 
