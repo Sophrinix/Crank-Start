@@ -2,7 +2,7 @@ export const fetchProjects = (projects) => {
   return $.ajax({
     method: 'GET',
     url: 'api/projects',
-    data: projects
+    // data: projects
   });
 };
 

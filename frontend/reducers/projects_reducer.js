@@ -1,6 +1,6 @@
 import {RECEIVE_PROJECTS,
        RECEIVE_PROJECT,
-       RECEIVE_ERRORS} from '..action/project_actions';
+       RECEIVE_ERRORS} from '../actions/project_actions';
 import merge from 'lodash/merge';
 
 const ProjectsReducer = (state = {}, action) => {
