@@ -33,13 +33,6 @@ class LoginForm extends React.Component {
 		this.props.processForm({user});
 	}
 
-  // _launchDemo(){
-  //   const guestUser = "hello! nice of you to visit!";
-  //   guestUser.split("").forEach((letter) => {
-  //     this.setState({username: letter});
-  //   });
-  //   debugger
-  // }
 
   _launchDemo() {
     let i = 1;
