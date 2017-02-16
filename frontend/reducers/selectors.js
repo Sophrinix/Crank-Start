@@ -1,3 +1,5 @@
 import { values } from 'lodash';
 
-export const selectProjects = ({ projects }) => values(projects);
+export const selectProjects = ({ projects }) => (
+  values(projects)
+);

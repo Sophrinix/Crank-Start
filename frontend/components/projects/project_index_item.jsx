@@ -6,6 +6,7 @@ const ProjectIndexItem = ({ project, router }) => (
     <Link to={`/project/${project.id}`}>
       <span>{project.id}</span>
       <span>{project.title}</span>
+      <li>{project.img_url}</li>
       <span>{project.description}</span>
     </Link>
   </li>

@@ -27,7 +27,7 @@ import configureStore from './store/store';
 //
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-//           A Buddha statue to bless your
+//           A Buddha will bless your
 //               code to be bug free
 //
 
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.store = store;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });
