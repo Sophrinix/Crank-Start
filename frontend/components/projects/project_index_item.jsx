@@ -1,15 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
-const ProjectIndexItem = ({ project, router }) => (
-  <li>
-    <Link to={`/project/${project.id}`}>
-      <span>{project.id}</span>
-      <span>{project.title}</span>
-      <li>{project.img_url}</li>
-      <span>{project.description}</span>
-    </Link>
-  </li>
-);
+export default class ProjectIndexItem extends React.Component{
+  constructor(props){
+    super(props);
+    this._viewProject = this._viewProject.bind(this);
+  }
 
-export default ProjectIndexItem;
+  _viewProject(id) {
+    hashHistory.push(`/projects/${id}`);
+  }
+
+  render(){
+    debugger
+
+    return (
+      <div className="index-item-container">
+        <div className="img-container"
+          onClick={ this._viewProject(this.props.project.id) }>
+          <img className="index-item-image" src={this.props.project.img_url}/>
+        </div>
+        <div className="description-element">
+          <div className="index-item-title">{this.props.project.title}</div>
+          <div className="index-item-creator">{this.props.project.creator_id}</div>
+          <div className="index-item-description">{this.props.project.description}</div>
+        </div>
+      </div>
+    );
+  }
+};
