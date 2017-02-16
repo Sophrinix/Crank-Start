@@ -5,7 +5,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   ###add associations after making models
-  # has_many :projects
+  has_many :projects
   # has_many :rewards
   # has_many :comments
   # has_many :contributions
