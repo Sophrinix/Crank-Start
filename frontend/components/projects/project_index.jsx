@@ -6,12 +6,18 @@ export default class ProjectIndex extends React.Component{
   constructor(props){
     super(props)
   }
+
   componentDidMount(){
     this.props.fetchProjects();
   }
 
+  _getRandomProjects(){
+
+  }
+
   render(){
     const {projects, children } = this.props;
+    debugger
     return (
         <div>
         <carousel className="carousel-slides">
