@@ -5,23 +5,32 @@ export default class ProjectDetail extends React.Component{
     this.props.fetchProject(this.props.params.projectId);
   }
 
-  _getRemainingTime(dateCreated){
-    const today = new Date();
-    const timeDifference = Math.abs(dateCreated.getTime() - today.getTime());
-    return Math.ceil(timeDifference / (1000 * 3600 * 24));
+  componentWillReceiveProps(nextProps){
+    if (this.props.params.projectId !== nextProps.params.projectId){
+      this.props.fetchProject(nextProps.params.projectId);
+    }
+  }
 
+  _getRemainingDays(dateCreated){
+    const today = new Date();
+    const createdAt = new Date(dateCreated)
+    const timeDifference = Math.abs(createdAt.getTime() - today.getTime());
+    return Math.ceil(timeDifference / (1000 * 3600 * 24));
   }
 
   render(){
 
     const { projectDetail, children } = this.props;
 
+    if (!projectDetail.created_at){
+      return (<div></div>)
+    }
+
     return (
       <div>
         <img src={projectDetail.img_url}></img>
         <div className="author-profile">
           <h3>{projectDetail.author_id}</h3>
-          <h3>{projectDetail.created_at}</h3>
         </div>
         <div className="project-header">
           <h1>{projectDetail.title}</h1>
@@ -35,7 +44,7 @@ export default class ProjectDetail extends React.Component{
               <p>Backers go here</p>
             </div>
             <div className="remaining-days">
-              <p>{projectDetail.created_at}</p>
+              {this._getRemainingDays(projectDetail.created_at)}
               <p>days to go</p>
             </div>
             <button>Back this project</button>
