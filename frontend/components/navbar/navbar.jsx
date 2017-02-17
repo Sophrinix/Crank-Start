@@ -101,7 +101,8 @@ export default class NavBar extends React.Component{
             <i id="mag" className="clickable material-icons">search</i>
           </span>
           <div className="drop-down-button">
-            <i onClick={this._handleDrop} id="drop-down-menu" className="clickable material-icons">arrow_drop_down</i>
+            <img src="https://ksr-ugc.imgix.net/missing_user_avatar.png?w=40&h=40&fit=crop&v=&auto=format&q=92&s=8c0db61c92692000c2678b375fc31714"
+               onClick={this._handleDrop}className="user-avatar"/>
               <div className={this.state.dropDownClass} onMouseLeave={this._mouseDrop}>
                 <div className="my-projects">
                   <h3>My Projects</h3>
@@ -127,7 +128,7 @@ export default class NavBar extends React.Component{
 
         return (
 
-          <div>
+          <div className="navbar-main">
           <nav className={this.state.mainNavClass}>
             <div className={this.state.searchNavClass}>
               <div className="nav-left">

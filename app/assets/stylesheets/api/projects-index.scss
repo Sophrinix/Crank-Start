@@ -11,6 +11,13 @@
   font-size: 12px;
 }
 
+
+.projects-index {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .index-item-container {
   margin: 15px;
   height: 435px;
@@ -40,6 +47,7 @@
   font-family: 'Montserrat', sans-serif;
   color: #020621;
   display: flex;
+  padding-left: 20px;
 }
 
 .img-container:hover {
@@ -91,6 +99,10 @@
 
 .stat-item {
   color: #555;
+}
+
+.carousel-slides {
+  padding: 0px;
 }
 
 

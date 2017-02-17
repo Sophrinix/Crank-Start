@@ -154,18 +154,31 @@ i.fa.fa-times {
    width: 34px;
  }
 
-.search-nav, .nav-links, .nav-left, .nav-right {
+.search-nav, .nav-links, .nav-left, .nav-right,  {
   display: flex;
   justify-content: space-between;
   text-decoration: none;
   color: black;
   font-family: 'Montserrat', sans-serif;
-}y
+  font-weight : 10;
+}
 
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    align-self: center;
+    border: 1px solid transparent;
+}
+
+.navbar-main {
+  background: white;
+}
 
 
 .nav-left, .nav-right {
-  font-size:13px;
+  font-size:14px;
+  font-weight: 400;
 }
 
 h1, .footer-logo {

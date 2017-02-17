@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
 const ProjectCarousel = () => (
-  <Carousel>
+  <Carousel className="carousel-slides">
     <Carousel.Item>
       <img id='carousel-1'
         height={575}
