@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectIndexItem from './project_index_item';
-import ProjectCarousel from './project_slides';
+import ProjectCarousel from '../project_slides';
 
 export default class ProjectIndex extends React.Component{
   constructor(props){
@@ -11,13 +11,10 @@ export default class ProjectIndex extends React.Component{
     this.props.fetchProjects();
   }
 
-  _getRandomProjects(){
 
-  }
 
   render(){
     const {projects, children } = this.props;
-    debugger
     return (
         <div>
         <carousel className="carousel-slides">

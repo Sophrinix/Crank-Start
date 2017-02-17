@@ -31,7 +31,7 @@ Project.create!(
   funding: 5000,
   duration: "30",
   created_at: DateTime.strptime("02/05/2017 17:00", "%m/%d/%Y %H:%M"),
-  author_id: 1,
+  author_id: User.first.id,
   city: "Brooklyn",
   state: "NY"
 )
@@ -46,7 +46,7 @@ Project.create!(
   complete: true,
   duration: "30",
   created_at: DateTime.strptime("02/01/2017 15:00", "%m/%d/%Y %H:%M"),
-  author_id: 3,
+  author_id: User.last.id,
   city: "Bronx",
   state: "NY"
 )
@@ -61,7 +61,7 @@ Project.create!(
   funding: 7000,
   duration: "30",
   created_at: DateTime.strptime("01/25/2017 10:00", "%m/%d/%Y %H:%M"),
-  author_id: 2,
+  author_id: User.first.id,
   city: "Queens",
   state: "NY"
 )

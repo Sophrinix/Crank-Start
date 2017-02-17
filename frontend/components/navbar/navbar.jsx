@@ -21,6 +21,7 @@ export default class NavBar extends React.Component{
     this._handleDrop = this._handleDrop.bind(this);
     this._userLoggedIn = this._userLoggedIn.bind(this);
     this._logoutUser = this._logoutUser.bind(this);
+    this._handleTitleClick = this._handleTitleClick.bind(this);
   }
 
 
@@ -55,7 +56,7 @@ export default class NavBar extends React.Component{
     currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
   }
 
-  _handleHeaderClick(){
+  _handleTitleClick(){
     hashHistory.push('/');
   }
 
@@ -175,9 +176,9 @@ export default class NavBar extends React.Component{
                   </span>
                 </div>
               </div>
-              <div className="logo">
-                <h1 className="header-h1"
-                    onClick={this._handleTitleClick}>
+              <div className="logo"
+                onClick={this._handleTitleClick}>
+                <h1 className="header-h1">
                   Crank
                   <span className="header-span">
                     Start

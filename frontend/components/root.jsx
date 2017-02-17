@@ -8,8 +8,8 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import LoginFormContainer from './session_form/login_form_container';
-import ProjectIndexContainer from './projects/project_index_container';
-import ProjectDetailContainer from './projects/project_detail_container';
+import ProjectIndexContainer from './projects/index/project_index_container';
+import ProjectDetailContainer from './projects/detail/project_detail_container';
 
 const Root = ({ store }) => {
 
