@@ -14,16 +14,19 @@ export default class ProjectIndex extends React.Component{
     const {projects, children } = this.props;
     return (
       <div>
-        <div>
-          {ProjectCarousel}
+        <carousel>
+          {ProjectCarousel()}
+        </carousel>
+        <div className="projects-index-container">
+          <h2 className="index-sub-header">Featured Projects</h2>
+          <section className="projects-index">
+              <ul>
+                {projects.map(project => <ProjectIndexItem key={project.id} project={project}/>)}
+              </ul>
+            {children}
+          </section>
         </div>
-    <section className="projects-index">
-      <ul>
-        {projects.map(project => <ProjectIndexItem key={project.id} project={project}/>)}
-      </ul>
-      {children}
-    </section>
-    </div>
+      </div>
     );
   }
 }

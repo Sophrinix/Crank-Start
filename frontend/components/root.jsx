@@ -9,6 +9,7 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import ProjectIndexContainer from './projects/project_index_container';
+import ProjectDetailContainer from './projects/project_detail_container';
 
 const Root = ({ store }) => {
 
@@ -34,7 +35,8 @@ const Root = ({ store }) => {
           <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/projects" component={ProjectIndexContainer}>
-            <Route path="/project/:projectId" component={ProjectDetailContainer} />
+            <Route path="/projects/:projectId" component={ProjectDetailContainer} />
+            </Route>
         </Route>
       </Router>
     </Provider>

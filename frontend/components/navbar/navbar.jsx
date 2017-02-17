@@ -155,8 +155,8 @@ export default class NavBar extends React.Component{
                 <div className="nav-left">
                   <span >
                     <Link to={'/explore'}
-                              className="nav-link">
-                            <img id="compass-icon" src= {compassIcon}/>
+                            className="nav-link">
+                            <img className="compass-icon" src={compassIcon}/>
                             Explore
                     </Link>
                   </span>

@@ -38,3 +38,12 @@ Project.create!(
   duration: "30",
   creator_id: 3
 )
+
+Project.create!(
+  title: 'Queens Cares Day 2016',
+  img_url: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/13240690_10154237791687236_3588886632590956037_n.jpg?oh=1f8c941560df4136356534929712808e&oe=59382641',
+  description: 'Thank you to everyone who joined us on Queens Cares Day. Volunteers painted murals, created arts and crafts, played sports, took students all around NYC, and even showed the students of PS 330 Q how to create robots and program them with Lego robotics software. How cool! We also had volunteers planting flowers in the school garden, revitalizing the grounds at McIntosh Gardens, and doing arts and crafts with seniors at Elmcor Senior Center. A special thanks to Delta for making this day possible and for the volunteer support. Another terrific day in Queens! (Delta photos by Chasi Annexy)',
+  funding_goal: '10000',
+  duration: "30",
+  creator_id: 2
+)

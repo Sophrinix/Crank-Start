@@ -34,7 +34,6 @@
    100% { opacity: 1; }
  }
 
-
  .total-background {
    height: 100%;
    width: 100%;
@@ -65,12 +64,12 @@
    box-shadow: 1px 1px 3px #ccc;
  }
 
-#compass-icon {
+.compass-icon {
   fill: #05AF3C;
   height: 20px;
   width: auto;
-  padding-right: 5px;
-  padding-bottom: 2px
+  padding-right: 0px;
+  padding-bottom: 0px;
 }
 
  #fred {
@@ -161,7 +160,8 @@ i.fa.fa-times {
   text-decoration: none;
   color: black;
   font-family: 'Montserrat', sans-serif;
-}
+}y
+
 
 
 .nav-left, .nav-right {
