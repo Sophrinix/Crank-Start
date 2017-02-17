@@ -34,9 +34,8 @@ const Root = ({ store }) => {
           <IndexRoute component={ProjectIndexContainer}/>
           <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/projects" component={ProjectIndexContainer}>
-            <Route path="/projects/:projectId" component={ProjectDetailContainer} />
-            </Route>
+          <Route path="/projects" component={ProjectIndexContainer}/>
+          <Route path="/projects/:projectId" component={ProjectDetailContainer} />
         </Route>
       </Router>
     </Provider>

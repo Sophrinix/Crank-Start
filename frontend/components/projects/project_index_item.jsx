@@ -18,8 +18,8 @@ export default class ProjectIndexItem extends React.Component{
         </div>
         <div className="description-element">
           <div className="index-item-title">{this.props.project.title}</div>
-          <div className="index-item-creator">{this.props.project.creator_id}</div>
-          <div className="index-item-description">{this.props.project.description}</div>
+          <div className="index-item-creator">{this.props.project.author_id}</div>
+          <div className="index-item-description">{this.props.project.blurb}</div>
         </div>
       </div>
     );

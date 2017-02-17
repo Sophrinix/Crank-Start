@@ -10,18 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216142116) do
+ActiveRecord::Schema.define(version: 20170217143727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "projects", force: :cascade do |t|
-    t.string  "title",        null: false
-    t.string  "img_url",      null: false
-    t.text    "description",  null: false
-    t.string  "funding_goal", null: false
-    t.string  "duration",     null: false
-    t.integer "creator_id",   null: false
+    t.string   "title",        null: false
+    t.string   "blurb",        null: false
+    t.text     "about",        null: false
+    t.datetime "created_at",   null: false
+    t.integer  "duration",     null: false
+    t.integer  "author_id",    null: false
+    t.string   "img_url"
+    t.string   "city",         null: false
+    t.string   "state",        null: false
+    t.string   "funding_goal"
+    t.integer  "funding"
+    t.boolean  "complete"
   end
 
   create_table "rewards", force: :cascade do |t|

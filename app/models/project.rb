@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  validates :title, :img_url, :description, :funding_goal, :duration, :creator_id, presence: true
+  validates :title, :img_url, :about, :funding_goal, :duration, :author_id, presence: true
 
   belongs_to :user, optional: true
 

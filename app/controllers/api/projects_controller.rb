@@ -26,9 +26,13 @@ class Api::ProjectsController < ApplicationController
     params. require(:project).permit(
     :id,
     :title,
-    :description,
-    :creator_id,
+    :blurb,
+    :about,
+    :author_id,
     :duration,
+    :funding,
+    :created_at,
+    :completed,
     :funding_goal,
     :img_url
     )

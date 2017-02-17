@@ -4,6 +4,7 @@ export const RECEIVE_PROJECTS = "RECEIVE_PROJECTS";
 export const RECEIVE_PROJECT = "RECEIVE_PROJECT";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CREATE_PROJECT = "CREATE_PROJECT";
+export const RECEIVE_NEW_PROJECT    = 'RECEIVE_NEW_PROJECT';
 
 export const fetchProjects = () => (dispatch) => (
   APIUtil.fetchProjects()
@@ -33,4 +34,9 @@ export const receiveProject = project => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const receiveNewProject = project => ({
+	type: RECEIVE_NEW_PROJECT,
+	project
 });
