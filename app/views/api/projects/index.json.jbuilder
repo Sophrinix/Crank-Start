@@ -10,6 +10,7 @@ json.array! @projects do |project|
   json.city project.city
   json.state project.state
   json.duration project.duration
+  json.img_url project.img_url
   json.user do
     json.email project.user.email
     json.username project.user.username
