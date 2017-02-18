@@ -1,3 +1,4 @@
+
 class Api::ProjectsController < ApplicationController
 
   def new
@@ -23,7 +24,7 @@ class Api::ProjectsController < ApplicationController
 
   private
   def project_params
-    params. require(:project).permit(
+    params.require(:project).permit(
     :id,
     :title,
     :blurb,

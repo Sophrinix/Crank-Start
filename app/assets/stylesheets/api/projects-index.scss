@@ -18,10 +18,17 @@
   align-items: center;
 }
 
+.projects-index-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .index-item-container {
   margin: 15px;
   height: 435px;
   width: 315px;
+
 }
 
 .img-container {
@@ -121,10 +128,6 @@
   font-weight: bold;
 }
 
-.projects-index-container {
-  display: flex;
-  flex-direction: row;
-}
 
 .index-item-title, .index-item-description, .index-author, .stats {
   font-family: 'Montserrat', sans-serif;

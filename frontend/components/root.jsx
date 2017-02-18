@@ -10,6 +10,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import ProjectIndexContainer from './projects/index/project_index_container';
 import ProjectDetailContainer from './projects/detail/project_detail_container';
+import ProjectFormContainer from './projects/form/project_form_container';
 
 const Root = ({ store }) => {
 
@@ -35,6 +36,7 @@ const Root = ({ store }) => {
           <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/projects" component={ProjectIndexContainer}/>
+          <Route path="/projects/new" component={ProjectFormContainer} />
           <Route path="/projects/:projectId" component={ProjectDetailContainer} />
         </Route>
       </Router>

@@ -65,3 +65,24 @@ Project.create!(
   city: "Queens",
   state: "NY"
 )
+
+Reward.create!(
+  name: "A hat",
+  amount: 10,
+  description: "A free hat if you contribute",
+  project_id: Project.last.id
+)
+
+Reward.create!(
+  name: "A bean",
+  amount: 30,
+  description: "A free bean if you contribute",
+  project_id: Project.last.id
+)
+
+Reward.create!(
+  name: "A cup!",
+  amount: 50,
+  description: "A free cup if you contribute",
+  project_id: Project.last.id
+)
