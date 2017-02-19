@@ -12,7 +12,8 @@ export default class ProjectIndexItem extends React.Component{
 
   }
 
-  linkToDetail(){
+  linkToDetail(e){
+    e.preventDefault()
     hashHistory.push(`/projects/${this.props.project.id}`)
   }
 

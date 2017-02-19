@@ -245,34 +245,53 @@
 
 .percent-complete-detail {
   background-color: #25CB68;
-  height: .3em;
+  height: .2em;
   float:left;
   border-radius: 5px;
 
 }
 
-.project-funding {
-  background: green;
-}
 
+.img-stats-detail {
+  display:flex;
+  flex-direction: row;
+}
 
 .project-stats-detail {
   margin-top: 20px;
   display: flex;
-  flex-direction: row;
+
+  flex-direction: column;
   justify-content: flex-start;
-  overflow: hidden;
+
 }
+
+.detail-stats-list {
+  padding: 70px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.detail-image {
+  padding: 60px;
+}
+
+
+
+
 
 .ind-stats {
   font-weight: bold;
 }
 
 .stat-item-detail {
-  margin: 5px;
   color: #626369;
   font-size: 1.4rem;
   line-height: 2.4rem;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #current-funding {
@@ -282,18 +301,19 @@
 .stats-detail {
   margin-bottom: 5px;
   overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
   color: #353535;
   font-weight: 500;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 .backing-button {
   color: white;
   background-color: #25CB68;
-  display: block;
-  width: 100%;
   border: 2px;
   border-color: #05AF3C;
+  border-radius: 2px;
 }
 
 .backing-button:hover {

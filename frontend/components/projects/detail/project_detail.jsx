@@ -52,17 +52,20 @@ export default class ProjectDetail extends React.Component{
             </div>
           </div>
           <div className="img-stats-detail">
-            <h1>IMAGE GOES HERE</h1>
-            <div className="percent-complete-detail" style={progressBar}></div>
+            <h1 className="detail-image">IMAGE GOES HERE</h1>
+            <div className="detail-stats-list">
               <ul className="project-stats-detail">
+                    <div className="percent-complete-detail" style={progressBar}></div>
                     <li><div className='stats-detail' id='current-funding'>${projectDetail.funding}</div>
                     <div className="stat-item-detail">pledged of ${projectDetail.funding_goal}</div></li>
-                    <li><div className='stats-detail'>1(for now!)</div>
+                    <li><div className='stats-detail'>2</div>
                     <div className="stat-item-detail">backers</div></li>
                     <li><div className='stats-detail'>{this.getRemainingDays(projectDetail.created_at)}</div>
                     <div className="stat-item-detail">days to go</div></li>
+
               </ul>
               <button className="backing-button">Back this project</button>
+            </div>
           </div>
           <div className="project-main">
             <section>
