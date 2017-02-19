@@ -29,7 +29,7 @@ export default class ProjectIndexItem extends React.Component{
     const currentFunding = Math.floor((this.props.project.funding/this.props.project.funding_goal)*100)
     const progressBar = { width: currentFunding + "%" }
 
-    const { project } = this.props;
+    const { project } = this.props;``
 
     return (
       <div className="index-item-container">
@@ -38,10 +38,13 @@ export default class ProjectIndexItem extends React.Component{
           <img className="index-item-image" src={project.img_url}/>
         </div>
         <div className="description-element">
-          <div className="index-item-title">{project.title}</div>
-          <div className="index-item-creator">{project.author_id}</div>
+          <div className="index-item-title"
+               onClick={this.linkToDetail}>{project.title}</div>
+          <div className="index-item-creator">by {project.user.username}</div>
+          <br/>
           <div className="index-item-description">{project.blurb}</div>
         </div>
+        <br/>
           <div className="project-status">
             <div className="location-container">
             <i className="fa fa-map-marker" aria-hidden="true"></i>
