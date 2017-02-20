@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import * as action from "./actions/search_actions";
 
 
 //
@@ -21,7 +22,7 @@ import configureStore from './store/store';
 //          ."" '<  `.___\_<|>_/___.' >' "".
 //         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
 //         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
+//     =====`-.____`.___ \_____/___.-`___.-'=====†
 //                       `=---='
 //
 //
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.searchProject = action.searchProject;
   window.store = store;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

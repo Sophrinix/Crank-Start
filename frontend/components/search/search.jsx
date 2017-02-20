@@ -1,31 +1,38 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 export default class Search extends React.Component{
   constructor(props){
 
     super(props);
     this.state = {
-      queryString: ""
+      query: ""
     }
+    this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
   componentWillMount(){
     this.props.clearSearchResult();
+
   }
 
   onChange(e){
     e.preventDefault();
-    debugger
-    this.setState({ queryString: e.target.value });
-    this.props.searchProjects(e.target.value);
+    this.setState({query: e.target.value });
+  }
+
+  onSubmit(e){
+    this.props.searchProjects(this.state.query).then(() => hashHistory.push('/search'));
   }
 
 
   render(){
     return (
-      <input className="search-form" type='text' value={this.state.queryString}
-        onChange={this.onChange} placeholder="Search"/>
+      <form onSubmit={this.onSubmit}>
+        <input className="search-form" type='text' value={this.state.query}
+           onChange={this.onChange} placeholder="Search"/>
+      </form>
     );
   }
 }

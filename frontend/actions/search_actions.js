@@ -4,10 +4,12 @@ export const CATEGORY_SEARCH = "CATEGORY_SEARCH";
 export const RECEIVE_CATEGORY_SEARCH = "RECEIVE_CATEGORY_SEARCH";
 export const CLEAR_SEARCH_RESULT = "CLEAR_SEARCH_RESULT";
 
-export const searchProject = (queryString) => ({
-  type: SEARCH_PROJECT,
-  queryString
-});
+import * as APIUtil from '../util/search_api_util';
+
+export const searchProject = (query) => (dispatch) => (
+  APIUtil.fetchProjectSearch(query)
+  .then(projects => dispatch(receiveSearchProject(projects)))
+);
 
 export const receiveSearchProject = (projects) => ({
   type: RECEIVE_SEARCH_PROJECT,

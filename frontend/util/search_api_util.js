@@ -1,9 +1,8 @@
-export const fetchProjectSearch = (queryString, success, error) => {
-  console.log('making search ajax request');
-  $.ajax({
+export const fetchProjectSearch = (query) => {
+  return $.ajax({
     url: '/api/searches',
     method: 'GET',
-    data: { query: queryString }
+    data: { query: query }
   });
 };
 
@@ -14,5 +13,6 @@ export const fetchCategorySearch = (queryString, success, error) => {
     data: { category: queryString },
     success: success,
     error: error
+
   });
 }
