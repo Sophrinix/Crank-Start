@@ -10,3 +10,4 @@ Bugs and to-dos as of 2/18:
   -updateInputText function in demo log in needs to be changed
 
   - how to avoid making queries every time page is loaded
+  - add categories to database

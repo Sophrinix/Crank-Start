@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory} from 'react-router';
+import Search from '../search/search';
 
 
 //NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
@@ -79,8 +80,8 @@ export default class NavBar extends React.Component{
                     results: [],
                     toggleSearch: 'show-search-results',
                     leftArrow: 'button-off'
-                  });
 
+                  });
   }
 
   onSubmit(e){
@@ -95,6 +96,21 @@ export default class NavBar extends React.Component{
 
   searchProjects(query){
     debugger
+    const searchQuery = query.target.value;
+    const searchResults = [];
+    const allProjects = store.getState().projects;
+    const parseQuery = searchQuery.split(" ").map(q => q.toLowerCase());
+    Object.keys(allProjects).forEach((project) => {
+      if (searchResults.length === 15){
+        return searchResults;
+      }
+      if (allProjects[project].title.toLowerCase().indexOf(parseQuery[i] !== -1)){
+        searchResults.push(allProjects[project]);
+        //break;
+      }
+    });
+    return searchResults;
+
   }
 
   toggleSearch(){
