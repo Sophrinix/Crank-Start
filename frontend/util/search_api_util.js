@@ -1,10 +1,9 @@
 export const fetchProjectSearch = (queryString, success, error) => {
+  console.log('making search ajax request');
   $.ajax({
     url: '/api/searches',
     method: 'GET',
-    data: { query: queryString },
-    success: success,
-    error: error
+    data: { query: queryString }
   });
 };
 

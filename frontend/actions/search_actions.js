@@ -4,7 +4,7 @@ export const CATEGORY_SEARCH = "CATEGORY_SEARCH";
 export const RECEIVE_CATEGORY_SEARCH = "RECEIVE_CATEGORY_SEARCH";
 export const CLEAR_SEARCH_RESULT = "CLEAR_SEARCH_RESULT";
 
-export const searchProejct = (queryString) => ({
+export const searchProject = (queryString) => ({
   type: SEARCH_PROJECT,
   queryString
 });

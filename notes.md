@@ -11,3 +11,4 @@ Bugs and to-dos as of 2/18:
 
   - how to avoid making queries every time page is loaded
   - add categories to database
+<form className="search-form" onSubmit={this.searchProjects}> ///was previously on line 189 of navbar.jsx

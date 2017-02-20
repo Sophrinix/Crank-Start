@@ -78,6 +78,8 @@
 
  .search-form {
    display: flex;
+   align-items: center;
+   border: 0px;
  }
 
  .way-left {
@@ -110,6 +112,11 @@
 
  .search-nav, .nav-links {
    position:absolute;
+ }
+
+ .search-nav {
+   display: flex;
+   justify-content: center;
  }
 
  .search-field {

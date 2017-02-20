@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import Search from './search';
+import { searchProject, clearSearchResult } from '../../actions/search_actions';
 
 const mapStateToProps = (state) => ({
-  searchResult: state.search.projects
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  searchProjects: (queryString) => dispatch(searchProject(queryString)),
+  clearSearchResult: () => dispatch(clearSearchResult())
 
 });
 

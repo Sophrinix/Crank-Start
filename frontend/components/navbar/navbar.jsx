@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, hashHistory} from 'react-router';
-import Search from '../search/search';
+import SearchContainer from '../search/search_container';
 
 
 //NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
@@ -26,7 +26,6 @@ export default class NavBar extends React.Component{
     this.toggleSearch = this.toggleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.searchProjects = this.searchProjects.bind(this);
   }
 
 
@@ -94,24 +93,6 @@ export default class NavBar extends React.Component{
 
   }
 
-  searchProjects(query){
-    debugger
-    const searchQuery = query.target.value;
-    const searchResults = [];
-    const allProjects = store.getState().projects;
-    const parseQuery = searchQuery.split(" ").map(q => q.toLowerCase());
-    Object.keys(allProjects).forEach((project) => {
-      if (searchResults.length === 15){
-        return searchResults;
-      }
-      if (allProjects[project].title.toLowerCase().indexOf(parseQuery[i] !== -1)){
-        searchResults.push(allProjects[project]);
-        //break;
-      }
-    });
-    return searchResults;
-
-  }
 
   toggleSearch(){
 
@@ -120,7 +101,7 @@ export default class NavBar extends React.Component{
       navLinksClass: 'off nav-links',
       mainNavClass: 'no-overflow',
       searchClass: 'just-right'})
-    this.searchField.focus();
+    // this.searchField.focus();
   } else {
     this.setState({searchNavClass: 'top-search-nav',
                    searchClass: 'way-left',
@@ -186,16 +167,8 @@ export default class NavBar extends React.Component{
               <div className="nav-left">
                 <div className="search-container">
                   <div className={this.state.searchClass}>
-                    <form className="search-form" onSubmit={this.searchProjects}>
+                    <SearchContainer props={this.props}/>
                       <i id="fred" className="material-icons">search</i>
-                      <input type="text"
-                             className="search-field"
-                             placeholder="Search"
-                             value={this.state.query}
-                             onChange={this.handleChange}
-                             ref={(ref) => this.searchField = ref} />
-
-                    </form>
                   </div>
                 </div>
               </div>
