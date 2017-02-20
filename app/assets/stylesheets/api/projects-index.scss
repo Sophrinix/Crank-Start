@@ -27,7 +27,7 @@
 }
 
 .index-item-container {
-  margin: auto;
+  margin: 10px;
   height: 440px;
   width: 315px;
 
@@ -207,8 +207,14 @@
 
 .author-info {
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: 8px;
+  color: #353535;
   line-height: 2.4rem;
+}
+
+.author-info > h3 {
+  font-size: 12px;
+  margin-left: 5px;
 }
 
 .project-info {
@@ -255,6 +261,7 @@
 .img-stats-detail {
   display:flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .project-stats-detail {
@@ -269,7 +276,7 @@
 .detail-stats-list {
   padding: 70px;
   display: flex;
-  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
   white-space: nowrap;
 }

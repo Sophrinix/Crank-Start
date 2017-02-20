@@ -7,5 +7,6 @@ Bugs and to-dos as of 2/18:
   -user globe is positioned weirdly
   -img urls went away
   -project theme needs nearly total overhaul
+  -updateInputText function in demo log in needs to be changed
 
   - how to avoid making queries every time page is loaded

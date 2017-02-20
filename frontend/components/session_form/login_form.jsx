@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
 	}
 
 
-  _launchDemo() {
+	launchDemo() {
     let i = 1;
     let that = this;
     const demoUser = "Thanks for stopping by!";
@@ -90,7 +90,7 @@ class LoginForm extends React.Component {
              <li id="demo-or">Or</li>
             <label>
               <input type="button" value="View the Demo"
-                onClick={this._launchDemo} onChange={this._updateInputText} className="demo"/>
+                onClick={this.launchDemo} onChange={this.updateInputText} className="demo"/>
 
             </label>
   				</form>

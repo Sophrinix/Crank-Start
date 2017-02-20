@@ -18,10 +18,14 @@ export default class NavBar extends React.Component{
                   leftArrow: 'button-off',
                   rightArrow: 'button-off'};
 
-    this._handleDrop = this._handleDrop.bind(this);
-    this._userLoggedIn = this._userLoggedIn.bind(this);
-    this._logoutUser = this._logoutUser.bind(this);
-    this._handleTitleClick = this._handleTitleClick.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
+    this.userLoggedIn = this.userLoggedIn.bind(this);
+    this.logoutUser = this.logoutUser.bind(this);
+    this.handleTitleClick = this.handleTitleClick.bind(this);
+    this.toggleSearch = this.toggleSearch.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.searchProjects = this.searchProjects.bind(this);
   }
 
 
@@ -33,7 +37,7 @@ export default class NavBar extends React.Component{
                   rightArrow: 'button-off'};
   }
 
-  _sessionLinks() {
+  sessionLinks() {
     return(
     <nav className="login-signup">
       <Link to="/login" activeClassName="current">Login</Link>
@@ -43,7 +47,7 @@ export default class NavBar extends React.Component{
   );
   }
 
-  _personalGreeting(currentUser, logout){
+  personalGreeting(currentUser, logout){
     return (
   	<hgroup className="header-group">
       <h2 className="header-name">Hi, {currentUser.username}!</h2>
@@ -52,16 +56,16 @@ export default class NavBar extends React.Component{
     );
   }
 
-  _greeting({ currentUser, logout }){
+  greeting({ currentUser, logout }){
     currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
   }
 
-  _handleTitleClick(){
+  handleTitleClick(){
     hashHistory.push('/');
   }
 
 
-  _handleDrop(e){
+  handleDrop(e){
     e.stopPropagation();
     if (this.state.dropDownClass === 'show'){
       this.setState({ dropDownClass: 'hide', mainNavClass: 'no-overflow'})
@@ -70,23 +74,54 @@ export default class NavBar extends React.Component{
     }
   }
 
-  _handleChange(){
+  handleChange(e){
+    this.setState({ query: e.target.value,
+                    results: [],
+                    toggleSearch: 'show-search-results',
+                    leftArrow: 'button-off'
+                  });
 
   }
 
-  _handleScroll(){
+  onSubmit(e){
+    e.preventDefault();
+
 
   }
 
-  _toggleSearch(){
+  handleScroll(){
 
   }
 
-  _userLoggedIn(){
+  searchProjects(query){
+    debugger
+  }
+
+  toggleSearch(){
+
+    if (this.state.searchNavClass.slice(0,3) === 'top'){
+      this.setState({ searchNavClass: 'bottom search-nav',
+      navLinksClass: 'off nav-links',
+      mainNavClass: 'no-overflow',
+      searchClass: 'just-right'})
+    this.searchField.focus();
+  } else {
+    this.setState({searchNavClass: 'top-search-nav',
+                   searchClass: 'way-left',
+                   navLinksClass: 'bottom nav-links',
+                   results: [],
+                   query: "",
+                   leftArrow: "button-off",
+                   rightArrow: "button-off"
+                 })
+              }
+          }
+
+  userLoggedIn(){
     return this.props.currentUser !== null;
   }
 
-  _logoutUser(e){
+  logoutUser(e){
     e.preventDefault();
     this.props.logout();
   }
@@ -94,17 +129,17 @@ export default class NavBar extends React.Component{
 
 
   render(){
-    const navLinks = this._userLoggedIn() ?
+    const navLinks = this.userLoggedIn() ?
     (
         <div className="nav-right">
           <div className="nav-filler-a"></div>
-          <span onClick={this._handleHeaderClick}>
+          <span onClick={this.toggleSearch}>
             <i id="mag" className="clickable material-icons">search</i>
           </span>
           <div className="drop-down-button">
             <img src="https://ksr-ugc.imgix.net/missing_user_avatar.png?w=40&h=40&fit=crop&v=&auto=format&q=92&s=8c0db61c92692000c2678b375fc31714"
-               onClick={this._handleDrop}className="user-avatar"/>
-              <div className={this.state.dropDownClass} onMouseLeave={this._mouseDrop}>
+               onClick={this.handleDrop}className="user-avatar"/>
+              <div className={this.state.dropDownClass} onMouseLeave={this.mouseDrop}>
                 <div className="my-projects">
                   <h3>My Projects</h3>
                   <ul>Here they are!</ul>
@@ -112,7 +147,7 @@ export default class NavBar extends React.Component{
                 <div className="user-options">
                   <h3>Settings</h3>
                   <ul>
-                    <li className="logout drop-li" onClick={this._logoutUser}>Logout</li>
+                    <li className="logout drop-li" onClick={this.logoutUser}>Logout</li>
                   </ul>
                 </div>
               </div>
@@ -121,7 +156,7 @@ export default class NavBar extends React.Component{
         ) : (
           <div className="nav-right">
             <div className="nav-filler-b"></div>
-            <span id="mag" onClick={this._toggleSearch}><i className="material-icons">search</i></span>
+            <span id="mag" onClick={this.toggleSearch}><i className="material-icons">search</i></span>
             <span><Link to={'/login'} className="nav-link">Log In</Link></span>
             <span><Link to={'/signup'} className="nav-link">Sign Up</Link></span>
           </div>
@@ -135,20 +170,20 @@ export default class NavBar extends React.Component{
               <div className="nav-left">
                 <div className="search-container">
                   <div className={this.state.searchClass}>
-                    <form className="search-form" onSubmit={this._onSubmit}>
+                    <form className="search-form" onSubmit={this.searchProjects}>
                       <i id="fred" className="material-icons">search</i>
                       <input type="text"
                              className="search-field"
                              placeholder="Search"
                              value={this.state.query}
-                             onChange={this._handleChange}
+                             onChange={this.handleChange}
                              ref={(ref) => this.searchField = ref} />
 
                     </form>
                   </div>
                 </div>
               </div>
-              <div className="nav-right" onClick={this._toggleSearch}>
+              <div className="nav-right" onClick={this.toggleSearch}>
                 <i className="fa fa-times" aria-hidden="true"></i>
               </div>
             </div>
@@ -177,7 +212,7 @@ export default class NavBar extends React.Component{
                 </div>
               </div>
               <div className="logo"
-                onClick={this._handleTitleClick}>
+                onClick={this.handleTitleClick}>
                 <h1 className="header-h1">
                   Crank
                   <span className="header-span">
@@ -193,14 +228,14 @@ export default class NavBar extends React.Component{
           <div className="s-results-outer">
             <div className={this.state.leftArrow}
                  id="left-arrow"
-                 onClick={this._handleScroll(1)}>
+                 onClick={this.handleScroll(1)}>
               <i className="fa fa-chevron-left" aria-hidden="true"></i>
             </div>
             <h2>Search Results here</h2>
 
             <div className={this.state.rightArrow}
                  id="right-arrow"
-                 onClick={this._handleScroll(-1)}>
+                 onClick={this.handleScroll(-1)}>
               <i className='fa fa-chevron-right' aria-hidden='true'></i>
             </div>
           </div>

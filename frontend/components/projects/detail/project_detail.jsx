@@ -44,6 +44,7 @@ export default class ProjectDetail extends React.Component{
       <div className="project-detail">
         <div className="project-header">
           <div className="author-info">
+            <img className="user-avatar" src="https://ksr-ugc.imgix.net/missing_user_avatar.png?w=40&h=40&fit=crop&v=&auto=format&q=92&s=8c0db61c92692000c2678b375fc31714"/>
             <h3>By {projectDetail.user.username}</h3>
           </div>
             <div className="title-blurb-container">

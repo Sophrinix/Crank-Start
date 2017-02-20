@@ -14,14 +14,14 @@ import ProjectFormContainer from './projects/form/project_form_container';
 
 const Root = ({ store }) => {
 
-  const _ensureLoggedIn = (nextState, replace) => {
+  const ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
       replace('/login');
     }
   };
 
-  const _redirectIfLoggedIn = (nextState, replace) => {
+  const redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
       replace('/');
@@ -33,8 +33,8 @@ const Root = ({ store }) => {
       <Router history={hashHistory} onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={App}>
           <IndexRoute component={ProjectIndexContainer}/>
-          <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+          <Route path="/login" component={LoginFormContainer} onEnter={redirectIfLoggedIn} />
+          <Route path="/signup" component={SessionFormContainer} onEnter={redirectIfLoggedIn} />
           <Route path="/projects" component={ProjectIndexContainer}/>
           <Route path="/projects/new" component={ProjectFormContainer} />
           <Route path="/projects/:projectId" component={ProjectDetailContainer} />
