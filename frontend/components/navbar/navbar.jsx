@@ -47,18 +47,6 @@ export default class NavBar extends React.Component{
   );
   }
 
-  personalGreeting(currentUser, logout){
-    return (
-  	<hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.username}!</h2>
-      <button className="header-button" onClick={logout}>Log Out</button>
-  	</hgroup>
-    );
-  }
-
-  greeting({ currentUser, logout }){
-    currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
-  }
 
   handleTitleClick(){
     hashHistory.push('/');
