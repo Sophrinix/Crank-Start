@@ -16,7 +16,8 @@ export default class ProjectForm extends React.Component{
       author_id: parseInt(store.getState().session.currentUser.id),
       city: '',
       state: '',
-      complete: 'false'
+      complete: 'false',
+      errors: ""
 
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -58,39 +59,92 @@ export default class ProjectForm extends React.Component{
         <div className="project-form">
         <form className="project-form" onSubmit={this.handleSubmit}>
           <ul>
-          <label> Give your project a title:
-          <input
-            type="text"
-            placeholder="title..."
-            onChange={this.update("title")}
-            value={this.state.title} />
-          </label>
-          <label>
-            Your permanent residence
-            <CountryDropdown
-              value={"country"}
-              onChange={(val) => this.selectCountry(val)}/>
-          </label>
-          <label>
-            Short blurb
-            <textarea name='blurb-text'
-              rows="10" cols="50"></textarea>
-          </label>
-          <label>
-            <input
-              type="text"
-              value={30}/>
-          </label>
-          <label>
-            Funding goal
-            <input
-              type="text"
-              placeholder={"$0"}/>
-          </label>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label>Wish title</label></div>
+                <div className="form-wrapper">
+                  <input type="text"
+                         placeholder="title"
+                         onChange={this.update("title")}
+                         value={this.state.title} />
+                 </div>
+               </div>
+            </li>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label>Wish Blurb</label></div>
+                <div className="form-wrapper">
+                  <textarea
+                         className="blurb-input"
+                         rows="4"
+                         cols="60"
+                         onChange={this.update("blurb")}
+                         value={this.state.blurb}></textarea>
+                </div>
+              </div>
+            </li>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label>Write a more detailed description of your project here</label></div>
+                <div className="form-wrapper">
+                  <textarea
+                         className="content-input"
+                         rows="10"
+                         cols="60"
+                         onChange={this.update("about")}
+                         value={this.state.about}></textarea>
+                </div>
+              </div>
+            </li>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label>Wish Location</label></div>
+                <div className="form-wrapper">
+                  <input type="text"
+                         id="project-city"
+                         placeholder="City"
+                         onChange={this.update("city")}
+                         value={this.state.city} />,
+                  <input type="text"
+                         placeholder="State"
+                         id="project-state"
+                         onChange={this.update("state")}
+                         value={this.state.state} />
+                </div>
+              </div>
+            </li>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label>Project Duration</label></div>
+                <div className="form-wrapper">
+                  <input type="number"
+                         onChange={this.update("duration")}
+                         className="n-input"
+                         placeholder="30"
+                         value={this.state.duration} />
+                </div>
+              </div>
+            </li>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label> How much funding do you hope to raise?</label></div>
+                <div className="form-wrapper">
+                  $<input type="number"
+                         placeholder="0"
+                         className="n-input"
+                         onChange={this.update("funding_goal")}
+                         value={this.state.funding_goal} />
+                </div>
+              </div>
+            </li>
+              <h5 className="project-error-message">{this.state.errors}</h5>
+              <li className="project-form-li">
+                <input type="submit" value="Crank Start it!" className="form-submit-button"/>
+              </li>
           </ul>
         </form>
       </div>
     </div>
-    )
+  );
   }
 }
