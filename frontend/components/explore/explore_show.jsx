@@ -1,31 +1,24 @@
 import React from 'react';
-import {Link, hashHistory } from 'react-router';
 import ProjectIndexItem from '../projects/index/project_index_item';
 
 export default class ExploreShow extends React.Component {
   constructor(props) {
     super(props);
-    this.onClickLinkToShowProject = this.onClickLinkToShowProject.bind(this);
   }
 
   componentWillMount() {
     this.props.categorySearch(this.props.params.category);
   }
 
-  onClickLinkToShowProject(idx) {
-    return () => {
-      hashHistory.push(`/projects/${idx}`);
-    };
-  }
-
-
-
 
   render() {
     const {projects} = this.props;
-    debugger
     if (!Object.keys(projects).length){
-      return (<div></div>)
+      return (
+        <div>
+          <h2>There don't appear to be any projects of that ilk, feel like starting one?</h2>
+        </div>
+      );
     }
     return (
         <div>

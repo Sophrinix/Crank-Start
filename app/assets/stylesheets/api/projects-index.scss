@@ -13,6 +13,48 @@
 
 }
 
+.special > .index-item-container {
+  display: flex;
+  flex-direction: row;
+  width: 850px;
+  height: 390px;
+}
+
+.special > .index-item-container > .img-container {
+  width: 65%;
+  height: 60%;
+  object-fit: contain;
+  margin: 15px;
+}
+
+.special > .index-item-image {
+  width: 400px;
+  overflow: visible;
+}
+
+.special > .index-item-title {
+  color: #020621;
+}
+
+.special > .index-item-title:hover {
+  color: #060F46;
+}
+
+.special > .project-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.special > .project-detail > .project-status {
+  padding-left: 10px;
+  color: #3D3D66;
+}
+
+.special > .index-item-description {
+
+}
+
 
 .projects-index {
   display: flex;

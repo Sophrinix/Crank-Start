@@ -12,6 +12,7 @@ Bugs and to-dos as of 2/18:
   - add categories to database
 
 -add user backed projects???
+-is time remaining going backwards??
 
 
 <form className="search-form" onSubmit={this.searchProjects}> ///was previously on line 189 of navbar.jsx

@@ -38,6 +38,7 @@ export default class ProjectIndexItem extends React.Component{
              onClick={this.linkToDetail}>
           <img className="index-item-image" src={project.img_url}/>
         </div>
+        <div className="project-detail">
         <div className="description-element">
           <div className="index-item-title"
                onClick={this.linkToDetail}>{project.title}</div>
@@ -61,6 +62,7 @@ export default class ProjectIndexItem extends React.Component{
                       <div className="stat-item">days to go</div></li>
                 </ul>
           </div>
+        </div>
       </div>
     );
   }

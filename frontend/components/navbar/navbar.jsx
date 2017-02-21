@@ -202,20 +202,6 @@ export default class NavBar extends React.Component{
               </div>
             </div>
           </nav>
-          <div className="s-results-outer">
-            <div className={this.state.leftArrow}
-                 id="left-arrow"
-                 onClick={this.handleScroll(1)}>
-              <i className="fa fa-chevron-left" aria-hidden="true"></i>
-            </div>
-            <h2>Search Results here</h2>
-
-            <div className={this.state.rightArrow}
-                 id="right-arrow"
-                 onClick={this.handleScroll(-1)}>
-              <i className='fa fa-chevron-right' aria-hidden='true'></i>
-            </div>
-          </div>
         </div>
       );
     }

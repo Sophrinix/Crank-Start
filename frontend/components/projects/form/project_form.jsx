@@ -4,6 +4,7 @@ import { CountryDropdown } from 'react-country-region-selector';
 
 export default class ProjectForm extends React.Component{
   constructor(props){
+    debugger
     super(props);
     this.state = {
       title: '',
@@ -11,7 +12,12 @@ export default class ProjectForm extends React.Component{
       about: '',
       img_url: '',
       funding_goal: '',
-      duration: ''
+      duration: '',
+      author_id: parseInt(store.getState().session.currentUser.id),
+      city: '',
+      state: '',
+      complete: 'false'
+
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,11 +48,16 @@ export default class ProjectForm extends React.Component{
 
   render(){
     return (
-      <section>
+      <div className="parent-div">
+        <div className='form-title'>
+          <h2 className="hh2">Get involved!</h2>
+          </div>
         <ul>
           {this.displayErrors()}
         </ul>
+        <div className="project-form">
         <form className="project-form" onSubmit={this.handleSubmit}>
+          <ul>
           <label> Give your project a title:
           <input
             type="text"
@@ -76,9 +87,10 @@ export default class ProjectForm extends React.Component{
               type="text"
               placeholder={"$0"}/>
           </label>
-
+          </ul>
         </form>
-      </section>
+      </div>
+    </div>
     )
   }
 }
