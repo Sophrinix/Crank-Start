@@ -9,7 +9,7 @@ export default class ReactIndexItem extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="reward">
       <h2 className="pledge-amt">Pledge ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.name}</h3>
       <div className="reward-item-desc">{this.props.reward.description}</div>

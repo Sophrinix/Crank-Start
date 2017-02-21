@@ -1,6 +1,7 @@
 import { merge } from 'lodash';
 
-import { RECEIVE_PROJECT, RECEIVE_NEW_PROJECT } from '../actions/project_actions';
+import { RECEIVE_PROJECT,
+   RECEIVE_NEW_PROJECT } from '../actions/project_actions';
 
 const defaultProject = {
   title: '',
@@ -13,7 +14,8 @@ const defaultProject = {
   state: '',
   funding_goal: '',
   funding: 0,
-  complete: false
+  complete: false,
+  img_url: ''
 
 };
 export default (state = defaultProject, action) => {

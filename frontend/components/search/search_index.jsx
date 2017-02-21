@@ -7,8 +7,11 @@ export default class SearchIndex extends React.Component{
   }
 
 
+  ///add selector to this
+
   render(){
     const projects = this.props.searchResult
+    debugger
     return (
         <div>
 

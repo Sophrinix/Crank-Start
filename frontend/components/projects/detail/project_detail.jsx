@@ -53,7 +53,7 @@ export default class ProjectDetail extends React.Component{
             </div>
           </div>
           <div className="img-stats-detail">
-            <h1 className="detail-image">IMAGE GOES HERE</h1>
+            <img className="detail-image" src={projectDetail.img_url}/>
             <div className="detail-stats-list">
               <ul className="project-stats-detail">
                     <div className="percent-complete-detail" style={progressBar}></div>
@@ -69,13 +69,14 @@ export default class ProjectDetail extends React.Component{
             </div>
           </div>
           <div className="project-main">
-            <section>
+            <div className="project-about">
+              <h2>About this project</h2>
               {projectDetail.about}
-            </section>
+            </div>
+            <div className="rewards-side-bar">
+              <RewardsIndex rewards={projectDetail.rewards}/>
+            </div>
           </div>
-        <div className="rewards-side-bar">
-          <RewardsIndex rewards={projectDetail.rewards}/>
-        </div>
       </div>
     );
   }
