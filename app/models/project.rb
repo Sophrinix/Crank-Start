@@ -1,13 +1,18 @@
 class Project < ApplicationRecord
   include PgSearch
 
-  validates :title, :img_url, :about, :funding_goal, :duration, :author_id, presence: true
+  validates :title, :img_url, :about, :funding_goal, :duration, :author_id, :category_id, presence: true
 
 
   belongs_to :user,
     primary_key: :id,
     foreign_key: :author_id,
     class_name: "User"
+
+  belongs_to :category,
+    primary_key: :id,
+    foreign_key: :category_id,
+    class_name: "Category"
 
   has_many :rewards,
   primary_key: :id,

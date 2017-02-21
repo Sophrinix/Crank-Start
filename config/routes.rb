@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :users, only: [:create]
     resources :searches, only: [:index]
+    resources :categories, only: [:index]
     resources :projects do
       resources :rewards, only: [:index]
     end

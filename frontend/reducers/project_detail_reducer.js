@@ -10,14 +10,15 @@ const defaultProject = {
   created_at: '',
   duration: '',
   author_id: '',
+  category_id: '',
   city: '',
   state: '',
   funding_goal: '',
   funding: 0,
   complete: false,
   img_url: ''
-
 };
+
 export default (state = defaultProject, action) => {
   Object.freeze(state);
   switch(action.type){

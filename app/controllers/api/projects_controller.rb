@@ -30,6 +30,7 @@ class Api::ProjectsController < ApplicationController
     :blurb,
     :about,
     :author_id,
+    :category_id,
     :duration,
     :funding,
     :created_at,

@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Project.delete_all
+Reward.delete_all
+Category.delete_all
 
 User.create!(
   username: 'jamebonnet',
@@ -21,6 +23,14 @@ password: "super_groovy"
 )
 
 
+category1 = Category.create(name: 'Special Needs')
+category2 = Category.create(name: 'Career Preparation')
+category3 = Category.create(name: 'Health and Wellness')
+category4 = Category.create(name: 'Seniors')
+category5 = Category.create(name: "Community Centers")
+category6 = Category.create(name: "Housing Advocacy")
+
+
 Project.create!(
   title: 'Computer Literacy Class',
   blurb: "Computer literacy for all!",
@@ -32,6 +42,7 @@ Project.create!(
   duration: "30",
   created_at: DateTime.strptime("02/05/2017 17:00", "%m/%d/%Y %H:%M"),
   author_id: User.first.id,
+  category_id: Category.first.id,
   city: "Brooklyn",
   state: "NY"
 )
@@ -47,6 +58,7 @@ Project.create!(
   duration: "30",
   created_at: DateTime.strptime("02/01/2017 15:00", "%m/%d/%Y %H:%M"),
   author_id: User.last.id,
+  category_id: Category.last.id,
   city: "Bronx",
   state: "NY"
 )
@@ -62,8 +74,30 @@ Project.create!(
   duration: "30",
   created_at: DateTime.strptime("01/25/2017 10:00", "%m/%d/%Y %H:%M"),
   author_id: User.first.id,
+  category_id: Category.last.id,
   city: "Queens",
   state: "NY"
+)
+
+Reward.create!(
+  name: "A hat",
+  amount: 10,
+  description: "A free hat if you contribute",
+  project_id: Project.last.id
+)
+
+Reward.create!(
+  name: "A bean",
+  amount: 30,
+  description: "A free bean if you contribute",
+  project_id: Project.last.id
+)
+
+Reward.create!(
+  name: "A cup!",
+  amount: 50,
+  description: "A free cup if you contribute",
+  project_id: Project.last.id
 )
 
 Reward.create!(
