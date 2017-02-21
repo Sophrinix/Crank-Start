@@ -7,4 +7,11 @@ class Api::SearchesController < ApplicationController
     end
   end
 
+  def category_search(category)
+    @projects = Project.category_search(params[:category])
+    if @projects
+      render 'api/projects/index'
+    end
+  end
+
 end

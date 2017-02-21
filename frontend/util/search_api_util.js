@@ -6,13 +6,11 @@ export const fetchProjectSearch = (query) => {
   });
 };
 
-export const fetchCategorySearch = (queryString, success, error) => {
-  $.ajax({
-    url: '/searches/category_search',
+export const fetchCategorySearch = (query) => {
+  debugger
+  return $.ajax({
+    url: '/api/searches/category_search',
     method: 'GET',
-    data: { category: queryString },
-    success: success,
-    error: error
-
+    data: { category: query },
   });
 }

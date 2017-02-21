@@ -12,6 +12,7 @@ const searchReducer = (state = defaultState, action) => {
     case RECEIVE_SEARCH_PROJECT:
       return { projects: action.projects }
     case RECEIVE_CATEGORY_SEARCH:
+      debugger
       return {category_projects: action.projects };
     case CLEAR_SEARCH_RESULT:
       newState = merge({}, state, {});

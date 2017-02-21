@@ -21,8 +21,10 @@ class Project < ApplicationRecord
 
    pg_search_scope :search_by_title, :against => [:title]
 
-   def self.search(params)
-     self.search_by_title(params)
-   end
+   pg_search_scope :category_search, :associated_against => {category: :name}
+
+  def self.search(params)
+    self.search_by_title(params)
+  end
 
 end
