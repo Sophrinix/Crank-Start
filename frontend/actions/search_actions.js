@@ -16,10 +16,10 @@ export const receiveSearchProject = (projects) => ({
   projects
 });
 
-export const categorySearch = (category) => ({
-  type: CATEGORY_SEARCH,
-  category
-});
+export const categorySearch = (category) => (dispatch) => (
+  APIUtil.fetchCategorySearch(category)
+  .then(projects => dispatch(receiveCategorySearch(projects)))
+);
 
 export const receiveCategorySearch = (projects) => ({
   type: RECEIVE_CATEGORY_SEARCH,

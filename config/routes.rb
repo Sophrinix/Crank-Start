@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     resources :rewards, except: [:edit, :update, :index]
   end
 
+  resource :pledge, only: [:create], :format => 'json'
+  get 'searches/category_search' => 'api/searches#category_search', :format => 'json'
+
   root "static_pages#root"
 end

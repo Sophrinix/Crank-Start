@@ -7,9 +7,8 @@ export const fetchProjectSearch = (query) => {
 };
 
 export const fetchCategorySearch = (query) => {
-  debugger
   return $.ajax({
-    url: '/api/searches/category_search',
+    url: '/searches/category_search',
     method: 'GET',
     data: { category: query },
   });

@@ -11,7 +11,6 @@ export default class SearchIndex extends React.Component{
 
   render(){
     const projects = this.props.searchResult
-    debugger
     return (
         <div>
 
