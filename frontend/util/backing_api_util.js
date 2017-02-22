@@ -3,7 +3,7 @@ export const createBacking = (backing) => {
     $.ajax({
       method: "POST",
       url: '/api/backings',
-      data: backing
+      data: { backing }
     })
   )
 }

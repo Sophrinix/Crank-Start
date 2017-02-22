@@ -12,13 +12,6 @@ export const fetchProject = (projectId) => {
   });
 };
 
-export const createComment = (comment) => {
-  return $.ajax({
-    method: 'POST',
-    url: 'api/comments',
-    data: comment
-  });
-};
 
 export const createProject = (project) => {
   return $.ajax({

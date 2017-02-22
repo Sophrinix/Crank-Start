@@ -7,8 +7,8 @@ export default class RewardIndexItem extends React.Component{
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      userId : this.props.currentUser.id,
-      rewardId: this.props.reward.reward_id
+      reward_id: this.props.reward.reward_id,
+      backer_id : this.props.currentUser.id
     };
   }
 
@@ -16,7 +16,10 @@ export default class RewardIndexItem extends React.Component{
 
   handleClick(e){
     e.preventDefault();
-    if (this.state.userId){
+    const amount = this.props.reward.amount;
+    debugger
+    this.props.contributeFunding(amount);
+    if (this.state.backer_id){
       this.props.createBacking(this.state)
     } else {
       console.log('log in!');

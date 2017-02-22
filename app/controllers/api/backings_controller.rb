@@ -5,6 +5,6 @@ class Api::BackingsController < ApplicationController
   end
 
   def backing_params
-    params.require(:backing).permit(:userId, :rewardId)
+    params.require(:backing).permit(:reward_id, :backer_id)
   end
 end
