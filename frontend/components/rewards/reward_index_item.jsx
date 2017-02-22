@@ -19,7 +19,7 @@ export default class RewardIndexItem extends React.Component{
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.name}</h3>
       <div className="reward-item-desc">{this.props.reward.description}</div>
-      <div className="reward-item-backers">{this.props.reward.backers} backers</div>
+      <div className="reward-item-backers">{this.props.reward.backers.length} backers</div>
       </div>
     )
   }
