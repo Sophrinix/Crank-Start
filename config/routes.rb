@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :rewards, only: [:index]
     end
     resources :rewards, except: [:edit, :update, :index]
+    resources :backings, only: [:create]
   end
 
   resource :pledge, only: [:create], :format => 'json'

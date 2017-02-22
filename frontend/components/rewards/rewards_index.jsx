@@ -10,6 +10,7 @@ export default class RewardIndex extends React.Component{
     if (!this.props.rewards){
       return (<div><h1>No rewards yet</h1></div>)
     };
+    debugger
     return (
       <div>
         <h2>Rewards</h2>

@@ -1,2 +1,0 @@
-class BackingsController < ApplicationController
-end

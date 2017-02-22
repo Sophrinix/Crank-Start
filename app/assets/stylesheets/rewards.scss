@@ -1,3 +1,52 @@
 // Place all the styles related to the Rewards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.header-sidebar, .reward-sidebar {
+  width: 31%;
+  padding: 0px 10px 0px 10px
+}
+.reward-sidebar {
+  float: right;
+}
+
+
+.reward-index-item, .purchase-info-pane {
+  background-color: #f8f9fd;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  padding: 20px;
+  border: thin solid rgba(211, 224, 253, 0.95)
+}
+
+.reward-index-item:hover {
+  cursor: pointer;
+}
+
+.pledge-amt {
+  color: #586BE9;
+  font-weight: 400;
+  font-size: 17px;
+  margin: 0px 0px 10px 0px;
+}
+
+.reward-item-backers {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px 0px 10px 0px;
+}
+
+.reward-item-name {
+  font-weight: 300;
+  margin: 0px 0px 10px 0px;
+  font-size: 15px;
+}
+
+.reward-item-desc {
+  margin: 0px 0px 10px 0px;
+  font-size: 14px;
+  line-height: 150%;
+  color: #aaa;
+}
