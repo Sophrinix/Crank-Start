@@ -3,7 +3,7 @@ import RewardIndexItem from './reward_index_item';
 import { createBacking } from '../../actions/backing_actions'
 
 const mapStateToProps = (state) => ({
-  session: state.session.currentUser
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

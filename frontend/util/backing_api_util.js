@@ -1,5 +1,4 @@
 export const createBacking = (backing) => {
-  debugger
   return (
     $.ajax({
       method: "POST",

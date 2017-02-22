@@ -7,7 +7,7 @@ export default class RewardIndexItem extends React.Component{
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      userId : window.currentUser.id,
+      userId : this.props.currentUser.id,
       rewardId: this.props.reward.reward_id
     };
   }
@@ -16,7 +16,6 @@ export default class RewardIndexItem extends React.Component{
 
   handleClick(e){
     e.preventDefault();
-    debugger
     if (this.state.userId){
       this.props.createBacking(this.state)
     } else {

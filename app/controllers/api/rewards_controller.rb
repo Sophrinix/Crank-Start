@@ -22,7 +22,7 @@ class Api::RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:amount, :name, :description, :project_id)
+    params.require(:reward).permit(:amount, :name, :description, :project_id, :backers)
   end
-  
+
 end

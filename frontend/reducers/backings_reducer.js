@@ -9,7 +9,6 @@ const BackingsReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_NEW_BACKING:
       const newBacking = {[action.backing.id]: action.backing}
-      debugger
       return merge({}, state, newBacking);
     case RECEIVE_BACKING_ERRORS:
       const errors = action.errors;

@@ -1,7 +1,6 @@
 class Api::BackingsController < ApplicationController
 
   def create
-    byebug
     @backing = Backing.new(backing_params)
   end
 
