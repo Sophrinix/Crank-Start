@@ -3,6 +3,9 @@ class Project < ApplicationRecord
 
   validates :title, :img_url, :about, :funding_goal, :duration, :author_id, :category_id, presence: true
 
+  has_attached_file :image, default_url: "https://ksr-ugc.imgix.net/missing_user_avatar.png?w=40&h=40&fit=crop&v=&auto=format&q=92&s=8c0db61c92692000c2678b375fc31714"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
 
   belongs_to :user,
     primary_key: :id,

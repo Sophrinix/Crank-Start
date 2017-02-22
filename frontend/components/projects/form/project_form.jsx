@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { CountryDropdown } from 'react-country-region-selector';
+import { categories } from '../../../util/api_constants';
 
 export default class ProjectForm extends React.Component{
   constructor(props){
@@ -16,10 +17,12 @@ export default class ProjectForm extends React.Component{
       city: '',
       state: '',
       complete: 'false',
-      errors: ""
+      category: '',
+      errors: ''
 
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getCategories = this.getCategories.bind(this);
   }
 
   handleSubmit(e){
@@ -46,6 +49,19 @@ export default class ProjectForm extends React.Component{
     }
   }
 
+  getCategories(){
+    const keys = Object.keys(categories);
+    const categoriesList = keys.map((key, idx) => {
+      const category = categories[key];
+      const link = `/explore/categories/${category}`;
+      return (
+        <li>{category}</li>
+      );
+    });
+    return <ul>{categoriesList}</ul>
+  }
+
+
   render(){
     return (
       <div className="parent-div">
@@ -63,7 +79,6 @@ export default class ProjectForm extends React.Component{
                 <div className="label-wrapper"><label>Wish title</label></div>
                 <div className="form-wrapper">
                   <input type="text"
-                         placeholder="title"
                          onChange={this.update("title")}
                          value={this.state.title} />
                  </div>
@@ -71,7 +86,7 @@ export default class ProjectForm extends React.Component{
             </li>
             <li className="project-form-li">
               <div className="form-item">
-                <div className="label-wrapper"><label>Wish Blurb</label></div>
+                <div className="label-wrapper"><label>Write a short blurb about your project here</label></div>
                 <div className="form-wrapper">
                   <textarea
                          className="blurb-input"
@@ -128,11 +143,23 @@ export default class ProjectForm extends React.Component{
               <div className="form-item">
                 <div className="label-wrapper"><label> How much funding do you hope to raise?</label></div>
                 <div className="form-wrapper">
-                  $<input type="number"
-                         placeholder="0"
+                  <input type="number"
+                         placeholder="$0"
                          className="n-input"
                          onChange={this.update("funding_goal")}
                          value={this.state.funding_goal} />
+                </div>
+              </div>
+            </li>
+            <li className="project-form-li">
+              <div className="form-item">
+                <div className="label-wrapper"><label> Select a category for your project</label></div>
+                <div className="form-wrapper">
+                  $<input type="text"
+                         placeholder="Category goes here"
+                         className="n-input"
+                         onChange={this.update("category")}
+                         value={this.state.category} />
                 </div>
               </div>
             </li>

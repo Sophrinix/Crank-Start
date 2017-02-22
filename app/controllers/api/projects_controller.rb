@@ -36,7 +36,8 @@ class Api::ProjectsController < ApplicationController
     :created_at,
     :completed,
     :funding_goal,
-    :img_url
+    :img_url,
+    :image
     )
   end
 end
