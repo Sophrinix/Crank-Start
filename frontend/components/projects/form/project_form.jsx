@@ -4,7 +4,6 @@ import { CountryDropdown } from 'react-country-region-selector';
 
 export default class ProjectForm extends React.Component{
   constructor(props){
-    debugger
     super(props);
     this.state = {
       title: '',
