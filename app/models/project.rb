@@ -22,9 +22,12 @@ class Project < ApplicationRecord
   foreign_key: :project_id,
   class_name: "Reward"
 
-   pg_search_scope :search_by_title, :against => [:title]
+  has_many :backings, through: :rewards
+  has_many :backers, through: :backings, source: :backer
 
-   pg_search_scope :category_search, :associated_against => {category: :name}
+  pg_search_scope :search_by_title, :against => [:title]
+
+  pg_search_scope :category_search, :associated_against => {category: :name}
 
   def self.search(params)
     self.search_by_title(params)

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6, allow_nil: true }
 
   attr_reader :password
+  after_initialize :ensure_session_token
 
   ###add associations after making models
   has_many :projects,
@@ -10,11 +11,15 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: "Project"
 
-  # has_many :rewards
-  # has_many :comments
-  # has_many :contributions
+  has_many :backings,
+  primary_key: :id,
+  foreign_key: :backer_id,
+  class_name: "Backing"
 
-  after_initialize :ensure_session_token
+  has_many :rewards, through: :backings
+  has_many :comments
+  has_many :contributions
+
 
 	def self.find_by_credentials username, password
 		user = User.find_by(username: username)
