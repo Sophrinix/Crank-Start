@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20170222214536) do
 
   create_table "rewards", force: :cascade do |t|
     t.integer  "project_id",  null: false
-    t.integer  "receiver_id", null: false
     t.string   "title",       null: false
     t.string   "body",        null: false
     t.string   "name"
