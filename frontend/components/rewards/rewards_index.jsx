@@ -1,5 +1,5 @@
 import React from 'react';
-import RewardIndexItem from './reward_index_item';
+import RewardIndexItem from './rewards_item_container';
 
 export default class RewardIndex extends React.Component{
   constructor(props){

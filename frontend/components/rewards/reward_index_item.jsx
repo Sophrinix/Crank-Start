@@ -1,16 +1,27 @@
 import React from 'react';
 import { hashHistory } from 'react-router'
-import * as APIUtil from '../../util/project_api_util';
+import { getCurrentUser } from '../../reducers/selectors'
 
 export default class RewardIndexItem extends React.Component{
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      userId : window.currentUser.id,
+      rewardId: this.props.reward.reward_id
+    };
   }
 
-  handleClick(){
-    const amtContributed = this.props.reward.amount
-    this.props.contributeFunding(amtContributed);
+
+
+  handleClick(e){
+    e.preventDefault();
+    debugger
+    if (this.state.userId){
+      this.props.createBacking(this.state)
+    } else {
+      console.log('log in!');
+    }
   }
 
   render(){
