@@ -19,6 +19,14 @@ json.user do
   json.username project.user.username
 end
 
+json.backers do
+  json.array! project.backers do |backer|
+    json.project project.title
+    json.user backer.username
+    json.email backer.email
+  end
+end
+
 json.rewards do
   json.array! project.rewards do |reward|
     json.project project.title
@@ -28,5 +36,6 @@ json.rewards do
     json.reward_id reward.id
     json.description reward.description
     json.amount reward.amount
+    json.backers reward.backers
   end
 end

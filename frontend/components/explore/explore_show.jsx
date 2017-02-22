@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectIndexItem from '../projects/index/project_index_item';
+import { Link } from 'react-router';
 
 export default class ExploreShow extends React.Component {
   constructor(props) {
@@ -16,7 +17,9 @@ export default class ExploreShow extends React.Component {
     if (!Object.keys(projects).length){
       return (
         <div>
-          <h2>There don't appear to be any projects of that ilk, feel like starting one?</h2>
+          <h2 className="index-sub-header">There don't appear to be any projects like that,
+            <Link to={"/projects/new"} className="nav-link">feel like starting one?</Link>
+          </h2>
         </div>
       );
     }

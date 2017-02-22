@@ -5,16 +5,29 @@ export default class ProjectDetail extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = { project: ""}
+    this.state = { project: "",
+                   funding: "",
+                   backers: {}}
+
+  this.contributeFunding = this.contributeFunding.bind(this);
   }
+
   componentDidMount(){
-    this.props.fetchProject(this.props.params.projectId);
+    this.props.fetchProject(this.props.params.projectId)
+    .then((action) => {
+      const projectFunding = action.project.funding
+      this.setState({funding: projectFunding})
+    });
   }
 
   componentWillReceiveProps(nextProps){
     if (this.props.params.projectId !== nextProps.params.projectId){
       this.props.fetchProject(nextProps.params.projectId);
     }
+  }
+
+  contributeFunding(amount) {
+    this.setState({funding: this.state.funding += amount})
   }
 
   getRemainingDays(dateCreated){
@@ -57,15 +70,13 @@ export default class ProjectDetail extends React.Component{
             <div className="detail-stats-list">
               <ul className="project-stats-detail">
                     <div className="percent-complete-detail" style={progressBar}></div>
-                    <li><div className='stats-detail' id='current-funding'>${projectDetail.funding}</div>
+                    <li><div className='stats-detail' id='current-funding'>${this.state.funding}</div>
                     <div className="stat-item-detail">pledged of ${projectDetail.funding_goal}</div></li>
-                    <li><div className='stats-detail'>2</div>
+                    <li><div className='stats-detail'>{projectDetail.backers.length}</div>
                     <div className="stat-item-detail">backers</div></li>
                     <li><div className='stats-detail'>{this.getRemainingDays(projectDetail.created_at)}</div>
                     <div className="stat-item-detail">days to go</div></li>
-
               </ul>
-              <button className="backing-button">Back this project</button>
             </div>
           </div>
           <div className="project-main">
@@ -74,7 +85,7 @@ export default class ProjectDetail extends React.Component{
               {projectDetail.about}
             </div>
             <div className="rewards-side-bar">
-              <RewardsIndex rewards={projectDetail.rewards}/>
+              <RewardsIndex contributeFunding={this.contributeFunding} project={projectDetail}/>
             </div>
           </div>
       </div>

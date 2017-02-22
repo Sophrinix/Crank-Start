@@ -9,6 +9,7 @@ User.delete_all
 Project.delete_all
 Reward.delete_all
 Category.delete_all
+Backing.delete_all
 
 User.create!(
   username: 'jamebonnet',
@@ -104,19 +105,39 @@ Reward.create!(
   name: "A hat",
   amount: 10,
   description: "A free hat if you contribute",
-  project_id: Project.last.id
+  project_id: Project.first.id
 )
 
 Reward.create!(
   name: "A bean",
   amount: 30,
   description: "A free bean if you contribute",
-  project_id: Project.last.id
+  project_id: Project.first.id
 )
 
 Reward.create!(
   name: "A cup!",
   amount: 50,
   description: "A free cup if you contribute",
-  project_id: Project.last.id
+  project_id: Project.first.id
+)
+
+Backing.create!(
+  reward_id: Reward.first.id,
+  backer_id: User.last.id
+)
+
+Backing.create!(
+  reward_id: Reward.last.id,
+  backer_id: User.first.id
+)
+
+Backing.create!(
+  reward_id: Reward.first.id,
+  backer_id: User.first.id
+)
+
+Backing.create!(
+  reward_id: Reward.last.id,
+  backer_id: User.last.id
 )

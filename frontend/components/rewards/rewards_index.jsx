@@ -7,18 +7,21 @@ export default class RewardIndex extends React.Component{
   }
 
   render(){
-    if (!this.props.rewards){
+    const rewards = this.props.project.rewards;
+    if (!rewards){
       return (<div><h1>No rewards yet</h1></div>)
     };
-    debugger
     return (
       <div>
         <h2>Rewards</h2>
         <ul>
-          {this.props.rewards.sort((x, y) => {
+          {rewards.sort((x, y) => {
             return x.amount - y.amount
           }).map(reward => {
-            return <li key={reward.reward_id}><RewardIndexItem reward={reward} /></li>
+            return <li key={reward.reward_id}>
+              <RewardIndexItem
+              contributeFunding={this.props.contributeFunding}
+              reward={reward}/> </li>
           })}
         </ul>
       </div>

@@ -22,6 +22,7 @@ class Project < ApplicationRecord
   foreign_key: :project_id,
   class_name: "Reward"
 
+
   has_many :backings, through: :rewards
   has_many :backers, through: :backings, source: :backer
 

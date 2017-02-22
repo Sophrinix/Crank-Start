@@ -9,8 +9,5 @@ class Backing < ApplicationRecord
   foreign_key: :backer_id,
   class_name: "User"
 
-  has_many :rewards, through: :backings
-  has_many :backed_projects, through: :rewards, source: :projects
-
 
 end
