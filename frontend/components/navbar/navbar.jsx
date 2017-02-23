@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, hashHistory} from 'react-router';
 import SearchContainer from '../search/search_container';
+import ProjectIndexContainer from '../projects/index/project_index_container';
 
 
 //NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
@@ -26,15 +27,20 @@ export default class NavBar extends React.Component{
     this.toggleSearch = this.toggleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.getUserProjects = this.getUserProjects.bind(this);
   }
 
 
 
   componentWillReceiveProps(){
-    this.state = {dropDownClass: 'hide',
+    this.setState({dropDownClass: 'hide',
                   results: [],
                   leftArrow: 'button-off',
-                  rightArrow: 'button-off'};
+                  rightArrow: 'button-off'});
+  }
+
+  componentDidMount(){
+    this.props.fetchUserProjects(this.props.currentUser.id);
   }
 
   sessionLinks() {
@@ -46,6 +52,19 @@ export default class NavBar extends React.Component{
     </nav>
   );
   }
+
+  getUserProjects(){
+    const { userProjects } = this.props
+    userProjects.map((project) => {
+      return (
+       <li key={project.id}>
+        <Link to={`/projects/${project.id}`}
+          onClick={this.handleDrop}>{project.title}</Link>
+      </li>
+    )
+    });
+  }
+
 
 
   handleTitleClick(){
@@ -77,10 +96,6 @@ export default class NavBar extends React.Component{
 
   }
 
-  handleScroll(){
-
-  }
-
 
   toggleSearch(){
 
@@ -108,7 +123,8 @@ export default class NavBar extends React.Component{
 
   logoutUser(e){
     e.preventDefault();
-    this.props.logout();
+    this.props.logout()
+    .then(() => hashHistory.push('/'));
   }
 
 
@@ -127,7 +143,7 @@ export default class NavBar extends React.Component{
               <div className={this.state.dropDownClass} onMouseLeave={this.mouseDrop}>
                 <div className="my-projects">
                   <h3>My Projects</h3>
-                  <ul>Here they are!</ul>
+                  <ul>{this.getUserProjects()}</ul>
                 </div>
                 <div className="user-options">
                   <h3>Settings</h3>

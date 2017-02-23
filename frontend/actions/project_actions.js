@@ -21,6 +21,11 @@ export const createProject = (project) => (dispatch) => (
   .then(project => dispatch(receiveProject(project)))
 );
 
+export const fetchUserProjects = (userId) => (dispatch) => (
+  APIUtil.fetchUserProjects(userId)
+  .then(projects => dispatch(receiveProjects(projects)))
+)
+
 export const receiveProjects = projects => ({
   type: RECEIVE_PROJECTS,
   projects

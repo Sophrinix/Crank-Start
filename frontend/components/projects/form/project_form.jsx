@@ -10,7 +10,8 @@ export default class ProjectForm extends React.Component{
       title: '',
       blurb: '',
       about: '',
-      img_url: '',
+      image: null,
+      imageUrl: null,
       funding_goal: '',
       duration: '',
       author_id: parseInt(store.getState().session.currentUser.id),
@@ -23,16 +24,42 @@ export default class ProjectForm extends React.Component{
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getCategories = this.getCategories.bind(this);
+    this.updateFile = this.updateFile.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.fetchCategories();
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createProject(this.state)
+    const formData = new FormData();
+    Object.keys(this.state).forEach(key => {
+      if (key !== "imageUrl" || key !== "errors") {
+        formData.append(`project[${key}]`, this.state[key])
+      }
+    })
+    this.props.createProject(formData)
     .then(project => this.props.router.push(`/projects/${project.id}`));
   }
 
   update(property){
     return (e) => this.setState({ [property]: e.target.value} );
+  }
+
+  updateFile(e){
+    debugger
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = function(){
+      debugger
+      this.setState({image: file,
+         imageUrl:fileReader.result})
+    }.bind(this);
+
+    if (file){
+      fileReader.readAsDataURL(file);
+    }
   }
 
   selectCountry(val){
@@ -50,15 +77,14 @@ export default class ProjectForm extends React.Component{
   }
 
   getCategories(){
-    const keys = Object.keys(categories);
-    const categoriesList = keys.map((key, idx) => {
-      const category = categories[key];
-      const link = `/explore/categories/${category}`;
+
+    if (this.props.categories.length > 0){
       return (
-        <li>{category}</li>
+        this.props.categories.map((category) => {
+          return (<option value ={category}>{category.value}</option>)
+        })
       );
-    });
-    return <ul>{categoriesList}</ul>
+    }
   }
 
 
@@ -73,10 +99,13 @@ export default class ProjectForm extends React.Component{
         </ul>
         <div className="project-form">
         <form className="project-form" onSubmit={this.handleSubmit}>
+          <input type="file"
+                 onChange={this.updateFile}
+                  />
           <ul>
             <li className="project-form-li">
               <div className="form-item">
-                <div className="label-wrapper"><label>Wish title</label></div>
+                <div className="label-wrapper"><label>Project title</label></div>
                 <div className="form-wrapper">
                   <input type="text"
                          onChange={this.update("title")}
@@ -84,6 +113,16 @@ export default class ProjectForm extends React.Component{
                  </div>
                </div>
             </li>
+            <div>
+              <li className="project-form-li">
+                <div className="form-item">
+                  <div className="label-wrapper"><label>Upload a picture for your project</label></div>
+                  <div className="form-wrapper">
+
+                   </div>
+                 </div>
+              </li>
+            </div>
             <li className="project-form-li">
               <div className="form-item">
                 <div className="label-wrapper"><label>Write a short blurb about your project here</label></div>
@@ -155,16 +194,14 @@ export default class ProjectForm extends React.Component{
               <div className="form-item">
                 <div className="label-wrapper"><label> Select a category for your project</label></div>
                 <div className="form-wrapper">
-                  $<input type="text"
-                         placeholder="Category goes here"
-                         className="n-input"
-                         onChange={this.update("category")}
-                         value={this.state.category} />
+                  {this.getCategories()}
+
                 </div>
               </div>
             </li>
               <h5 className="project-error-message">{this.state.errors}</h5>
               <li className="project-form-li">
+                <img src={this.state.imageUrl}/>
                 <input type="submit" value="Crank Start it!" className="form-submit-button"/>
               </li>
           </ul>

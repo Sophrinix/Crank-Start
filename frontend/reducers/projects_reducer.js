@@ -3,7 +3,7 @@ import {RECEIVE_PROJECTS,
        RECEIVE_ERRORS} from '../actions/project_actions';
 import merge from 'lodash/merge';
 
-const ProjectsReducer = (state = {}, action) => {
+const ProjectsReducer = (state = [], action) => {
   Object.freeze(state);
 
   switch(action.type){

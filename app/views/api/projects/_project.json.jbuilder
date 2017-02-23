@@ -16,6 +16,7 @@ json.category do
 end
 
 json.user do
+  json.id project.user.id
   json.email project.user.email
   json.username project.user.username
 end

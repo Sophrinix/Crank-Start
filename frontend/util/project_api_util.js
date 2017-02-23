@@ -15,9 +15,20 @@ export const fetchProject = (projectId) => {
 
 
 export const createProject = (project) => {
+  debugger
   return $.ajax({
     method: 'POST',
     url: 'api/projects',
-    data: { project }
+    data: project,
+    processData: false,
+    contentType: false
   });
 };
+
+export const fetchUserProjects = (userId) => {
+  debugger
+  return $.ajax({
+    method: 'GET',
+    url: `users/projects/{userId}`
+  });
+}

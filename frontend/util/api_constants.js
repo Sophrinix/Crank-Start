@@ -6,3 +6,10 @@ export const categories = {
   5: 'Community Centers',
   6: 'Housing Advocacy'
 }
+
+export const fetchCategories = () => {
+  return $.ajax({
+    method: "GET",
+    url: 'api/categories'
+  });
+}

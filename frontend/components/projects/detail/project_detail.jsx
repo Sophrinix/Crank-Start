@@ -52,9 +52,9 @@ export default class ProjectDetail extends React.Component{
 
 
 
-  getRemainingDays(dateCreated){
+  getRemainingDays(){
     const today = new Date();
-    const createdAt = new Date(dateCreated)
+    const createdAt = new Date(this.projectDetail.created_at)
     const timeDifference = Math.abs(createdAt.getTime() - today.getTime());
     return Math.ceil(timeDifference / (1000 * 3600 * 24));
   }
@@ -95,7 +95,7 @@ export default class ProjectDetail extends React.Component{
                     <div className="stat-item-detail">pledged of ${projectDetail.funding_goal}</div></li>
                     <li><div className='stats-detail'>{this.state.backers}</div>
                     <div className="stat-item-detail">backers</div></li>
-                    <li><div className='stats-detail'>{this.getRemainingDays(projectDetail.created_at)}</div>
+                    <li><div className='stats-detail'>{this.getRemainingDays}</div>
                     <div className="stat-item-detail">days to go</div></li>
               </ul>
             </div>
