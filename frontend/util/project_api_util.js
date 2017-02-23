@@ -13,6 +13,7 @@ export const fetchProject = (projectId) => {
 };
 
 
+
 export const createProject = (project) => {
   return $.ajax({
     method: 'POST',

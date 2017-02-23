@@ -20,7 +20,7 @@ export default class RewardIndex extends React.Component{
           }).map(reward => {
             return <li key={reward.reward_id}>
               <RewardIndexItem
-              contributeFunding={this.props.contributeFunding}
+              updateProjectStatus={this.props.updateProjectStatus}
               reward={reward}/> </li>
           })}
         </ul>

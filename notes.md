@@ -17,4 +17,7 @@ Bugs and to-dos as of 2/18:
 --note in readme that imagemagick is required
 
 
+---need to api util to update projects
+
+
 <form className="search-form" onSubmit={this.searchProjects}> ///was previously on line 189 of navbar.jsx

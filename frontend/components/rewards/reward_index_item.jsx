@@ -10,6 +10,7 @@ export default class RewardIndexItem extends React.Component{
       reward_id: this.props.reward.reward_id,
       backer_id : this.props.currentUser.id
     };
+    this.displayBackers = this.displayBackers.bind(this);
   }
 
 
@@ -17,12 +18,25 @@ export default class RewardIndexItem extends React.Component{
   handleClick(e){
     e.preventDefault();
     const amount = this.props.reward.amount;
-    debugger
-    this.props.contributeFunding(amount);
+    this.props.updateProjectStatus(amount);
     if (this.state.backer_id){
       this.props.createBacking(this.state)
+    }
+  }
+
+  displayBackers(){
+    const backers = this.props.reward.backers
+    const uniqueBackers = [];
+    for (var i = 0; i < backers.length; i++) {
+      if (!uniqueBackers.includes(backers[i].user)){
+        uniqueBackers.push(backers[i].user);
+      }
+    }
+
+    if (uniqueBackers.length === 1){
+      return "1 backer";
     } else {
-      console.log('log in!');
+      return `${uniqueBackers.length} backers`;
     }
   }
 
@@ -32,7 +46,7 @@ export default class RewardIndexItem extends React.Component{
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.name}</h3>
       <div className="reward-item-desc">{this.props.reward.description}</div>
-      <div className="reward-item-backers">{this.props.reward.backers.length} backers</div>
+      <div className="reward-item-backers">{this.displayBackers()}</div>
       </div>
     )
   }

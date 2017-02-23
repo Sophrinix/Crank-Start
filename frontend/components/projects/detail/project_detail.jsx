@@ -7,16 +7,20 @@ export default class ProjectDetail extends React.Component{
     super(props);
     this.state = { project: "",
                    funding: "",
-                   backers: {}}
+                   backers: ""}
 
-  this.contributeFunding = this.contributeFunding.bind(this);
+  this.updateProjectStatus = this.updateProjectStatus.bind(this);
+  this.filterUniqueBackers = this.filterUniqueBackers.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchProject(this.props.params.projectId)
     .then((action) => {
-      const projectFunding = action.project.funding
+      const projectFunding = action.project.funding;
+      const allBackers = action.project.backers;
+      const uniqueBackers = this.filterUniqueBackers(allBackers);
       this.setState({funding: projectFunding})
+      this.setState({backers: uniqueBackers})
     });
   }
 
@@ -26,9 +30,27 @@ export default class ProjectDetail extends React.Component{
     }
   }
 
-  contributeFunding(amount) {
+  updateProjectStatus(amount) {
+    const currentUser = this.props.session.currentUser
     this.setState({funding: this.state.funding += amount})
+    this.props.fetchProject(this.props.params.projectId)
   }
+
+
+
+  filterUniqueBackers(backers){
+    const uniqueBackers = [];
+    for (var i = 0; i < backers.length; i++) {
+      if (!uniqueBackers.includes(backers[i].user)){
+        uniqueBackers.push(backers[i].user);
+      }
+    }
+    return uniqueBackers.length;
+  }
+
+
+
+
 
   getRemainingDays(dateCreated){
     const today = new Date();
@@ -71,7 +93,7 @@ export default class ProjectDetail extends React.Component{
                     <div className="percent-complete-detail" style={progressBar}></div>
                     <li><div className='stats-detail' id='current-funding'>${this.state.funding}</div>
                     <div className="stat-item-detail">pledged of ${projectDetail.funding_goal}</div></li>
-                    <li><div className='stats-detail'>{projectDetail.backers.length}</div>
+                    <li><div className='stats-detail'>{this.state.backers}</div>
                     <div className="stat-item-detail">backers</div></li>
                     <li><div className='stats-detail'>{this.getRemainingDays(projectDetail.created_at)}</div>
                     <div className="stat-item-detail">days to go</div></li>
@@ -84,7 +106,7 @@ export default class ProjectDetail extends React.Component{
               {projectDetail.about}
             </div>
             <div className="rewards-side-bar">
-              <RewardsIndex contributeFunding={this.contributeFunding} project={projectDetail}/>
+              <RewardsIndex updateProjectStatus={this.updateProjectStatus} project={projectDetail}/>
             </div>
           </div>
       </div>
