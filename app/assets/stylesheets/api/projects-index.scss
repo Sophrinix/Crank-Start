@@ -28,7 +28,8 @@
 }
 
 .special > .index-item-image {
-  width: 400px;
+  width: 525px;
+  height: 230px;
   overflow: visible;
 }
 
@@ -102,6 +103,8 @@
   display: inline;
   align-items: flex-start;
   margin-left: 70px;
+  font-size: 22px;
+  line-height: 30px;
 }
 
 .index-sub-header:hover {
@@ -124,6 +127,7 @@
   height: .6em;
   float:left;
   border-radius: 5px;
+  margin-left: 5px;
 }
 
 .ind-stats {
@@ -169,6 +173,7 @@
   margin: 5px;
   color: #3D3D66;
   font: 16px;
+  font-weight: 200;
 }
 
 .carousel-slides {

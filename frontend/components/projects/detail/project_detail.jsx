@@ -37,7 +37,6 @@ export default class ProjectDetail extends React.Component{
   }
 
 
-
   filterUniqueBackers(backers){
     const uniqueBackers = [];
     for (var i = 0; i < backers.length; i++) {

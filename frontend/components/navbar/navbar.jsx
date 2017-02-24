@@ -27,7 +27,7 @@ export default class NavBar extends React.Component{
     this.toggleSearch = this.toggleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.getUserProjects = this.getUserProjects.bind(this);
+    //this.getUserProjects = this.getUserProjects.bind(this);
   }
 
 
@@ -36,11 +36,14 @@ export default class NavBar extends React.Component{
     this.setState({dropDownClass: 'hide',
                   results: [],
                   leftArrow: 'button-off',
-                  rightArrow: 'button-off'});
+                  rightArrow: 'button-off',
+                  searchNavClass: 'top search-nav',
+                  navLinksClass: 'bottom nav-links',
+                  mainNavClass: 'no-overflow'});
   }
 
   componentDidMount(){
-    this.props.fetchUserProjects(this.props.currentUser.id);
+    //this.props.fetchUserProjects(this.props.currentUser.id);
   }
 
   sessionLinks() {
@@ -53,17 +56,17 @@ export default class NavBar extends React.Component{
   );
   }
 
-  getUserProjects(){
-    const { userProjects } = this.props
-    userProjects.map((project) => {
-      return (
-       <li key={project.id}>
-        <Link to={`/projects/${project.id}`}
-          onClick={this.handleDrop}>{project.title}</Link>
-      </li>
-    )
-    });
-  }
+  // getUserProjects(){
+  //   const { userProjects } = this.props
+  //   userProjects.map((project) => {
+  //     return (
+  //      <li key={project.id}>
+  //       <Link to={`/projects/${project.id}`}
+  //         onClick={this.handleDrop}>{project.title}</Link>
+  //     </li>
+  //   )
+  //   });
+  // }
 
 
 
@@ -143,7 +146,6 @@ export default class NavBar extends React.Component{
               <div className={this.state.dropDownClass} onMouseLeave={this.mouseDrop}>
                 <div className="my-projects">
                   <h3>My Projects</h3>
-                  <ul>{this.getUserProjects()}</ul>
                 </div>
                 <div className="user-options">
                   <h3>Settings</h3>
@@ -207,7 +209,7 @@ export default class NavBar extends React.Component{
               <div className="logo"
                 onClick={this.handleTitleClick}>
                 <h1 className="header-h1">
-                  Crank
+                  Quack
                   <span className="header-span">
                     Start
                   </span>

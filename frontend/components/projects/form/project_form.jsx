@@ -17,8 +17,7 @@ export default class ProjectForm extends React.Component{
       author_id: parseInt(store.getState().session.currentUser.id),
       city: '',
       state: '',
-      complete: 'false',
-      category: '',
+      category_id: '',
       errors: ''
 
     };
@@ -44,15 +43,16 @@ export default class ProjectForm extends React.Component{
   }
 
   update(property){
-    return (e) => this.setState({ [property]: e.target.value} );
+    return (e) => {
+      this.setState({ [property]: e.target.value} );
+    }
   }
 
   updateFile(e){
-    debugger
+
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = function(){
-      debugger
       this.setState({image: file,
          imageUrl:fileReader.result})
     }.bind(this);
@@ -81,7 +81,9 @@ export default class ProjectForm extends React.Component{
     if (this.props.categories.length > 0){
       return (
         this.props.categories.map((category) => {
-          return (<option value ={category}>{category.value}</option>)
+          return (
+              <option value={category.id}>{category.name}</option>
+          )
         })
       );
     }
@@ -194,8 +196,9 @@ export default class ProjectForm extends React.Component{
               <div className="form-item">
                 <div className="label-wrapper"><label> Select a category for your project</label></div>
                 <div className="form-wrapper">
-                  {this.getCategories()}
 
+                  <select onChange={this.update("category_id")}>
+                    {this.getCategories()}</select>
                 </div>
               </div>
             </li>

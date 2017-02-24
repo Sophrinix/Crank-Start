@@ -30,13 +30,14 @@ export default class ProjectIndexItem extends React.Component{
     const currentFunding = Math.floor((this.props.project.funding/this.props.project.funding_goal)*100)
     const progressBar = { width: currentFunding + "%" }
 
-    const { project } = this.props;``
+    const { project } = this.props;
 
     return (
       <div className="index-item-container">
         <div className="img-container"
              onClick={this.linkToDetail}>
-          <img className="index-item-image" src={project.img_url}/>
+          <img className="index-item-image" src={project.img_url}
+            width="310" height="175" />
         </div>
         <div className="project-detail">
         <div className="description-element">

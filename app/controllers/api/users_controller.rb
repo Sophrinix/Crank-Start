@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(param[:id])
     if @user
       @projects = @user.projects
-    else:
+    else
       render json: @user.errors.full_messages, status: 422
     end
 

@@ -40,7 +40,6 @@ class Api::ProjectsController < ApplicationController
     :city,
     :state,
     :complete,
-    :category
     )
   end
 end
