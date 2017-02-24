@@ -14,7 +14,7 @@ export default class ProjectForm extends React.Component{
       imageUrl: null,
       funding_goal: '',
       duration: '',
-      author_id: parseInt(store.getState().session.currentUser.id),
+      author_id: '',
       city: '',
       state: '',
       category_id: '',
@@ -96,14 +96,9 @@ export default class ProjectForm extends React.Component{
         <div className='form-title'>
           <h2 className="hh2">Get involved!</h2>
           </div>
-        <ul>
-          {this.displayErrors()}
-        </ul>
         <div className="project-form">
         <form className="project-form" onSubmit={this.handleSubmit}>
-          <input type="file"
-                 onChange={this.updateFile}
-                  />
+
           <ul>
             <li className="project-form-li">
               <div className="form-item">
@@ -120,7 +115,8 @@ export default class ProjectForm extends React.Component{
                 <div className="form-item">
                   <div className="label-wrapper"><label>Upload a picture for your project</label></div>
                   <div className="form-wrapper">
-
+                    <input type="file"
+                           onChange={this.updateFile}/>
                    </div>
                  </div>
               </li>
@@ -153,7 +149,7 @@ export default class ProjectForm extends React.Component{
             </li>
             <li className="project-form-li">
               <div className="form-item">
-                <div className="label-wrapper"><label>Wish Location</label></div>
+                <div className="label-wrapper"><label>Location</label></div>
                 <div className="form-wrapper">
                   <input type="text"
                          id="project-city"
@@ -185,7 +181,7 @@ export default class ProjectForm extends React.Component{
                 <div className="label-wrapper"><label> How much funding do you hope to raise?</label></div>
                 <div className="form-wrapper">
                   <input type="number"
-                         placeholder="$0"
+                         placeholder="0"
                          className="n-input"
                          onChange={this.update("funding_goal")}
                          value={this.state.funding_goal} />
@@ -197,7 +193,7 @@ export default class ProjectForm extends React.Component{
                 <div className="label-wrapper"><label> Select a category for your project</label></div>
                 <div className="form-wrapper">
 
-                  <select onChange={this.update("category_id")}>
+                  <select className="select-bar" onChange={this.update("category_id")}>
                     {this.getCategories()}</select>
                 </div>
               </div>
@@ -205,7 +201,10 @@ export default class ProjectForm extends React.Component{
               <h5 className="project-error-message">{this.state.errors}</h5>
               <li className="project-form-li">
                 <img src={this.state.imageUrl}/>
-                <input type="submit" value="Crank Start it!" className="form-submit-button"/>
+                  <ul>
+                    {this.displayErrors()}
+                  </ul>
+                <input type="submit" onClick={this.displayErrors()} value="Quack Start it!" className="form-submit-button"/>
               </li>
           </ul>
         </form>

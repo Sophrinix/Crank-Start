@@ -5,8 +5,6 @@ class Backing < ApplicationRecord
   belongs_to :reward
 
   belongs_to :backer,
-  primary_key: :id,
-  foreign_key: :backer_id,
   class_name: "User"
 
 

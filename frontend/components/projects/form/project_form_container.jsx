@@ -5,7 +5,8 @@ import { fetchCategories } from '../../../actions/category_actions';
 import { selectCategories } from '../../../reducers/selectors';
 
 const mapStateToProps = state => ({
-  categories: selectCategories(state)
+  categories: selectCategories(state),
+  session: state.session
 });
 
 const mapDispatchToProps  = (dispatch) => ({

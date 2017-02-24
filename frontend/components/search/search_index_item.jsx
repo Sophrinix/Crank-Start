@@ -13,6 +13,7 @@ export default class SearchIndexItem extends React.Component{
 
   linkToDetail(e){
     e.preventDefault()
+    debugger
     hashHistory.push(`/projects/${this.props.project.id}`)
   }
 

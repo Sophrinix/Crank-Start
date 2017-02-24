@@ -10,7 +10,7 @@ json.array! @projects do |project|
   json.city project.city
   json.state project.state
   json.duration project.duration
-  json.img_url asset_path(project.image.url)
+  json.img_url project.img_url
   json.user do
     json.id project.user.id
     json.email project.user.email
@@ -25,9 +25,9 @@ json.array! @projects do |project|
       json.project project.title
       json.user project.user.username
       json.project_id reward.project_id
-      json.name reward.name
+      json.name reward.title
       json.reward_id reward.id
-      json.description reward.description
+      json.description reward.body
       json.amount reward.amount
     end
   end

@@ -1,9 +1,9 @@
 json.array! @rewards do |reward|
   json.id reward.id
   json.project_id reward.project_id
-  json.name reward.name
+  json.name reward.title
   json.amount reward.amount
-  json.description reward.description
+  json.description reward.body
 
   json.backers do
     json.array! reward.backers do |backer|

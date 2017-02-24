@@ -34,6 +34,8 @@ export default class ProjectIndex extends React.Component{
 
   render(){
     const {projects, children } = this.props;
+    const projectsSlice = projects.slice(0,3);
+
     return (
         <div>
         <carousel className="carousel-slides">
@@ -45,7 +47,7 @@ export default class ProjectIndex extends React.Component{
         <div className="projects-index-container">
           <h2 className="index-sub-header">Featured Projects</h2>
               <ul className="projects-index">
-                {projects.map(project => <ProjectIndexItem key={project.id} project={project}/>)}
+                {projectsSlice.map(project => <ProjectIndexItem key={project.id} project={project}/>)}
               </ul>
             {children}
         </div>

@@ -1,6 +1,6 @@
 class Reward < ApplicationRecord
 
-  validates :name, :description, :project_id, null: false
+  validates :title, :body, :project_id, presence: true 
 
   belongs_to :project
   has_many :backings

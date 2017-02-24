@@ -1,10 +1,11 @@
 export const categories = {
-  1: 'Special Needs',
-  2: 'Career Preparation',
-  3: 'Health and Wellness',
-  4: 'Seniors',
-  5: 'Community Centers',
-  6: 'Housing Advocacy'
+  1: 'Mallards',
+  2: 'Pond Ducks',
+  3: 'Senior Ducks',
+  4: 'Duck Wellness',
+  5: 'Community Ducks',
+  6: 'Duck Advocacy',
+  7: "'Other' Ducks"
 }
 
 export const fetchCategories = () => {

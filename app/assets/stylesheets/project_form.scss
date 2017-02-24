@@ -103,6 +103,10 @@ button {
   padding-left: 10px;
 }
 
+.form-wrapper div{
+	margin-right: 60px;
+}
+
 textarea {
   border-radius: 10px;
   border: thin solid #aaa;
@@ -115,10 +119,12 @@ textarea {
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
+	margin-left: 70px;
 }
 
 .n-input {
 	width: 340px;
+	margin-right: 50px;
 }
 
 .form-wrapper input {
@@ -144,10 +150,16 @@ textarea {
 
 .form-title h2 {
   font-size: 36px;
+	padding-top:40px;
 }
 
 .project-error-message {
 	text-align: center;
 	color: rgb(230, 27, 27);
 	font-weight:bolder;
+}
+
+.select-bar{
+	margin-right: 50px;
+
 }

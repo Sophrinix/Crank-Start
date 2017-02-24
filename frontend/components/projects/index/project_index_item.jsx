@@ -36,8 +36,7 @@ export default class ProjectIndexItem extends React.Component{
       <div className="index-item-container">
         <div className="img-container"
              onClick={this.linkToDetail}>
-          <img className="index-item-image" src={project.img_url}
-            width="310" height="175" />
+          <img className="index-item-image" src={project.img_url} />
         </div>
         <div className="project-detail">
         <div className="description-element">

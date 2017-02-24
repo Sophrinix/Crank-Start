@@ -14,7 +14,7 @@ export default class ExploreIndex extends React.Component{
       const category = categories[key];
       const link = `/explore/categories/${category}`;
       return (
-        <li key={key}><Link to={link}>{category}</Link></li>
+        <li className="explore-link" key={key}><Link to={link}>{category}</Link></li>
       );
     });
     return <ul>{linkedCategories}</ul>
@@ -22,7 +22,7 @@ export default class ExploreIndex extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className="explore-list">
         {this.getCategories()}
       </div>
     );

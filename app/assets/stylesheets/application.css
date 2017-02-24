@@ -44,26 +44,12 @@
    position:relative;
    top: -55px;
    margin-top: -10px;
-   margin-left: -10px;
-   margin-right: -10px;
-   width:101.5%;
+   width: 100%;
    height:120px;
    background-color: white;
    box-shadow: 1px 1px 3px #ccc;
  }
 
- .no-overflow {
-   position:relative;
-   overflow: hidden;
-   top: -55px;
-   margin-top: -10px;
-   margin-left: -10px;
-   margin-right: -10px;
-   width:101.5%;
-   height:120px;
-   background-color: white;
-   box-shadow: 1px 1px 3px #ccc;
- }
 
 .compass-icon {
   fill: #05AF3C;
@@ -398,6 +384,31 @@ span {
   margin-left: 0px;
   border-left: solid 5.px;
   display: flex;
+  font-size: 24px;
+}
+
+.explore-link a{
+  font-size: 32px;
+  font-weight: 300;
+  color: #353535;
+  margin-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 40px;
+  margin-bottom: 20px;
+
+
+}
+
+.explore-link a:hover{
+  color: #05AF3C;
+   text-decoration: none;
+}
+
+.explore-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 

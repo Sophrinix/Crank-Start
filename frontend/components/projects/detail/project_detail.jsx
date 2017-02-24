@@ -33,8 +33,22 @@ export default class ProjectDetail extends React.Component{
   }
 
   updateProjectStatus(amount) {
-    const currentUser = this.props.session.currentUser
-    this.setState({funding: this.state.funding += amount})
+    const currentUser = this.props.session.currentUser;
+    const projectBackers = [];
+    debugger
+    const rewards = this.props.projectDetail.rewards;
+    rewards.forEach((reward) => {
+      reward.backers.forEach((backer) => {
+        projectBackers.push(backer);
+      });
+    });
+
+    if (currentUser !== null && !(projectBackers.includes(currentUser))){
+      this.setState({funding: this.state.funding += amount})
+      this.setState({backers: projectBackers.length + 1})
+    } else {
+      console.log('noep!')
+    }
     this.props.fetchProject(this.props.params.projectId)
   }
 
@@ -54,7 +68,6 @@ export default class ProjectDetail extends React.Component{
 
 
   getRemainingDays(){
-    debugger
     const today = new Date();
     const createdAt = new Date(this.props.projectDetail.created_at)
     const timeDifference = Math.abs(createdAt.getTime() - today.getTime());
