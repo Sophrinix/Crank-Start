@@ -388,16 +388,19 @@ span {
   white-space: nowrap;
 }
 
+.categories-list ul li a:hover {
+  border-left: 2px solid #2BDE73;
+}
+
 .categories-list ul li a {
   padding: 10px;
   color: #020621;
   margin-left: 0px;
+  border-left: solid 5.px;
+  display: flex;
 }
 
-.categories-list ul li a:hover {
-  color: #2BDE73;
-  border-color: #2BDE73;
-}
+
 
 .index-sub-header {
 

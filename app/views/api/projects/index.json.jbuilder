@@ -16,6 +16,10 @@ json.array! @projects do |project|
     json.email project.user.email
     json.username project.user.username
   end
+  json.category do
+    json.id project.category.id
+    json.name project.category.name
+  end
   json.rewards do
     json.array! project.rewards do |reward|
       json.project project.title

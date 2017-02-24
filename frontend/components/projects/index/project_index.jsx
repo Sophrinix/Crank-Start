@@ -17,7 +17,6 @@ export default class ProjectIndex extends React.Component{
   categoryContainer(){
     if (this.props.projects.length > 0){
       const categoryProject = this.props.projects[Math.floor(Math.random() * (0, this.props.projects.length))];
-      debugger
       return (
         <div className="index-category-tab">
           <h2 className="index-sub-header"> Projects We Love: </h2>
