@@ -35,7 +35,6 @@ export default class ProjectDetail extends React.Component{
   updateProjectStatus(amount) {
     const currentUser = this.props.session.currentUser;
     const projectBackers = [];
-    debugger
     const rewards = this.props.projectDetail.rewards;
     rewards.forEach((reward) => {
       reward.backers.forEach((backer) => {

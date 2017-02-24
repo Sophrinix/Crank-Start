@@ -8,7 +8,8 @@ export default class RewardIndexItem extends React.Component{
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       reward_id: this.props.reward.reward_id,
-      backer_id : ""
+      backer_id : "",
+      backers: ""
     };
     this.displayBackers = this.displayBackers.bind(this);
   }
@@ -23,16 +24,19 @@ export default class RewardIndexItem extends React.Component{
       if (this.state.backer_id){
         this.props.createBacking(this.state);
       }
+      if (!(this.props.reward.backers.includes(this.props.currentUser))){
+        this.setState({backers: this.props.reward.backers.length += 1})
     }
   }
+}
 
   displayBackers(){
     if (this.props.reward.backers !== null){
       const backers = this.props.reward.backers
       const uniqueBackers = [];
       for (var i = 0; i < backers.length; i++) {
-        if (!uniqueBackers.includes(backers[i].user)){
-          uniqueBackers.push(backers[i].user);
+        if (!uniqueBackers.includes(backers[i].username)){
+          uniqueBackers.push(backers[i].username);
         }
       }
         if (uniqueBackers.length === 1){
