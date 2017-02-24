@@ -13,7 +13,7 @@ export default class RewardIndex extends React.Component{
     };
     return (
       <div>
-        <h2>Rewards</h2>
+        <h2>Back this project</h2>
         <ul>
           {rewards.sort((x, y) => {
             return x.amount - y.amount

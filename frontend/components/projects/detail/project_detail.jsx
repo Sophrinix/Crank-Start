@@ -7,10 +7,12 @@ export default class ProjectDetail extends React.Component{
     super(props);
     this.state = { project: "",
                    funding: "",
-                   backers: ""}
+                   backers: "",
+                   timeRemaining: ""}
 
   this.updateProjectStatus = this.updateProjectStatus.bind(this);
   this.filterUniqueBackers = this.filterUniqueBackers.bind(this);
+  this.getRemainingDays = this.getRemainingDays.bind(this);
   }
 
   componentDidMount(){
@@ -52,8 +54,9 @@ export default class ProjectDetail extends React.Component{
 
 
   getRemainingDays(){
+    debugger
     const today = new Date();
-    const createdAt = new Date(this.projectDetail.created_at)
+    const createdAt = new Date(this.props.projectDetail.created_at)
     const timeDifference = Math.abs(createdAt.getTime() - today.getTime());
     return Math.ceil(timeDifference / (1000 * 3600 * 24));
   }
@@ -86,7 +89,7 @@ export default class ProjectDetail extends React.Component{
             </div>
           </div>
           <div className="img-stats-detail">
-            <img className="detail-image" src={projectDetail.img_url}/>
+            <img className="detail-image" src={projectDetail.img_url} width="767" height="431"/>
             <div className="detail-stats-list">
               <ul className="project-stats-detail">
                     <div className="percent-complete-detail" style={progressBar}></div>
@@ -94,7 +97,7 @@ export default class ProjectDetail extends React.Component{
                     <div className="stat-item-detail">pledged of ${projectDetail.funding_goal}</div></li>
                     <li><div className='stats-detail'>{this.state.backers}</div>
                     <div className="stat-item-detail">backers</div></li>
-                    <li><div className='stats-detail'>{this.getRemainingDays}</div>
+                    <li><div className='stats-detail'>{this.getRemainingDays()}</div>
                     <div className="stat-item-detail">days to go</div></li>
               </ul>
             </div>

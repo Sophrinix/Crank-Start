@@ -325,6 +325,9 @@
   align-items: flex-start;
   flex-direction: column;
   white-space: nowrap;
+  padding-left: 0px;
+  padding-top: 40px;
+  padding-right: 241px;
 }
 
 .detail-image {
@@ -361,6 +364,7 @@
   color: #353535;
   font-weight: 500;
   font-size: 20px;
+  padding-top: 5px;
 }
 
 .backing-button {

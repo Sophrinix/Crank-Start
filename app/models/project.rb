@@ -23,8 +23,8 @@ class Project < ApplicationRecord
   class_name: "Reward"
 
 
-  has_many :backings, through: :rewards
-  has_many :backers, through: :backings, source: :backer
+  has_many :backings, through: :rewards, source: :backings
+  has_many :backers, through: :rewards, source: :backers
 
   pg_search_scope :search_by_title, :against => [:title]
 

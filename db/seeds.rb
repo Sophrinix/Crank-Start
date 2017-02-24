@@ -81,44 +81,44 @@ Project.create!(
 )
 
 Reward.create!(
-  title: "A hat",
+  name: "A hat",
   amount: 10,
-  body: "A free hat if you contribute",
+  description: "A free hat if you contribute",
   project_id: Project.last.id
 )
 
 Reward.create!(
-  title: "A bean",
+  name: "A bean",
   amount: 30,
-  body: "A free bean if you contribute",
+  description: "A free bean if you contribute",
   project_id: Project.last.id
 )
 
 Reward.create!(
-  title: "A cup!",
+  name: "A cup!",
   amount: 50,
-  body: "A free cup if you contribute",
+  description: "A free cup if you contribute",
   project_id: Project.last.id
 )
 
 Reward.create!(
-  title: "A hat",
+  name: "A hat",
   amount: 10,
-  body: "A free hat if you contribute",
+  description: "A free hat if you contribute",
   project_id: Project.first.id
 )
 
 Reward.create!(
-  title: "A bean",
+  name: "A bean",
   amount: 30,
-  body: "A free bean if you contribute",
+  description: "A free bean if you contribute",
   project_id: Project.first.id
 )
 
 Reward.create!(
-  title: "A cup!",
+  name: "A cup!",
   amount: 50,
-  body: "A free cup if you contribute",
+  description: "A free cup if you contribute",
   project_id: Project.first.id
 )
 
