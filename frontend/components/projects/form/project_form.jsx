@@ -12,12 +12,14 @@ export default class ProjectForm extends React.Component{
       about: '',
       image: null,
       imageUrl: null,
+      funding: null,
       funding_goal: '',
       duration: '',
-      author_id: '',
+      author_id: this.props.session.currentUser.id,
       city: '',
       state: '',
       category_id: '',
+      complete: 'false',
       errors: ''
 
     };
@@ -33,8 +35,9 @@ export default class ProjectForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();
+
     Object.keys(this.state).forEach(key => {
-      if (key !== "imageUrl" || key !== "errors") {
+      if (key !== "imageUrl" && key !== "errors") {
         formData.append(`project[${key}]`, this.state[key])
       }
     })
@@ -91,6 +94,7 @@ export default class ProjectForm extends React.Component{
 
 
   render(){
+
     return (
       <div className="parent-div">
         <div className='form-title'>

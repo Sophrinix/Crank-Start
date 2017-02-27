@@ -9,15 +9,20 @@ export default class RewardIndexItem extends React.Component{
     this.state = {
       reward_id: this.props.reward.reward_id,
       backer_id : "",
-      backers: ""
+      backers: "",
+      errors: ""
     };
     this.displayBackers = this.displayBackers.bind(this);
+    this.checkLoggedIn = this.checkLoggedIn.bind(this);
   }
 
 
 
   handleClick(e){
     e.preventDefault();
+
+    this.checkLoggedIn();
+
     const amount = this.props.reward.amount;
     if (!(this.props.currentUser === null)){
       this.props.updateProjectStatus(amount);
@@ -29,6 +34,17 @@ export default class RewardIndexItem extends React.Component{
     }
   }
 }
+
+checkLoggedIn(){
+  debugger
+  const currentUser = this.props.currentUser;
+  if (currentUser === null){
+    this.setState({errors: "Log in or Sign up to back a project"})
+    hashHistory.push('/signup')
+  }
+}
+
+
 
   displayBackers(){
     if (this.props.reward.backers !== null){
@@ -48,12 +64,14 @@ export default class RewardIndexItem extends React.Component{
   }
 
   render(){
+    debugger
     return (
       <div className="reward-index-item" onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.title}</h3>
       <div className="reward-item-desc">{this.props.reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
+      <dibv className="reward-item-errors">{this.state.errors}</dibv>
       </div>
     )
   }

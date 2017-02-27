@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   include PgSearch
 
-  validates :title, :about, :funding_goal, :duration, :author_id, :category_id, presence: true
+  validates :title, :about, :funding_goal, :duration, :category_id, presence: true
 
   has_attached_file :image, default_url: "http://www.duckstamp03.com/270.Pintail.Fed.Lg.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

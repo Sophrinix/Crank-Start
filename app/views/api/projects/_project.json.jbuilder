@@ -10,7 +10,6 @@ json.city project.city
 json.state project.state
 json.duration project.duration
 json.img_url project.img_url
-# json.img_url asset_path(project.image.url)
 json.category do
   json.name project.category.name
 end
@@ -31,12 +30,12 @@ end
 
 json.rewards do
   json.array! project.rewards do |reward|
-    json.project project.title
+    json.title reward.title
     json.user project.user.username
     json.project_id reward.project_id
     json.name reward.name
     json.reward_id reward.id
-    json.description reward.description
+    json.body reward.body
     json.amount reward.amount
     json.backers reward.backers
   end

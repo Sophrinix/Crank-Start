@@ -29,6 +29,7 @@ class Api::ProjectsController < ApplicationController
     :title,
     :blurb,
     :about,
+    :image,
     :author_id,
     :category_id,
     :duration,

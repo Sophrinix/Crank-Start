@@ -25,9 +25,9 @@ json.array! @projects do |project|
       json.project project.title
       json.user project.user.username
       json.project_id reward.project_id
-      json.name reward.title
+      json.title reward.title
       json.reward_id reward.id
-      json.description reward.body
+      json.body reward.body
       json.amount reward.amount
     end
   end

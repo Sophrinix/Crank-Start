@@ -3,7 +3,6 @@ class Api::RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     if @reward.save!
-      byebug
       @project = @reward.project
     else
       render json: { errors: @reward.errors}
