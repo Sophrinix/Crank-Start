@@ -1,5 +1,22 @@
 #Crank Starter
 
+### Getting up and running locally
+
+* Clone the repo
+
+* cd into the directory
+
+* run `npm install`
+
+* run `bundle install`
+
+* run `bundle exec rake db:setup`
+
+* run `rails s`
+
+* to watch for changes, run `webpack -w`
+
+
 
 __Heroku Link:__
 
