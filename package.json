@@ -1,7 +1,7 @@
 {
   "name": "crank_start",
   "version": "1.0.0",
-  "description": "www.crankstart.co",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "webpack.config.js",
   "directories": {
     "doc": "docs",
@@ -12,6 +12,7 @@
     "npm": "3.10.7"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "repository": {
