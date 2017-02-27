@@ -36,7 +36,6 @@ export default class RewardIndexItem extends React.Component{
 }
 
 checkLoggedIn(){
-  debugger
   const currentUser = this.props.currentUser;
   if (currentUser === null){
     this.setState({errors: "Log in or Sign up to back a project"})
@@ -64,7 +63,6 @@ checkLoggedIn(){
   }
 
   render(){
-    debugger
     return (
       <div className="reward-index-item" onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>

@@ -89,7 +89,6 @@ export default class ProjectDetail extends React.Component{
       return (<div></div>)
     }
 
-    debugger
     return (
       <div className="project-detail">
         <div className="project-header">
