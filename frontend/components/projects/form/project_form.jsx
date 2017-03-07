@@ -15,7 +15,7 @@ export default class ProjectForm extends React.Component{
       funding: null,
       funding_goal: '',
       duration: '',
-      author_id: this.props.session.currentUser.id,
+      author_id: '',
       city: '',
       state: '',
       category_id: '',
@@ -70,6 +70,7 @@ export default class ProjectForm extends React.Component{
   }
 
   displayErrors(){
+    debugger
     if (this.props.errors){
       return (
         this.props.errors.map((error) => {

@@ -45,9 +45,7 @@ export default class ProjectDetail extends React.Component{
     if (currentUser !== null && !(projectBackers.includes(currentUser))){
       this.setState({funding: this.state.funding += amount})
       this.setState({backers: projectBackers.length + 1})
-    } else {
-      console.log('noep!')
-    }
+      };
     this.props.fetchProject(this.props.params.projectId)
   }
 

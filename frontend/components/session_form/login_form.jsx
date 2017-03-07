@@ -16,7 +16,6 @@ class LoginForm extends React.Component {
 
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-      console.log('redirecting');
 			this.props.router.push("/");
 		}
 	}
