@@ -39,7 +39,7 @@ export default class ProjectIndex extends React.Component{
     return (
         <div>
         <carousel className="carousel-slides">
-          {ProjectCarousel()}
+          {ProjectCarousel(this.props)}
         </carousel>
 
         {this.categoryContainer()}
