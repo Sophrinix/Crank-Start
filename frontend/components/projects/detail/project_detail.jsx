@@ -86,7 +86,7 @@ export default class ProjectDetail extends React.Component{
     if (!projectDetail.created_at){
       return (<div></div>)
     }
-
+    debugger
     return (
       <div className="project-detail">
         <div className="project-header">

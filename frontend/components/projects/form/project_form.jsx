@@ -45,7 +45,7 @@ export default class ProjectForm extends React.Component{
       }
     })
     this.props.createProject(formData)
-    .then(project => this.props.router.push(`/projects/${project.id}`));
+    .then(project => this.props.router.push(`/projects/${project.project.id}`));
   }
 
   checkLoggedIn(){

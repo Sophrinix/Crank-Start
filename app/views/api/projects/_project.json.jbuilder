@@ -9,7 +9,7 @@ json.complete project.complete
 json.city project.city
 json.state project.state
 json.duration project.duration
-json.img_url project.img_url
+json.img_url project.image.url
 json.category do
   json.name project.category.name
 end
