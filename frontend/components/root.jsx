@@ -14,6 +14,7 @@ import ProjectFormContainer from './projects/form/project_form_container';
 import SearchIndexContainer from './search/search_index_container';
 import ExploreIndex from './explore/explore_index';
 import ExploreShowContainer from './explore/explore_show_container';
+import RewardsIndexContainer from './rewards/rewards_index_container';
 
 const Root = ({ store }) => {
 
@@ -42,6 +43,7 @@ const Root = ({ store }) => {
           <Route path="/search" component={SearchIndexContainer}/>
           <Route path="/projects/new" component={ProjectFormContainer} />
           <Route path="/projects/:projectId" component={ProjectDetailContainer} />
+          <Route path="/projects/:projectId/rewards" component={RewardsIndexContainer} />
           <Route path="/explore" component={ExploreIndex}/>
           <Route path='/explore/categories/:category' component={ExploreShowContainer}/>
         </Route>

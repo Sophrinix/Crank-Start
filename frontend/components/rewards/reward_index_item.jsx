@@ -20,19 +20,21 @@ export default class RewardIndexItem extends React.Component{
 
   handleClick(e){
     e.preventDefault();
+    const { project } = this.props;
 
     this.checkLoggedIn();
+    hashHistory.push(`/projects/${project.id}/rewards`);
 
-    const amount = this.props.reward.amount;
-    if (!(this.props.currentUser === null)){
-      this.props.updateProjectStatus(amount);
-      if (this.state.backer_id){
-        this.props.createBacking(this.state);
-      }
-      if (!(this.props.reward.backers.includes(this.props.currentUser))){
-        this.setState({backers: this.props.reward.backers.length += 1})
-    }
-  }
+  //   const amount = this.props.reward.amount;
+  //   if (!(this.props.currentUser === null)){
+  //     this.props.updateProjectStatus(amount);
+  //     if (this.state.backer_id){
+  //       this.props.createBacking(this.state);
+  //     }
+  //     if (!(this.props.reward.backers.includes(this.props.currentUser))){
+  //       this.setState({backers: this.props.reward.backers.length += 1})
+  //   }
+  // }
 }
 
 checkLoggedIn(){
@@ -50,8 +52,9 @@ checkLoggedIn(){
       const backers = this.props.reward.backers
       const uniqueBackers = [];
       for (var i = 0; i < backers.length; i++) {
-        if (!uniqueBackers.includes(backers[i].username)){
-          uniqueBackers.push(backers[i].username);
+        const username = backers[i].username;
+        if (!uniqueBackers.includes(username)){
+          uniqueBackers.push(username);
         }
       }
         if (uniqueBackers.length === 1){
@@ -63,13 +66,15 @@ checkLoggedIn(){
   }
 
   render(){
+    const { children } = this.props;
     return (
       <div className="reward-index-item" onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.title}</h3>
       <div className="reward-item-desc">{this.props.reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
-      <dibv className="reward-item-errors">{this.state.errors}</dibv>
+      <div className="reward-item-errors">{this.state.errors}</div>
+      { children }
       </div>
     )
   }

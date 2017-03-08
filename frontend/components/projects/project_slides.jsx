@@ -5,7 +5,6 @@ import { Carousel } from 'react-bootstrap';
 const ProjectCarousel = (props) => {
   const {projects, children } = props;
   const projectsSlice = projects.slice(0,3);
-  debugger
   return (
   <Carousel className="carousel-slides">
     {projectsSlice.map(project =>
