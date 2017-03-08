@@ -30,7 +30,7 @@ export default (state = defaultProject, action) => {
       return merge({}, action.project);
     case RECEIVE_ERRORS:
       const errors = action.errors;
-      return merge({}, state, {errors});
+      return merge({}, state, errors);
     default:
       return state;
   }

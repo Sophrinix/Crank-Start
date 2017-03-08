@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, hashHistory } from 'react-router';
 import { CountryDropdown } from 'react-country-region-selector';
 import { categories } from '../../../util/api_constants';
 
@@ -26,10 +26,13 @@ export default class ProjectForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getCategories = this.getCategories.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.displayErrors = this.displayErrors.bind(this);
+    this.checkLoggedIn = this.checkLoggedIn.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchCategories();
+    this.checkLoggedIn();
   }
 
   handleSubmit(e){
@@ -43,6 +46,14 @@ export default class ProjectForm extends React.Component{
     })
     this.props.createProject(formData)
     .then(project => this.props.router.push(`/projects/${project.id}`));
+  }
+
+  checkLoggedIn(){
+    if (this.props.session.currentUser === null){
+      hashHistory.push('/login');
+    } else {
+      this.setState({ author_id: this.props.session.currentUser.id})
+    }
   }
 
   update(property){
@@ -70,7 +81,6 @@ export default class ProjectForm extends React.Component{
   }
 
   displayErrors(){
-    debugger
     if (this.props.errors){
       return (
         this.props.errors.map((error) => {
@@ -209,7 +219,7 @@ export default class ProjectForm extends React.Component{
                   <ul>
                     {this.displayErrors()}
                   </ul>
-                <input type="submit" onClick={this.displayErrors()} value="Quack Start it!" className="form-submit-button"/>
+                <input type="submit" onClick={this.displayErrors} value="Quack Start it!" className="form-submit-button"/>
               </li>
           </ul>
         </form>
