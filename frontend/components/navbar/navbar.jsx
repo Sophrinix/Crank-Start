@@ -199,7 +199,7 @@ export default class NavBar extends React.Component{
                     </Link>
                   </span>
                   <span >
-                    <a href='#'
+                    <a href='https://www.linkedin.com/in/eversjames/'
                           className="nav-link">
                         About
                     </a>

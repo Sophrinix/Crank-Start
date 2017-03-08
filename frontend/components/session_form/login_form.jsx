@@ -46,6 +46,7 @@ class LoginForm extends React.Component {
       } else {
         window.clearInterval(intervalID);
         login({ user: that.state });
+				document.getElementById("data-form").click();
       }
       i++;
     }, 75);
@@ -84,7 +85,7 @@ class LoginForm extends React.Component {
   								onChange={this.update("password")}/>
               </label>
   						<br/>
-  						<input className="signup-button" type="submit" value="Log Me In!" />
+  						<input id="data-form" className="signup-button" type="submit" value="Log Me In!" />
   					</div>
              <li id="demo-or">Or</li>
             <label>
