@@ -4,8 +4,6 @@ import SearchContainer from '../search/search_container';
 import ProjectIndexContainer from '../projects/index/project_index_container';
 
 
-//NB USING _handleHeaderClick AS SUB FOR NAV FUNCTIONALITY
-
 export default class NavBar extends React.Component{
   constructor(props){
     super(props);
@@ -107,7 +105,7 @@ export default class NavBar extends React.Component{
       navLinksClass: 'off nav-links',
       mainNavClass: 'no-overflow',
       searchClass: 'just-right'})
-    // this.searchField.focus();
+      //this.searchField.focus();
   } else {
     this.setState({searchNavClass: 'top-search-nav',
                    searchClass: 'way-left',
@@ -118,6 +116,8 @@ export default class NavBar extends React.Component{
                    rightArrow: "button-off"
                  })
               }
+              const el = document.getElementById("search-bar")
+              el.click();
           }
 
   userLoggedIn(){

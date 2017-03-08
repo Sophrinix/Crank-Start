@@ -30,8 +30,8 @@ export default class Search extends React.Component{
   render(){
     return (
       <form onSubmit={this.onSubmit}>
-        <input className="search-form" type='text' value={this.state.query}
-           onChange={this.onChange} placeholder="Search"/>
+        <input id="search-bar" className="search-form" type='text' value={this.state.query}
+           onChange={this.onChange} placeholder="Search" ref={(ref) => this.searchField = ref} />/>
       </form>
     );
   }
