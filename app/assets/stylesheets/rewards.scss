@@ -51,6 +51,7 @@
 }
 .show-reward-index li {
   display: flex;
+
   justify-content: flex-start;;
   width: 150%;
   padding-left: 10%;
@@ -63,7 +64,11 @@
 
 #reward-input{
   display: none;
-  background: yellow;
+  background: white;
+}
+
+#reward-input:focus {
+  outline: 1px solid blue;
 }
 
 .pledge-amt {

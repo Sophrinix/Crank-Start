@@ -10,11 +10,13 @@ export default class RewardIndexItem extends React.Component{
       backer_id : "",
       backers: "",
       errors: "",
-      styleClass: ""
+      styleClass: "",
+      amount: ""
     };
     this.displayBackers = this.displayBackers.bind(this);
     this.checkLoggedIn = this.checkLoggedIn.bind(this);
     this.checkPath = this.checkPath.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -44,22 +46,35 @@ export default class RewardIndexItem extends React.Component{
   }
 
 
-  //   const amount = this.props.reward.amount;
-  //   if (!(this.props.currentUser === null)){
-  //     this.props.updateProjectStatus(amount);
-  //     if (this.state.backer_id){
-  //       this.props.createBacking(this.state);
-  //     }
-  //     if (!(this.props.reward.backers.includes(this.props.currentUser))){
-  //       this.setState({backers: this.props.reward.backers.length += 1})
-  //   }
-  // }
+//     const amount = this.props.reward.amount;
+//     if (!(this.props.currentUser === null)){
+//       this.props.updateProjectStatus(amount);
+//       if (this.state.backer_id){
+//         this.props.createBacking(this.state);
+//       }
+//       if (!(this.props.reward.backers.includes(this.props.currentUser))){
+//         this.setState({backers: this.props.reward.backers.length += 1})
+//     }
+//   }
+// }
 
 checkLoggedIn(){
   const currentUser = this.props.currentUser;
   if (currentUser === null){
     this.setState({errors: "Log in or Sign up to back a project"})
     hashHistory.push('/signup')
+  }
+}
+
+handleSubmit(e){
+  e.preventDefault();
+  const formData = new FormData();
+
+}
+
+update(property){
+  return (e) => {
+    this.setState({[property]: e.target.value})
   }
 }
 
@@ -92,7 +107,11 @@ checkLoggedIn(){
       <div className="reward-item-backers">{this.displayBackers()}</div>
       <div className="reward-item-errors">{this.state.errors}</div>
       <div id="reward-input-div"></div> Pledge Amount:
-        <input id="reward-input" type="text" hidden/>
+        <form className="reward-form" onSubmit={this.handleSubmit}>
+        <input id="reward-input" type="text" onChange={this.update('amount')}/>
+        <input id="reward-input" type="submit" value="Quack Start!"
+          className="form-submit-button"/>
+        </form>
       </div>
     )
   }
