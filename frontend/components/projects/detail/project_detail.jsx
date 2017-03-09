@@ -1,5 +1,6 @@
 import React from 'react';
 import RewardsIndex from '../../rewards/rewards_index';
+import { hashHistory } from 'react-router';
 
 export default class ProjectDetail extends React.Component{
 
@@ -13,6 +14,7 @@ export default class ProjectDetail extends React.Component{
   this.updateProjectStatus = this.updateProjectStatus.bind(this);
   this.filterUniqueBackers = this.filterUniqueBackers.bind(this);
   this.getRemainingDays = this.getRemainingDays.bind(this);
+  this.linkToRewards = this.linkToRewards.bind(this);
   }
 
   componentDidMount(){
@@ -47,6 +49,11 @@ export default class ProjectDetail extends React.Component{
       this.setState({backers: projectBackers.length + 1})
       };
     this.props.fetchProject(this.props.params.projectId)
+  }
+
+  linkToRewards(){
+    const project = this.props.projectDetail;
+    hashHistory.push(`/projects/${project.id}/rewards`);
   }
 
 
@@ -109,6 +116,7 @@ export default class ProjectDetail extends React.Component{
                     <div className="stat-item-detail">backers</div></li>
                     <li><div className='stats-detail'>{this.getRemainingDays()}</div>
                     <div className="stat-item-detail">days to go</div></li>
+                    <button type="button" onClick={this.linkToRewards}>Back this project</button>
               </ul>
             </div>
           </div>

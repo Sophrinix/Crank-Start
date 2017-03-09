@@ -8,10 +8,9 @@ export default class RewardIndex extends React.Component{
   }
 
   render(){
-    debugger
 
     const rewards = this.props.project.rewards;
-    const project = this.props.project;
+    const { project, children } = this.props;
     if (!rewards){
       return (<div><h1>No rewards yet</h1></div>)
     };
@@ -28,6 +27,8 @@ export default class RewardIndex extends React.Component{
               reward={reward}/> </li>
           })}
         </ul>
+        {children}
+
       </div>
     );
   };

@@ -8,7 +8,7 @@ const ProjectCarousel = (props) => {
   return (
   <Carousel className="carousel-slides">
     {projectsSlice.map(project =>
-      <Carousel.Item>
+      <Carousel.Item key={project.id}>
         <img id='carousel-1'
           height={575}
           alt="oodles of NOTHIN"

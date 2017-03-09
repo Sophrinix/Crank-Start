@@ -1,5 +1,4 @@
 import React from 'react';
-import { hashHistory } from 'react-router'
 import { getCurrentUser } from '../../reducers/selectors'
 
 export default class RewardIndexItem extends React.Component{
@@ -23,7 +22,6 @@ export default class RewardIndexItem extends React.Component{
     const { project } = this.props;
 
     this.checkLoggedIn();
-    hashHistory.push(`/projects/${project.id}/rewards`);
 
   //   const amount = this.props.reward.amount;
   //   if (!(this.props.currentUser === null)){
@@ -66,15 +64,20 @@ checkLoggedIn(){
   }
 
   render(){
-    const { children } = this.props;
+    debugger
+    const currentPath = location.hash;
+    if (currentPath.includes("rewards")){
+      const styleClass = "show-reward-index-item";
+    } else {
+      const styleClass = "reward-index-item"
+    }
     return (
-      <div className="reward-index-item" onClick={this.handleClick}>
+      <div className={styleClass} onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.title}</h3>
       <div className="reward-item-desc">{this.props.reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
       <div className="reward-item-errors">{this.state.errors}</div>
-      { children }
       </div>
     )
   }
