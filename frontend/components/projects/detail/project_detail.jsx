@@ -52,8 +52,12 @@ export default class ProjectDetail extends React.Component{
   }
 
   linkToRewards(){
-    const project = this.props.projectDetail;
-    hashHistory.push(`/projects/${project.id}/rewards`);
+    if (this.props.session.currentUser === null){
+      hashHistory.push(`/login`);
+    } else {
+      const project = this.props.projectDetail;
+      hashHistory.push(`/projects/${project.id}/rewards`);
+    }
   }
 
 

@@ -106,6 +106,8 @@ export default class NavBar extends React.Component{
       mainNavClass: 'no-overflow',
       searchClass: 'just-right'})
       //this.searchField.focus();
+      const el = document.getElementById("search-bar")
+      el.focus();
   } else {
     this.setState({searchNavClass: 'top-search-nav',
                    searchClass: 'way-left',
@@ -116,8 +118,6 @@ export default class NavBar extends React.Component{
                    rightArrow: "button-off"
                  })
               }
-              const el = document.getElementById("search-bar")
-              el.click();
           }
 
   userLoggedIn(){
