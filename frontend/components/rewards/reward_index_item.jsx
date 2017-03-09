@@ -9,19 +9,40 @@ export default class RewardIndexItem extends React.Component{
       reward_id: this.props.reward.reward_id,
       backer_id : "",
       backers: "",
-      errors: ""
+      errors: "",
+      styleClass: ""
     };
     this.displayBackers = this.displayBackers.bind(this);
     this.checkLoggedIn = this.checkLoggedIn.bind(this);
+    this.checkPath = this.checkPath.bind(this);
   }
 
+  componentDidMount(){
+    if (this.checkPath()){
+      this.setState({ styleClass: "show-reward-index-item" })
+    } else {
+      this.setState({ styleClass: "reward-index-item" })
+    }
+  }
 
+  checkPath(){
+    const currentPath = location.hash;
+    return currentPath.includes("rewards");
+  }
 
   handleClick(e){
     e.preventDefault();
     const { project } = this.props;
 
     this.checkLoggedIn();
+
+    if (this.checkPath()){
+      const inputText = document.getElementById("reward-input");
+      inputText.style.display = "block";
+
+    }
+  }
+
 
   //   const amount = this.props.reward.amount;
   //   if (!(this.props.currentUser === null)){
@@ -33,7 +54,6 @@ export default class RewardIndexItem extends React.Component{
   //       this.setState({backers: this.props.reward.backers.length += 1})
   //   }
   // }
-}
 
 checkLoggedIn(){
   const currentUser = this.props.currentUser;
@@ -64,20 +84,15 @@ checkLoggedIn(){
   }
 
   render(){
-    debugger
-    const currentPath = location.hash;
-    if (currentPath.includes("rewards")){
-      const styleClass = "show-reward-index-item";
-    } else {
-      const styleClass = "reward-index-item"
-    }
     return (
-      <div className={styleClass} onClick={this.handleClick}>
+      <div className={this.state.styleClass} onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
       <h3 className="reward-item-name">{this.props.reward.title}</h3>
       <div className="reward-item-desc">{this.props.reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
       <div className="reward-item-errors">{this.state.errors}</div>
+      <div id="reward-input-div"></div> Pledge Amount:
+        <input id="reward-input" type="text" hidden/>
       </div>
     )
   }

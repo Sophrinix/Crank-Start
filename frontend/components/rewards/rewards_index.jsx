@@ -5,6 +5,22 @@ export default class RewardIndex extends React.Component{
   debugger
   constructor(props){
     super(props)
+    this.state = {
+      styleClass: ""
+    }
+  }
+
+  componentDidMount(){
+    const currentPath = location.hash;
+    if (currentPath.includes("rewards")){
+      this.setState({ styleClass: "show-reward-index" })
+    }
+  }
+
+  handleClick(){
+    if (this.state.styleClass){
+
+    }
   }
 
   render(){
@@ -16,7 +32,7 @@ export default class RewardIndex extends React.Component{
     };
     return (
       <div>
-        <ul>
+        <ul className={this.state.styleClass}>
           {rewards.slice(0,5).sort((x, y) => {
             return x.amount - y.amount
           }).map(reward => {

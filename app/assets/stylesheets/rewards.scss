@@ -11,7 +11,7 @@
 
 
 .reward-index-item, .purchase-info-pane {
-  background-color: #f8f9fd;
+  background: #f8f9fd;
   overflow: hidden;
   position: relative;
   border-radius: 10px;
@@ -28,17 +28,42 @@
   z-index: 1;
   background-color: #16ca5e;
   transition: opacity 0.3s, transform 1s;
-  // width: 175%;
-  // height: 175%;
-  // position: absolute;
-  // top: -37%;
-  // left: -38%;
-  // border-radius: 10px;
-  // color: white;
-  // display: flex;
-  // justify-content: center;
-  // transition: opacity 0.3s, transform .3s;
-  // opacity: 0;
+}
+
+.show-reward-index-item{
+  background-color: #f8f9fd;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  padding: 20px;
+  width: 30%;
+  border: thin solid rgba(211, 224, 253, 0.95);
+
+}
+
+.show-reward-index{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.show-reward-index li {
+  display: flex;
+  justify-content: flex-start;;
+  width: 150%;
+  padding-left: 10%;
+  padding-bottom: 15px;
+}
+
+.reward-index-item-click {
+  background: yellow;
+}
+
+#reward-input{
+  display: none;
+  background: yellow;
 }
 
 .pledge-amt {
