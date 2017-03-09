@@ -2,7 +2,6 @@ import React from 'react';
 import RewardIndexItem from './rewards_item_container';
 
 export default class RewardIndex extends React.Component{
-  debugger
   constructor(props){
     super(props)
     this.state = {
