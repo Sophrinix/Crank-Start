@@ -11,7 +11,7 @@ export default class ProjectDetail extends React.Component{
                    backers: "",
                    timeRemaining: ""}
 
-  this.updateProjectStatus = this.updateProjectStatus.bind(this);
+  // this.updateProjectStatus = this.updateProjectStatus.bind(this);
   this.filterUniqueBackers = this.filterUniqueBackers.bind(this);
   this.getRemainingDays = this.getRemainingDays.bind(this);
   this.linkToRewards = this.linkToRewards.bind(this);
@@ -70,10 +70,6 @@ export default class ProjectDetail extends React.Component{
     }
     return uniqueBackers.length;
   }
-
-
-
-
 
   getRemainingDays(){
     const today = new Date();

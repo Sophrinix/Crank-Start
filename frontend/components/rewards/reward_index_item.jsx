@@ -40,7 +40,9 @@ export default class RewardIndexItem extends React.Component{
 
     if (this.checkPath()){
       const inputText = document.getElementById("reward-input");
+      const inputButton = document.getElementById("submit-button")
       inputText.style.display = "block";
+      inputButton.style.display = "block";
 
     }
   }
@@ -109,7 +111,7 @@ update(property){
       <div id="reward-input-div"></div> Pledge Amount:
         <form className="reward-form" onSubmit={this.handleSubmit}>
         <input id="reward-input" type="text" onChange={this.update('amount')}/>
-        <input id="reward-input" type="submit" value="Quack Start!"
+        <input id="submit-button" type="submit" value="Quack Start!"
           className="form-submit-button"/>
         </form>
       </div>
