@@ -25,8 +25,9 @@ export const createProject = (project) => {
 };
 
 export const fetchUserProjects = (userId) => {
+  debugger
   return $.ajax({
     method: 'GET',
-    url: `users/projects/{userId}`
+    url: `users/get_projects/${userId}`
   });
 }

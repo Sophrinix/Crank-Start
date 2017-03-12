@@ -25,7 +25,7 @@ export default class NavBar extends React.Component{
     this.toggleSearch = this.toggleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    //this.getUserProjects = this.getUserProjects.bind(this);
+    this.getUserProjects = this.getUserProjects.bind(this);
   }
 
 
@@ -41,7 +41,7 @@ export default class NavBar extends React.Component{
   }
 
   componentDidMount(){
-    //this.props.fetchUserProjects(this.props.currentUser.id);
+    this.props.fetchProjects();
   }
 
   sessionLinks() {
@@ -53,19 +53,6 @@ export default class NavBar extends React.Component{
     </nav>
   );
   }
-
-  // getUserProjects(){
-  //   const { userProjects } = this.props
-  //   userProjects.map((project) => {
-  //     return (
-  //      <li key={project.id}>
-  //       <Link to={`/projects/${project.id}`}
-  //         onClick={this.handleDrop}>{project.title}</Link>
-  //     </li>
-  //   )
-  //   });
-  // }
-
 
 
   handleTitleClick(){
@@ -130,6 +117,24 @@ export default class NavBar extends React.Component{
     .then(() => hashHistory.push('/'));
   }
 
+  getUserProjects(){
+    const { projects, currentUser } = this.props;
+    const keys = Object.keys(projects);
+    const projectLinks = keys.map((key, idx) => {
+      const project = projects[key];
+      const link = `/projects/${project.id}`;
+      const projectName = project.title;
+      if (currentUser.id === project.user.id){
+        return (
+          <li key={key}><Link to={link}>{projectName}</Link></li>
+        );
+      }
+    });
+    return (
+    <ul>{projectLinks}</ul>
+    );
+  }
+
 
 
   render(){
@@ -145,7 +150,8 @@ export default class NavBar extends React.Component{
                onClick={this.handleDrop}className="user-avatar"/>
               <div className={this.state.dropDownClass} onMouseLeave={this.mouseDrop}>
                 <div className="my-projects">
-                  <h3>My Projects</h3>
+                  <h2>My projects</h2>
+                    {this.getUserProjects()}
                 </div>
                 <div className="user-options">
                   <h3>Settings</h3>

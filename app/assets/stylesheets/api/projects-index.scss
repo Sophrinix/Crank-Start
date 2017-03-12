@@ -31,12 +31,15 @@
   width: 100%;
 }
 
-.special > .index-item-title {
+.special > .index-item-container > .project-detail > .description-element > .index-item-title {
   color: #020621;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
-.special > .index-item-title:hover {
+.special > .index-item-container > .project-detail > .description-element > .index-item-title:hover {
   color: #060F46;
+
 }
 
 .special > .index-item-container > .project-detail > .project-status {
@@ -55,7 +58,7 @@
   z-index: 1;
 }
 
-.special > .index-item-container > .project-detail > .description-element > .index-item-description {
+.special > .index-item-container > .project-detail > .description-element > .index-item-title > .index-item-description {
   margin-top: -24px;
 }
 

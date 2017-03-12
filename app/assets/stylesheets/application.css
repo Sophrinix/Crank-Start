@@ -373,22 +373,22 @@ span {
 .categories-list {
   margin-right: 145px;
   font-family: sans-serif;
-  border-left: 1px solid grey;
+  border-left: 2px solid grey;
   width: 16.66667%;
   white-space: nowrap;
 }
 
 .categories-list ul li a:hover {
-  border-left: 2px solid #2BDE73;
+  border-left: 5px solid #2BDE73;
 }
 
 .categories-list ul li a {
-  padding: 10px;
+  padding: 5px;
   color: #020621;
   margin-left: 0px;
-  border-left: solid 5px;
+  border-left: solid 1px;
   display: flex;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .explore-link a{
@@ -405,7 +405,7 @@ span {
 }
 
 .explore-link a:hover{
-  color: #05AF3C;
+  color: #2BDE73;
    text-decoration: none;
 }
 

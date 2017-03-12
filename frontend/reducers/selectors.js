@@ -7,7 +7,7 @@ export const selectUserProjects = ({ session, projects }) => {
   return values(userProjects);
 };
 
-export const selectProjects = ({ session, projects }) => values(projects)
+export const selectProjects = ({ projects }) => values(projects)
 export const selectCategories = ({ categories }) => values(categories)
 
 export const selectRewards = ({ rewards }) => values(rewards)

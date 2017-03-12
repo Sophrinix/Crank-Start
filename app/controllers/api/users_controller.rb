@@ -11,6 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def get_projects
+    byebug
     @user = User.find(param[:id])
     if @user
       @projects = @user.projects
