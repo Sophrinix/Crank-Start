@@ -78,7 +78,7 @@ export default class ProjectDetail extends React.Component{
     const projectDuration = this.props.projectDetail.duration;
     const timeRemaining = projectDuration - Math.ceil(timeDifference / (1000 * 3600 * 24));
     if (timeRemaining < 0){
-      return "0 (Time is up!)";
+      return "0";
     }
     else {
       return timeElapsed;

@@ -39,11 +39,12 @@ export default class RewardIndexItem extends React.Component{
     this.checkLoggedIn();
 
     if (this.checkPath()){
-      const inputText = document.getElementById("reward-input");
-      const inputButton = document.getElementById("submit-button")
+      const reward = e.currentTarget;
+      const rewardForm = reward.children[6].children;
+      const inputText  = rewardForm[0];
+      const inputButton = rewardForm[1];
       inputText.style.display = "block";
       inputButton.style.display = "block";
-
     }
   }
 
@@ -101,14 +102,16 @@ update(property){
   }
 
   render(){
+    const rewardId = this.state.rewardId;
+    const { reward } = this.props;
     return (
       <div className={this.state.styleClass} onClick={this.handleClick}>
-      <h2 className="pledge-amt">Contribute ${this.props.reward.amount} or more</h2>
-      <h3 className="reward-item-name">{this.props.reward.title}</h3>
-      <div className="reward-item-desc">{this.props.reward.body}</div>
+      <h2 className="pledge-amt">Contribute ${reward.amount} or more</h2>
+      <h3 className="reward-item-name">{reward.title}</h3>
+      <div className="reward-item-desc">{reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
       <div className="reward-item-errors">{this.state.errors}</div>
-      <div id="reward-input-div"></div> Pledge Amount:
+      <div className="reward-input-div"></div> Pledge Amount:
         <form className="reward-form" onSubmit={this.handleSubmit}>
         <input id="reward-input" type="text" onChange={this.update('amount')}/>
         <input id="submit-button" type="submit" value="Quack Start!"
