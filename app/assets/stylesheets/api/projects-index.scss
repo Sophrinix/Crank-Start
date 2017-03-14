@@ -13,12 +13,15 @@
 
 }
 
+.special div {
+  margin-left: 35%;
+}
+
 .special > .index-item-container {
   display: flex;
   flex-direction: row;
   width: 850px;
   height: 390px;
-  margin-left: 35%;
 }
 
 .special > .index-item-container > .img-container {
