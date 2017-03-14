@@ -75,7 +75,14 @@ export default class ProjectDetail extends React.Component{
     const today = new Date();
     const createdAt = new Date(this.props.projectDetail.created_at)
     const timeDifference = Math.abs(createdAt.getTime() - today.getTime());
-    return Math.ceil(timeDifference / (1000 * 3600 * 24));
+    const projectDuration = this.props.projectDetail.duration;
+    const timeRemaining = projectDuration - Math.ceil(timeDifference / (1000 * 3600 * 24));
+    if (timeRemaining < 0){
+      return "0 (Time is up!)";
+    }
+    else {
+      return timeElapsed;
+    }
   }
 
   getDate(dateCreated){
