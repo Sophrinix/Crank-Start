@@ -21,7 +21,6 @@ export default class ProjectIndex extends React.Component{
       const categoryProject = this.props.projects[Math.floor(Math.random() * (0, this.props.projects.length))];
       return (
         <div className="index-category-tab">
-          <Link to={'/explore'}><h2 className="index-sub-header"> Projects We Love: </h2></Link>
         <div className="special">
           <ProjectIndexItem key={categoryProject.id} project={categoryProject}/>
         </div>
@@ -43,7 +42,7 @@ export default class ProjectIndex extends React.Component{
         <carousel className="carousel-slides">
           {ProjectCarousel(this.props)}
         </carousel>
-
+        <Link to={'/explore'}><h2 className="index-sub-header"> Projects We Love: </h2></Link>
         {this.categoryContainer()}
 
         <div className="projects-index-container">
