@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCurrentUser } from '../../reducers/selectors'
+import { hashHistory } from 'react-router';
 
 export default class RewardIndexItem extends React.Component{
   constructor(props){
@@ -32,19 +33,20 @@ export default class RewardIndexItem extends React.Component{
     return currentPath.includes("rewards");
   }
 
+
   handleClick(e){
     e.preventDefault();
-    const { project } = this.props;
-
     this.checkLoggedIn();
-
-    if (this.checkPath()){
+    if (this.checkPath === true){
       const reward = e.currentTarget;
       const rewardForm = reward.children[6].children;
       const inputText  = rewardForm[0];
       const inputButton = rewardForm[1];
       inputText.style.display = "block";
       inputButton.style.display = "block";
+    } else {
+      const { project } = this.props;
+      hashHistory.push(`/projects/${project.id}/rewards`);
     }
   }
 

@@ -93,7 +93,6 @@ export default class ProjectDetail extends React.Component{
   render(){
 
     const { projectDetail, children } = this.props;
-
     const currentFunding = Math.floor((projectDetail.funding/projectDetail.funding_goal)*100)
     const progressBar = { width: currentFunding + "%" }
 
