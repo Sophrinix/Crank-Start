@@ -2,30 +2,37 @@ import React from 'react';
 import RewardIndexItem from './rewards_item_container';
 
 export default class RewardIndex extends React.Component{
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       styleClass: ""
     }
   }
 
-  componentDidMount(){
+  checkPath(){
+    const currentPath = location.hash;
+    return currentPath.includes("rewards");
+  }
+
+  componentDidMount() {
   const currentPath = location.hash;
-  if (currentPath.includes("rewards")){
+  if (this.checkPath() === true){
     this.setState({ styleClass: "show-reward-index" })
     this.props.fetchProject(this.props.params.projectId);
+    }
   }
-}
 
 
-  render(){
-    const rewards = this.props.project.rewards;
+  render() {
     const { project, children } = this.props;
+    const rewards = project.rewards;
+    const header = this.checkPath() === true ? "Back a project!" : "";
     if (!rewards){
       return (<div></div>)
     };
     return (
       <div>
+        <h2 className="rewards-h2">{header}</h2>
         <ul className={this.state.styleClass}>
           {rewards.slice(0,5).sort((x, y) => {
             return x.amount - y.amount
@@ -37,7 +44,6 @@ export default class RewardIndex extends React.Component{
               reward={reward}/> </li>
           })}
         </ul>
-
       </div>
     );
   };
