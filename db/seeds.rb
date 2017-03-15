@@ -61,7 +61,6 @@ Backing.create(backings)
 images = [
   'http://il3.picdn.net/shutterstock/videos/12459260/thumb/1.jpg',
   'http://2.bp.blogspot.com/-5asfWHfozyw/VL2PlL-37II/AAAAAAAAA0Q/bi_cSaRjQtQ/s1600/598455.jpg',
-  'https://best-wallpaper.net/wallpaper/1024x768/1206/Beautiful-feathers-of-the-mandarin-duck_1024x768.jpg',
   'http://3.bp.blogspot.com/-yuWfMLvMN7Q/VS41c4RkcaI/AAAAAAAAAHQ/I2PcxV7RjkM/s1600/canard-mandarin-620x295.jpg',
   'https://s-media-cache-ak0.pinimg.com/736x/f6/91/31/f691311f9fbe76afafad2c67abccc0fe.jpg',
   'https://s-media-cache-ak0.pinimg.com/736x/4c/b1/ea/4cb1ead770e88fed3e1324f06b64b8e4.jpg',
@@ -101,7 +100,7 @@ The drakes of northern species often have extravagant plumage, but that is moult
 )
 
 Project.create!(
-  title: 'Ducks Foraging along the Lake Okanagan shoreline in Winter near Maude Roxby Wetlands',
+  title: 'Ducks Foraging along the Lake Okanagan Shoreline',
   blurb: "Goodness what is up with this duck",
   img_url: images[rand(11)],
   about: 'Ducks exploit a variety of food sources such as grasses, aquatic plants, fish, insects, small amphibians, worms, and small molluscs. Dabbling ducks feed on the surface of water or on land, or as deep as they can reach by up-ending without completely submerging.[3] Along the edge of the beak there is a comb-like structure called a pecten. This strains the water squirting from the side of the beak and traps any food. The pecten is also used to preen feathers and to hold slippery food items. Diving ducks and sea ducks forage deep underwater. To be able to submerge more easily, the diving ducks are heavier than dabbling ducks, and therefore have more difficulty taking off to fly. A few specialized species such as the mergansers are adapted to catch and swallow large fish. The others have the characteristic wide flat beak adapted to dredging-type jobs such as pulling up waterweed, pulling worms and small molluscs out of mud, searching for insect larvae, and bulk jobs such as dredging out, holding, turning head first, and swallowing a squirming frog. To avoid injury when digging into sediment it has no cere, but the nostrils come out through hard horn.The Guardian (British newspaper) published an article on Monday 16 March 2015 advising that ducks should not be fed with bread because it damages the health of the ducks and pollutes waterways.[4]',
@@ -135,7 +134,7 @@ Project.create!(
 
 Project.create!(
   title: 'a tale of two cities by charles duckins',
-  blurb: "The Call duck has also received a place as the world's smallest domestic duck ",
+  blurb: "The Call duck is the world's smallest domestic duck ",
   img_url: images[rand(11)],
   about: 'Ducks have many economic uses, being farmed for their meat, eggs, and feathers (particularly their down). They are also kept and bred by aviculturists and often displayed in zoos. Almost all the varieties of domestic ducks are descended from the mallard (Anas platyrhynchos), apart from the Muscovy duck (Cairina moschata).[9][10] The Call duck is another example of a domestic duck breed. Its name comes from its original use established by hunters. This was to attract wild mallards from the sky, into traps set for them on the ground. The Call duck has also received a place as the worlds smallest domestic duck breed, as it weighs less than 1kg. [11]',
   complete: false,
@@ -151,7 +150,7 @@ Project.create!(
 
 Project.create!(
   title: 'Make mine a duck',
-  blurb: "LONG-TERM PAIR BONDS IN HARLEQUIN DUCKS; The Condor: February 2000",
+  blurb: "LONG-TERM PAIR BONDS IN HARLEQUIN DUCKS",
   img_url: images[rand(11)],
   about: 'In 2002, psychologist Richard Wiseman and colleagues at the University of Hertfordshire, UK, finished a year-long LaughLab experiment, concluding that of all animals, ducks attract the most humor and silliness; he said, "If youre going to tell a joke involving an animal, make it a duck."[12] The word "duck" may have become an inherently funny word in many languages, possibly because ducks are seen as silly in their looks or behavior. Of the many ducks in fiction, many are cartoon characters, such as Walt Disneys Donald Duck, and Warner Bros. Daffy Duck. Howard the Duck started as a comic book character in 1973, made in 1986 into a movie.[13] The 1992 Disney film The Mighty Ducks, starring Emilio Estevez chose the duck as the mascot for the fictional youth hockey team who are protagonists of the movie, based on the duck being described as a fierce fighter. This led to the duck becoming the nickname and mascot for the eventual National Hockey League professional team Anaheim Ducks. The duck is also the nickname of the University of Oregon sports teams as well as the Long Island Ducks minor league baseball team.',
   complete: false,

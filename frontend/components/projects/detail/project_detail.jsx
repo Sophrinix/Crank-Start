@@ -81,7 +81,7 @@ export default class ProjectDetail extends React.Component{
       return "0";
     }
     else {
-      return timeElapsed;
+      return timeRemaining;
     }
   }
 

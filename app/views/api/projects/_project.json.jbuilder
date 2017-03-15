@@ -9,7 +9,11 @@ json.complete project.complete
 json.city project.city
 json.state project.state
 json.duration project.duration
-json.img_url project.image.url
+if project.image.url != "http://www.duckstamp03.com/270.Pintail.Fed.Lg.jpg"
+  json.img_url project.image.url
+else
+  json.img_url project.img_url
+end
 json.category do
   json.name project.category.name
 end
