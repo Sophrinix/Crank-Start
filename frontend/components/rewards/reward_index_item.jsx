@@ -38,7 +38,6 @@ export default class RewardIndexItem extends React.Component{
   handleClick(e){
     e.preventDefault();
     this.checkLoggedIn();
-    debugger
     if (this.checkPath() === true){
       const reward = e.currentTarget;
       const rewardForm = reward.children[6].children;
