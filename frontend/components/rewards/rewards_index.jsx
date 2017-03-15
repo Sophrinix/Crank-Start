@@ -10,24 +10,19 @@ export default class RewardIndex extends React.Component{
   }
 
   componentDidMount(){
-    const currentPath = location.hash;
-    if (currentPath.includes("rewards")){
-      this.setState({ styleClass: "show-reward-index" })
-    }
+  const currentPath = location.hash;
+  if (currentPath.includes("rewards")){
+    this.setState({ styleClass: "show-reward-index" })
+    this.props.fetchProject(this.props.params.projectId);
   }
+}
 
-  handleClick(){
-    if (this.state.styleClass){
-
-    }
-  }
 
   render(){
-
     const rewards = this.props.project.rewards;
     const { project, children } = this.props;
     if (!rewards){
-      return (<div><h1>No rewards yet</h1></div>)
+      return (<div></div>)
     };
     return (
       <div>
@@ -42,7 +37,6 @@ export default class RewardIndex extends React.Component{
               reward={reward}/> </li>
           })}
         </ul>
-        {children}
 
       </div>
     );

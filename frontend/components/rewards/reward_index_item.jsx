@@ -11,13 +11,19 @@ export default class RewardIndexItem extends React.Component{
       backer_id : "",
       backers: "",
       errors: "",
-      styleClass: "",
+      styleClass: "show-reward-index-item",
       amount: ""
     };
     this.displayBackers = this.displayBackers.bind(this);
     this.checkLoggedIn = this.checkLoggedIn.bind(this);
     this.checkPath = this.checkPath.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+
+  checkPath(){
+    const currentPath = location.hash;
+    return currentPath.includes("rewards");
   }
 
   componentDidMount(){
@@ -28,16 +34,12 @@ export default class RewardIndexItem extends React.Component{
     }
   }
 
-  checkPath(){
-    const currentPath = location.hash;
-    return currentPath.includes("rewards");
-  }
-
 
   handleClick(e){
     e.preventDefault();
     this.checkLoggedIn();
-    if (this.checkPath === true){
+    debugger
+    if (this.checkPath() === true){
       const reward = e.currentTarget;
       const rewardForm = reward.children[6].children;
       const inputText  = rewardForm[0];
@@ -104,6 +106,7 @@ update(property){
   }
 
   render(){
+
     const rewardId = this.state.rewardId;
     const { reward } = this.props;
     return (

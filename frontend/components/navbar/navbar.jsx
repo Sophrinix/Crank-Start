@@ -92,7 +92,6 @@ export default class NavBar extends React.Component{
       navLinksClass: 'off nav-links',
       mainNavClass: 'no-overflow',
       searchClass: 'just-right'})
-      //this.searchField.focus();
       const el = document.getElementById("search-bar")
       el.focus();
   } else {
