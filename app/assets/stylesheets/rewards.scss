@@ -68,18 +68,23 @@
   cursor: pointer;
 }
 
+.reward-form{
+  display:none;
+}
+
+
+
 #reward-input{
-  display: none;
   background: white;
 }
 
 #reward-input:focus {
   outline: 1px solid blue;
 }
-
-#submit-button {
-  display: none;
-}
+//
+// #submit-button {
+//   display: none;
+// }
 
 .pledge-amt {
   color: #586BE9;
@@ -105,4 +110,19 @@
   font-size: 14px;
   line-height: 150%;
   color: #aaa;
+}
+
+.thank-you {
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
 }

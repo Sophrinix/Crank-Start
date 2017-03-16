@@ -10,6 +10,7 @@ export default class RewardIndexItem extends React.Component{
       backer_id : "",
       project_id: this.props.project.id,
       errors: "",
+      backers: this.props.reward.backers,
       styleClass: "show-reward-index-item",
       amount: ""
     };
@@ -40,12 +41,8 @@ export default class RewardIndexItem extends React.Component{
     e.preventDefault();
     this.checkLoggedIn();
     if (this.checkPath() === true){
-      const reward = e.currentTarget;
-      const rewardForm = reward.children[6].children;
-      const inputText  = rewardForm[0];
-      const inputButton = rewardForm[1];
-      inputText.style.display = "block";
-      inputButton.style.display = "block";
+      const rewardForm = e.currentTarget.nextElementSibling
+      rewardForm.style.display = "block";
     } else {
       const { project } = this.props;
       hashHistory.push(`/projects/${project.id}/rewards`);
@@ -53,14 +50,21 @@ export default class RewardIndexItem extends React.Component{
   }
 
   handleSubmit(e){
-    debugger
     this.checkLoggedIn();
     e.preventDefault();
     const formData = new FormData();
     formData.append("backing[backer_id]", this.state['backer_id']);
     formData.append("backing[reward_id]", this.state['reward_id']);
     this.props.createBacking(formData)
-    console.log('hoorah!');
+    this.setState({
+      backers: this.state.backers.concat([this.props.currentUser.username])
+    })
+    e.currentTarget.closest('form').children[0].value = ""
+    //reset form
+    // display thank you
+
+
+
   }
 
 
@@ -81,11 +85,19 @@ update(property){
   }
 }
 
-
+filterUniqueBackers(backers){
+  const uniqueBackers = [];
+  for (var i = 0; i < backers.length; i++) {
+    if (!uniqueBackers.includes(backers[i].user)){
+      uniqueBackers.push(backers[i].user);
+    }
+  }
+  return uniqueBackers.length;
+}
 
   displayBackers(){
-    if (this.props.reward.backers !== null){
-      const backers = this.props.reward.backers
+    if (this.state.backers !== null){
+      const backers = this.state.backers
       const uniqueBackers = [];
       for (var i = 0; i < backers.length; i++) {
         const username = backers[i].username;
@@ -107,18 +119,23 @@ update(property){
     const { reward } = this.props;
 
     return (
-      <div className={this.state.styleClass} onClick={this.handleClick}>
+      <div className={this.state.styleClass}>
+      <div onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${reward.amount} or more</h2>
       <h3 className="reward-item-name">{reward.title}</h3>
       <div className="reward-item-desc">{reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
       <div className="reward-item-errors">{this.state.errors}</div>
-      <div className="reward-input-div"></div>Pledge Amount:
-        <form className="reward-form" onSubmit={this.handleSubmit}>
-        <input id="reward-input" type="text" placeholder="$" onChange={this.update('amount')}/>
-        <input id="submit-button" type="submit" value="Quack Start!"
-          className="form-submit-button"/>
-        </form>
+      </div>
+      <form className="reward-form" onSubmit={this.handleSubmit}>
+        Pledge Amount:
+      <input id="reward-input" type="text" placeholder="$" onChange={this.update('amount')}/>
+      <input id="submit-button" type="submit" value="Quack Start!"
+        className="form-submit-button"/>
+      </form>
+      <div className="thank-you">
+        <h1>WOW THANKS FOR YOUR CONTRIBUIEOR</h1>
+      </div>
       </div>
     )
   }

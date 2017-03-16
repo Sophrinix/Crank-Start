@@ -1,7 +1,6 @@
 class Api::BackingsController < ApplicationController
 
   def create
-    byebug
     @backing = Backing.new(backing_params)
     if @backing.save!
       @project = @backing.reward.project
