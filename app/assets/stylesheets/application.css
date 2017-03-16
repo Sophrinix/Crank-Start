@@ -158,6 +158,14 @@ i.fa.fa-times {
    width: 34px;
  }
 
+ .nav-right {
+   margin-right: 15px;
+ }
+
+ .site-links {
+   margin-left: 15px;
+ }
+
 .search-nav, .nav-links, .nav-left, .nav-right,  {
   display: flex;
   justify-content: space-between;

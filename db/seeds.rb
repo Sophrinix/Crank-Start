@@ -68,7 +68,6 @@ images = [
   'https://3.bp.blogspot.com/-vxg0Avqgh6Y/Vlnxu8883SI/AAAAAAAAlxs/3Qfikj2Ipos/s640/amazing-duck-water-hd-images-desktop-cool-hd-wallpapers-fullscreen.jpg',
   'https://www.mypetchicken.com/images/product_images/large/Studio_WSilkie_649_bc.jpg',
   'https://s-media-cache-ak0.pinimg.com/736x/3c/9d/f1/3c9df195fde5921afd475a0b476bed6d.jpg',
-  'https://www.cacklehatchery.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/w/h/whitesil2_1_.jpg',
   'https://s-media-cache-ak0.pinimg.com/736x/07/35/c1/0735c1ec285d5e512fa1c110b9fcfb1a.jpg'
   ]
 
