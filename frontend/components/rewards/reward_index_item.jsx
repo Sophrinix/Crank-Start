@@ -5,19 +5,20 @@ import { hashHistory } from 'react-router';
 export default class RewardIndexItem extends React.Component{
   constructor(props){
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
       reward_id: this.props.reward.reward_id,
       backer_id : "",
-      backers: "",
+      project_id: this.props.project.id,
       errors: "",
       styleClass: "show-reward-index-item",
       amount: ""
     };
+    this.handleClick = this.handleClick.bind(this);
     this.displayBackers = this.displayBackers.bind(this);
     this.checkLoggedIn = this.checkLoggedIn.bind(this);
     this.checkPath = this.checkPath.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
 
@@ -51,32 +52,28 @@ export default class RewardIndexItem extends React.Component{
     }
   }
 
+  handleSubmit(e){
+    debugger
+    this.checkLoggedIn();
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("backing[backer_id]", this.state['backer_id']);
+    formData.append("backing[reward_id]", this.state['reward_id']);
+    this.props.createBacking(formData)
+    console.log('hoorah!');
+  }
 
-//     const amount = this.props.reward.amount;
-//     if (!(this.props.currentUser === null)){
-//       this.props.updateProjectStatus(amount);
-//       if (this.state.backer_id){
-//         this.props.createBacking(this.state);
-//       }
-//       if (!(this.props.reward.backers.includes(this.props.currentUser))){
-//         this.setState({backers: this.props.reward.backers.length += 1})
-//     }
-//   }
-// }
 
 checkLoggedIn(){
   const currentUser = this.props.currentUser;
   if (currentUser === null){
     this.setState({errors: "Log in or Sign up to back a project"})
     hashHistory.push('/signup')
+  } else {
+    this.setState({"backer_id": this.props.currentUser.id})
   }
 }
 
-handleSubmit(e){
-  e.preventDefault();
-  const formData = new FormData();
-
-}
 
 update(property){
   return (e) => {
@@ -108,6 +105,7 @@ update(property){
 
     const rewardId = this.state.rewardId;
     const { reward } = this.props;
+
     return (
       <div className={this.state.styleClass} onClick={this.handleClick}>
       <h2 className="pledge-amt">Contribute ${reward.amount} or more</h2>
@@ -115,9 +113,9 @@ update(property){
       <div className="reward-item-desc">{reward.body}</div>
       <div className="reward-item-backers">{this.displayBackers()}</div>
       <div className="reward-item-errors">{this.state.errors}</div>
-      <div className="reward-input-div"></div> Pledge Amount:
+      <div className="reward-input-div"></div>Pledge Amount:
         <form className="reward-form" onSubmit={this.handleSubmit}>
-        <input id="reward-input" type="text" onChange={this.update('amount')}/>
+        <input id="reward-input" type="text" placeholder="$" onChange={this.update('amount')}/>
         <input id="submit-button" type="submit" value="Quack Start!"
           className="form-submit-button"/>
         </form>

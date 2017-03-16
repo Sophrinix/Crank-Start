@@ -20,7 +20,6 @@ export default class SearchIndex extends React.Component{
       );
     }
     else {
-      debugger
       return (
           <div>
           <h2 className="index-sub-header">Search Results</h2>

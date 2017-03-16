@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import RewardIndex from './rewards_index';
 
-import {fetchProject} from '../../actions/project_actions';
+import { fetchProject } from '../../actions/project_actions';
 import { selectProjects } from '../../reducers/selectors';
+import { createBacking } from '../../actions/backing_actions';
 
 const mapStateToProps = ({ projectDetail, session}) => ({
   project: projectDetail,
@@ -10,7 +11,8 @@ const mapStateToProps = ({ projectDetail, session}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchProject: (id) => dispatch(fetchProject(id))
+  fetchProject: (id) => dispatch(fetchProject(id)),
+  createBacking: (backing) => dispatch(createBacking(backing))
 });
 
 export default connect(

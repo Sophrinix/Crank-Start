@@ -37,11 +37,14 @@ export default class RewardIndex extends React.Component{
           {rewards.slice(0,5).sort((x, y) => {
             return x.amount - y.amount
           }).map(reward => {
-            return <li key={reward.reward_id}>
+            return (
+            <li key={reward.reward_id}>
               <RewardIndexItem
               project={project}
               updateProjectStatus={this.props.updateProjectStatus}
+              createBacking={this.props.createBacking}
               reward={reward}/> </li>
+          )
           })}
         </ul>
       </div>

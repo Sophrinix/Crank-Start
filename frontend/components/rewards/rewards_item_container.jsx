@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createBacking : backing => dispatch(createBacking(backing))
+  createBacking : (backing) => dispatch(createBacking(backing))
 })
 
 export default connect(
