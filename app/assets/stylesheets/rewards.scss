@@ -112,9 +112,19 @@
   color: #aaa;
 }
 
-.thank-you {
-    -webkit-animation: fadeinout 4s linear forwards;
-    animation: fadeinout 4s linear forwards;
+.thank-you{
+  display: none;
+}
+
+.thank-you-trans {
+    -webkit-animation: fadeinout 2s linear forwards;
+    animation: fadeinout 2s linear forwards;
+    transition: all 2s ease;
+}
+
+.thank-you-trans img {
+  width: 25%;
+  height: 25%;
 }
 
 @-webkit-keyframes fadeinout {

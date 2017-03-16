@@ -60,10 +60,11 @@ export default class RewardIndexItem extends React.Component{
       backers: this.state.backers.concat([this.props.currentUser.username])
     })
     e.currentTarget.closest('form').children[0].value = ""
-    //reset form
-    // display thank you
 
 
+    const thanks = e.currentTarget.nextSibling;
+    thanks.classList.remove("thank-you");
+    thanks.className = "thank-you-trans";
 
   }
 
@@ -134,7 +135,8 @@ filterUniqueBackers(backers){
         className="form-submit-button"/>
       </form>
       <div className="thank-you">
-        <h1>WOW THANKS FOR YOUR CONTRIBUIEOR</h1>
+        <h4>wow thanks</h4>
+        <img src="https://www.purelypoultry.com/images/silkie-bantam-chickens_04.jpg"/>
       </div>
       </div>
     )
