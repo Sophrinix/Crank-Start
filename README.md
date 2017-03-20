@@ -21,7 +21,7 @@ CrankStart is a crowd sourcing application inspired by KickStarter. It was build
 
 ![Cover photo](/cover-shot.png)
 
-CrankStart features all of the key functionality of KickStarter, but was built to fund small grassroots projects and community organizing initiatives. The UI and single-page architecture were built with React.js and Ruby on Rails. Data is stored in a PostGres database and AWS hosts site images.
+CrankStart features all of the key functionality of KickStarter, but was built to fund small grassroots projects and community organizing initiatives. The current seed data features a host of colorful ducks, which will gradually be replaced as actual organizations sign on. but  The UI and single-page architecture were built with React.js and Ruby on Rails. Data is stored in a PostGres database and AWS hosts site images.
 [Take a look at the live version!][heroku]
 
 [heroku]: http://www.crankstart.co/#/
