@@ -16,7 +16,7 @@ export default class ProjectDetail extends React.Component{
   this.getRemainingDays = this.getRemainingDays.bind(this);
   this.linkToRewards = this.linkToRewards.bind(this);
   this.linkToEdit = this.linkToEdit.bind(this);
-  this.checkSignedIn = this.checkSignedIn.bind(this);
+  this.userLoggedIn = this.userLoggedIn.bind(this);
   }
 
   componentDidMount(){
@@ -27,7 +27,7 @@ export default class ProjectDetail extends React.Component{
       const uniqueBackers = this.filterUniqueBackers(allBackers);
       this.setState({funding: projectFunding})
       this.setState({backers: uniqueBackers})
-      this.showEditButton();
+      this.showEditButton(action.project.user.id);
     });
   }
 
@@ -51,20 +51,18 @@ export default class ProjectDetail extends React.Component{
     hashHistory.push(`edit/${project.id}`)
   }
 
-  showEditButton(){
-    if (!this.checkSignedIn()){
-      debugger
+  showEditButton(userId){
+    if (this.userLoggedIn()){
       const currentUserId = this.props.session.currentUser.id;
-      const projectId = this.props.projectDetail.user.id;
-      if (currentUserId == projectId){
+      if (currentUserId == userId){
         const button = document.getElementsByClassName("edit-button")[0];
         button.style.display = "block";
       }
     }
   }
 
-  checkSignedIn(){
-    this.props.session.currentUser === null;
+  userLoggedIn(){
+    return this.props.session.currentUser !== null;
   }
 
 
@@ -143,6 +141,7 @@ export default class ProjectDetail extends React.Component{
               <RewardsIndex updateProjectStatus={this.updateProjectStatus} project={projectDetail}/>
             </div>
           </div>
+          { children }
       </div>
     );
   }

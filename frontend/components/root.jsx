@@ -42,11 +42,12 @@ const Root = ({ store }) => {
           <Route path="/projects" component={ProjectIndexContainer}/>
           <Route path="/search" component={SearchIndexContainer}/>
           <Route path="/projects/new" component={ProjectFormContainer} />
-          <Route path="/projects/:projectId" component={ProjectDetailContainer} />
+          <Route path="/projects/:projectId" component={ProjectDetailContainer}>
+            <Route path="/edit/:projectId" component={ProjectFormContainer}/>
+          </Route>
           <Route path="/projects/:projectId/rewards" component={RewardsIndexContainer} />
           <Route path="/explore" component={ExploreIndex}/>
           <Route path='/explore/categories/:category' component={ExploreShowContainer}/>
-          <Route path="/edit/:projectId" component={ProjectFormContainer}/>
         </Route>
       </Router>
     </Provider>

@@ -28,11 +28,19 @@ export default class ProjectForm extends React.Component{
     this.updateFile = this.updateFile.bind(this);
     this.displayErrors = this.displayErrors.bind(this);
     this.checkLoggedIn = this.checkLoggedIn.bind(this);
+    this.setProjectState = this.setProjectState.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchCategories();
     this.checkLoggedIn();
+    if (this.props.params.projectId !== null){
+      const projectId = this.props.params.projectId;
+      this.props.fetchProject(projectId)
+      .then((action) => {
+        this.setProjectState(action.project)
+      })
+    }
   }
 
   handleSubmit(e){
@@ -76,8 +84,11 @@ export default class ProjectForm extends React.Component{
     }
   }
 
-  selectCountry(val){
-    this.setState({ country: val })
+  setProjectState(projectState){
+    Object.keys(this.state).forEach((key) => {
+      this.setState({ [key]: projectState[key] })
+    })
+    debugger
   }
 
   displayErrors(){
