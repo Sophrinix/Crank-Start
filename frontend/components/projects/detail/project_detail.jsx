@@ -15,6 +15,8 @@ export default class ProjectDetail extends React.Component{
   this.filterUniqueBackers = this.filterUniqueBackers.bind(this);
   this.getRemainingDays = this.getRemainingDays.bind(this);
   this.linkToRewards = this.linkToRewards.bind(this);
+  this.linkToEdit = this.linkToEdit.bind(this);
+  this.checkSignedIn = this.checkSignedIn.bind(this);
   }
 
   componentDidMount(){
@@ -25,6 +27,7 @@ export default class ProjectDetail extends React.Component{
       const uniqueBackers = this.filterUniqueBackers(allBackers);
       this.setState({funding: projectFunding})
       this.setState({backers: uniqueBackers})
+      this.showEditButton();
     });
   }
 
@@ -35,12 +38,33 @@ export default class ProjectDetail extends React.Component{
   }
 
   linkToRewards(){
-    if (this.props.session.currentUser === null){
+    if (checkSignedIn()){
       hashHistory.push(`/login`);
     } else {
       const project = this.props.projectDetail;
       hashHistory.push(`/projects/${project.id}/rewards`);
     }
+  }
+
+  linkToEdit(){
+    const project = this.props.projectDetail;
+    hashHistory.push(`edit/${project.id}`)
+  }
+
+  showEditButton(){
+    if (!this.checkSignedIn()){
+      debugger
+      const currentUserId = this.props.session.currentUser.id;
+      const projectId = this.props.projectDetail.user.id;
+      if (currentUserId == projectId){
+        const button = document.getElementsByClassName("edit-button")[0];
+        button.style.display = "block";
+      }
+    }
+  }
+
+  checkSignedIn(){
+    this.props.session.currentUser === null;
   }
 
 
@@ -108,6 +132,7 @@ export default class ProjectDetail extends React.Component{
                     <button type="button" onClick={this.linkToRewards}>Back this project</button>
               </ul>
             </div>
+            <button className="edit-button" onClick={this.linkToEdit} type="button">Edit your project</button>
           </div>
           <div className="project-main">
             <div className="project-about">

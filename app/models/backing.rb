@@ -8,5 +8,4 @@ class Backing < ApplicationRecord
   class_name: "User"
 
 
-
 end

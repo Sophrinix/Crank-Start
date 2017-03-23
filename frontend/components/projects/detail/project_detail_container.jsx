@@ -8,7 +8,7 @@ const mapStateToProps = ({ projectDetail, session}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchProject: (id) => dispatch(fetchProject(id))
+  fetchProject: (id) => dispatch(fetchProject(id)),
 });
 
 export default connect(

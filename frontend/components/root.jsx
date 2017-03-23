@@ -46,6 +46,7 @@ const Root = ({ store }) => {
           <Route path="/projects/:projectId/rewards" component={RewardsIndexContainer} />
           <Route path="/explore" component={ExploreIndex}/>
           <Route path='/explore/categories/:category' component={ExploreShowContainer}/>
+          <Route path="/edit/:projectId" component={ProjectFormContainer}/>
         </Route>
       </Router>
     </Provider>
