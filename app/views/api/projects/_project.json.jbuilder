@@ -10,14 +10,15 @@ json.city project.city
 json.state project.state
 json.duration project.duration
 if project.image.url != "http://www.duckstamp03.com/270.Pintail.Fed.Lg.jpg"
+  json.image project.image
   json.img_url project.image.url
 else
   json.img_url project.img_url
 end
 json.category do
+  json.id project.category.id
   json.name project.category.name
 end
-
 json.user do
   json.id project.user.id
   json.email project.user.email

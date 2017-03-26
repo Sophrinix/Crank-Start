@@ -38,7 +38,7 @@ export default class ProjectDetail extends React.Component{
   }
 
   linkToRewards(){
-    if (checkSignedIn()){
+    if (this.userLoggedIn()){
       hashHistory.push(`/login`);
     } else {
       const project = this.props.projectDetail;
@@ -82,12 +82,7 @@ export default class ProjectDetail extends React.Component{
     const timeDifference = Math.abs(createdAt.getTime() - today.getTime());
     const projectDuration = this.props.projectDetail.duration;
     const timeRemaining = projectDuration - Math.ceil(timeDifference / (1000 * 3600 * 24));
-    if (timeRemaining < 0){
-      return "0";
-    }
-    else {
-      return timeRemaining;
-    }
+    return timeRemaining < 0 ? "0" : timeRemaining;
   }
 
   getDate(dateCreated){

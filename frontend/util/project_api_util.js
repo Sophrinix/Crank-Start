@@ -12,6 +12,16 @@ export const fetchProject = (projectId) => {
   });
 };
 
+export const updateProject = (projectId) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/projects/${projectId}`,
+    data: projectId,
+    processData: false,
+    contentType: false
+  })
+}
+
 
 
 export const createProject = (project) => {

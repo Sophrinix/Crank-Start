@@ -7,6 +7,7 @@ export default class ProjectForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      id: '',
       title: '',
       blurb: '',
       about: '',
@@ -34,7 +35,8 @@ export default class ProjectForm extends React.Component{
   componentDidMount(){
     this.props.fetchCategories();
     this.checkLoggedIn();
-    if (this.props.params.projectId !== null){
+    debugger
+    if (this.props.params.projectId !== undefined){
       const projectId = this.props.params.projectId;
       this.props.fetchProject(projectId)
       .then((action) => {
@@ -52,15 +54,22 @@ export default class ProjectForm extends React.Component{
         formData.append(`project[${key}]`, this.state[key])
       }
     })
-    this.props.createProject(formData)
-    .then(project => this.props.router.push(`/projects/${project.project.id}`));
+    if (this.props.params.projectId === undefined){
+      this.props.createProject(formData)
+      .then(action => this.props.router.push(`/projects/${action.project.id}`));
+    } else {
+      debugger
+      this.props.updateProject(formData)
+      .then(action => this.props.router.push(`/projects/${action.project.id}`));
+    }
   }
 
   checkLoggedIn(){
     if (this.props.session.currentUser === null){
       hashHistory.push('/login');
     } else {
-      this.setState({ author_id: this.props.session.currentUser.id})
+      const authorId = this.props.session.currentUser.id;
+      this.setState({ 'author_id' : authorId })
     }
   }
 
@@ -88,6 +97,9 @@ export default class ProjectForm extends React.Component{
     Object.keys(this.state).forEach((key) => {
       this.setState({ [key]: projectState[key] })
     })
+    this.setState({ author_id: projectState.user.id})
+    this.setState({ category_id: projectState.category.id})
+    this.setState({ image: projectState.image})
     debugger
   }
 
@@ -219,7 +231,7 @@ export default class ProjectForm extends React.Component{
                 <div className="label-wrapper"><label> Select a category for your project</label></div>
                 <div className="form-wrapper">
 
-                  <select className="select-bar" onChange={this.update("category_id")}>
+                  <select className="select-bar" value={'1'} onChange={this.update("category_id")}>
                     {this.getCategories()}</select>
                 </div>
               </div>

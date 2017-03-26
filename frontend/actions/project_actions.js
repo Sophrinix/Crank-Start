@@ -16,6 +16,12 @@ export const fetchProject = (projectId) => (dispatch) => (
   .then(project => dispatch(receiveProject(project)))
 );
 
+export const updateProject = (projectId) => (dispatch) => (
+  APIUtil.updateProject(projectId)
+  .then(project => dispatch(receiveProject(project)),
+  (errors) => dispatch(receiveErrors(errors.responseJSON)))
+);
+
 export const createProject = (project) => (dispatch) => (
   APIUtil.createProject(project)
   .then(project => dispatch(receiveProject(project)),
