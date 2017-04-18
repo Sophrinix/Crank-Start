@@ -6,7 +6,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
-    byebug
     @project = Project.new(project_params)
     if @project.save
       render "api/projects/show"
@@ -16,8 +15,6 @@ class Api::ProjectsController < ApplicationController
   end
 
   def update
-
-    byebug
     @project = Project.find(project_params[:id])
     if @project.update_attributes(project_params)
       render "api/projects/show"

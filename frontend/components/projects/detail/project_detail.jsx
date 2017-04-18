@@ -15,7 +15,6 @@ export default class ProjectDetail extends React.Component{
   this.filterUniqueBackers = this.filterUniqueBackers.bind(this);
   this.getRemainingDays = this.getRemainingDays.bind(this);
   this.linkToRewards = this.linkToRewards.bind(this);
-  this.linkToEdit = this.linkToEdit.bind(this);
   this.userLoggedIn = this.userLoggedIn.bind(this);
   }
 
@@ -27,7 +26,6 @@ export default class ProjectDetail extends React.Component{
       const uniqueBackers = this.filterUniqueBackers(allBackers);
       this.setState({funding: projectFunding})
       this.setState({backers: uniqueBackers})
-      this.showEditButton(action.project.user.id);
     });
   }
 
@@ -43,21 +41,6 @@ export default class ProjectDetail extends React.Component{
     } else {
       const project = this.props.projectDetail;
       hashHistory.push(`/projects/${project.id}/rewards`);
-    }
-  }
-
-  linkToEdit(){
-    const project = this.props.projectDetail;
-    hashHistory.push(`edit/${project.id}`)
-  }
-
-  showEditButton(userId){
-    if (this.userLoggedIn()){
-      const currentUserId = this.props.session.currentUser.id;
-      if (currentUserId == userId){
-        const button = document.getElementsByClassName("edit-button")[0];
-        button.style.display = "block";
-      }
     }
   }
 
@@ -125,7 +108,6 @@ export default class ProjectDetail extends React.Component{
                     <button type="button" onClick={this.linkToRewards}>Back this project</button>
               </ul>
             </div>
-            <button className="edit-button" onClick={this.linkToEdit} type="button">Edit your project</button>
           </div>
           <div className="project-main">
             <div className="project-about">

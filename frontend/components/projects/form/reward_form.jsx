@@ -1,47 +1,27 @@
 import React from 'react';
-import { withRouter, hashHistory } from 'react-router';
-import { CountryDropdown } from 'react-country-region-selector';
-import { categories } from '../../../util/api_constants';
+import { hashHistory } from 'react-router';
 
-export default class ProjectForm extends React.Component{
+export default class RewardForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       id: '',
       title: '',
-      blurb: '',
-      about: '',
-      image: null,
-      imageUrl: null,
-      funding: null,
-      funding_goal: '',
-      duration: '',
-      author_id: '',
-      city: '',
-      state: '',
-      category_id: '',
-      complete: 'false',
+      body: '',
+      projectId: "",
       errors: ''
 
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getCategories = this.getCategories.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.displayErrors = this.displayErrors.bind(this);
-    this.checkLoggedIn = this.checkLoggedIn.bind(this);
     this.setProjectState = this.setProjectState.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchCategories();
-    this.checkLoggedIn();
-
     if (this.props.params.projectId !== undefined){
       const projectId = this.props.params.projectId;
-      this.props.fetchProject(projectId)
-      .then((action) => {
-        this.setProjectState(action.project)
-      })
+      this.setState({ projectId: projectId })
     }
   }
 
@@ -50,19 +30,8 @@ export default class ProjectForm extends React.Component{
     const formData = new FormData();
 
     Object.keys(this.state).forEach(key => {
-      if (key !== "imageUrl" && key !== "errors") {
-        formData.append(`project[${key}]`, this.state[key])
-      }
+      formData.append(`reward[${key}]`, this.state[key])
     })
-    debugger
-    if (this.props.params.projectId === undefined){
-      this.props.createProject(formData)
-      .then(action => this.props.router.push(`projects/${action.project.id}/rewards/new`));
-    } else {
-
-      this.props.updateProject(formData)
-      .then(action => this.props.router.push(`/projects/${action.project.id}`));
-    }
   }
 
   checkLoggedIn(){
@@ -72,36 +41,6 @@ export default class ProjectForm extends React.Component{
       const authorId = this.props.session.currentUser.id;
       this.setState({ 'author_id' : authorId })
     }
-  }
-
-  update(property){
-    return (e) => {
-      this.setState({ [property]: e.target.value} );
-    }
-  }
-
-  updateFile(e){
-
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = function(){
-      this.setState({image: file,
-         imageUrl:fileReader.result})
-    }.bind(this);
-
-    if (file){
-      fileReader.readAsDataURL(file);
-    }
-  }
-
-  setProjectState(projectState){
-    Object.keys(this.state).forEach((key) => {
-      this.setState({ [key]: projectState[key] })
-    })
-    this.setState({ author_id: projectState.user.id})
-    this.setState({ category_id: projectState.category.id})
-    this.setState({ image: projectState.image})
-
   }
 
   displayErrors(){
@@ -114,26 +53,14 @@ export default class ProjectForm extends React.Component{
     }
   }
 
-  getCategories(){
-
-    if (this.props.categories.length > 0){
-      return (
-        this.props.categories.map((category) => {
-          return (
-              <option value={category.id}>{category.name}</option>
-          )
-        })
-      );
-    }
-  }
-
 
   render(){
 
     return (
+
       <div className="parent-div">
         <div className='form-title'>
-          <h2 className="hh2">Get involved!</h2>
+          <h2 className="hh2">Add Rewards to Your Project!</h2>
           </div>
         <div className="project-form">
         <form className="project-form" onSubmit={this.handleSubmit}>

@@ -1,5 +1,9 @@
 class Api::RewardsController < ApplicationController
 
+  def new
+    @reward = Reward.new
+  end
+
   def create
     @reward = Reward.new(reward_params)
     if @reward.save!

@@ -11,10 +11,12 @@ import LoginFormContainer from './session_form/login_form_container';
 import ProjectIndexContainer from './projects/index/project_index_container';
 import ProjectDetailContainer from './projects/detail/project_detail_container';
 import ProjectFormContainer from './projects/form/project_form_container';
+import RewardFormContainer from './projects/form/reward_form_container';
 import SearchIndexContainer from './search/search_index_container';
 import ExploreIndex from './explore/explore_index';
 import ExploreShowContainer from './explore/explore_show_container';
 import RewardsIndexContainer from './rewards/rewards_index_container';
+
 
 const Root = ({ store }) => {
 
@@ -45,7 +47,9 @@ const Root = ({ store }) => {
           <Route path="/projects/:projectId" component={ProjectDetailContainer}>
             <Route path="/edit/:projectId" component={ProjectFormContainer}/>
           </Route>
-          <Route path="/projects/:projectId/rewards" component={RewardsIndexContainer} />
+          <Route path="/projects/:projectId/rewards" component={RewardsIndexContainer}>
+            <Route path="projects/:projectId/rewards/new" component={RewardFormContainer}/>
+          </Route>
           <Route path="/explore" component={ExploreIndex}/>
           <Route path='/explore/categories/:category' component={ExploreShowContainer}/>
         </Route>

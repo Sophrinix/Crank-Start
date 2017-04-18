@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { Link, hashHistory} from 'react-router';
 import SearchContainer from '../search/search_container';
 import ProjectIndexContainer from '../projects/index/project_index_container';
@@ -121,11 +121,13 @@ export default class NavBar extends React.Component{
     const keys = Object.keys(projects);
     const projectLinks = keys.map((key, idx) => {
       const project = projects[key];
-      const link = `/projects/${project.id}`;
+      const displayLink = `/projects/${project.id}`;
+      const editLink = `edit/${project.id}`
       const projectName = project.title;
       if (currentUser.id === project.user.id){
         return (
-          <li key={key}><Link to={link}>{projectName}</Link></li>
+          <li key={key}><Link to={displayLink}>{projectName}</Link>
+           <Link to={editLink}>edit</Link></li>
         );
       }
     });

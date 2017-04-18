@@ -81,10 +81,7 @@
 #reward-input:focus {
   outline: 1px solid blue;
 }
-//
-// #submit-button {
-//   display: none;
-// }
+
 
 .pledge-amt {
   color: #586BE9;
@@ -125,6 +122,18 @@
 .thank-you-trans img {
   width: 25%;
   height: 25%;
+}
+
+#add-reward-button {
+  display: none;
+  background-color: #3463c7;
+  color: #f7f5f2;
+  width:49%;
+  height: 65px;
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 6px;
+  margin: 6px 0px;
 }
 
 @-webkit-keyframes fadeinout {
