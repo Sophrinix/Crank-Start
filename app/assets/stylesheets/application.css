@@ -75,6 +75,7 @@
    outline: 1px solid blue;
  }
 
+
  input:focus{
    outline:none;
  }
@@ -273,6 +274,10 @@ span {
   padding-left: 3px;
   text-align: left;
   line-height: 185%;
+}
+
+.my-projects a {
+  padding: 5px;
 }
 
 .my-projects a:hover {

@@ -126,7 +126,7 @@ export default class NavBar extends React.Component{
       const projectName = project.title;
       if (currentUser.id === project.user.id){
         return (
-          <li key={key}><Link to={displayLink}>{projectName}</Link>
+          <li key={key}><Link to={displayLink}>{projectName}</Link> 
            <Link to={editLink}>edit</Link></li>
         );
       }
